@@ -1,0 +1,10 @@
+[
+    {"WristFlexion":30},
+    {"WristAbduction":30},
+    {"ElbowFlexion":45},
+    {"ElbowFlexion":-45},
+    {
+        "ElbowFlexion":4,
+        "WristSupination":30
+    }
+]
