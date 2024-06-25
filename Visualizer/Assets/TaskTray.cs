@@ -20,7 +20,7 @@ public class TaskTray : MonoBehaviour
     {
         try
         {
-            string filePath = Path.Combine(Application.dataPath, "tasks");
+            string filePath = Path.Combine(Application.streamingAssetsPath, "tasks.json");
             string jsonString = File.ReadAllText(filePath);
             _taskQueue = JsonConvert.DeserializeObject<Queue<Dictionary<DOF, float>>>(jsonString);
         }
