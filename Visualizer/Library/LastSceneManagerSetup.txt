@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/ControlPanel.unity
+- path: Assets/Scenes/ArmVisualizer.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

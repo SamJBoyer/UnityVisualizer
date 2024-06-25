@@ -1,9 +1,12 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - ControlPanel
+    - ArmController
     - Reporter
     - ReporterMessageReceiver
+    - TaskTray
+    - UIController
+    - VisualizerReader
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -12,7 +15,9 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
+    - TMPro.TMP_Dropdown
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -24,10 +29,16 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
-    - UnityEngine.UI.Slider
+    - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.RectMask2D
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Toggle
   serializedClasses:
     Assembly-CSharp:
     - Images
@@ -36,18 +47,28 @@ ScriptsOnlyBuild:
     - TMPro.FontAssetCreationSettings
     - TMPro.KerningTable
     - TMPro.TMP_Character
+    - TMPro.TMP_Dropdown/DropdownEvent
+    - TMPro.TMP_Dropdown/OptionData
+    - TMPro.TMP_Dropdown/OptionDataList
     - TMPro.TMP_FontFeatureTable
     - TMPro.TMP_FontWeightPair
     - TMPro.TMP_GlyphAdjustmentRecord
     - TMPro.TMP_GlyphPairAdjustmentRecord
     - TMPro.TMP_GlyphValueRecord
+    - TMPro.TMP_InputField/OnChangeEvent
+    - TMPro.TMP_InputField/SelectionEvent
+    - TMPro.TMP_InputField/SubmitEvent
+    - TMPro.TMP_InputField/TextSelectionEvent
+    - TMPro.TMP_InputField/TouchScreenKeyboardEvent
     - TMPro.TMP_Sprite
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
     UnityEngine.IMGUIModule:
     - UnityEngine.GUISettings
     - UnityEngine.GUIStyle
@@ -58,14 +79,26 @@ ScriptsOnlyBuild:
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
     - UnityEngine.UI.AnimationTriggers
+    - UnityEngine.UI.Button/ButtonClickedEvent
     - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
-    - UnityEngine.UI.Slider/SliderEvent
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
+    - UnityEngine.UI.Scrollbar/ScrollEvent
     - UnityEngine.UI.SpriteState
-  methodsToPreserve: []
+    - UnityEngine.UI.Toggle/ToggleEvent
+  methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: SelectPose
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: ToggleMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: UIController
+    methodName: SavePose
   sceneClasses:
-    Assets/Scenes/ControlPanel.unity:
+    Assets/Scenes/ArmVisualizer.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -74,13 +107,27 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
     - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -91,19 +138,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1624}
     - Class: 114
+      Script: {instanceID: 1752}
+    - Class: 114
       Script: {instanceID: 2218}
     - Class: 114
       Script: {instanceID: 2372}
     - Class: 114
       Script: {instanceID: 2646}
     - Class: 114
+      Script: {instanceID: 2652}
+    - Class: 114
       Script: {instanceID: 2852}
+    - Class: 114
+      Script: {instanceID: 3144}
+    - Class: 114
+      Script: {instanceID: 3694}
+    - Class: 114
+      Script: {instanceID: 3918}
+    - Class: 114
+      Script: {instanceID: 4140}
     - Class: 114
       Script: {instanceID: 4154}
     - Class: 114
+      Script: {instanceID: 4184}
+    - Class: 114
+      Script: {instanceID: 4236}
+    - Class: 114
       Script: {instanceID: 4414}
     - Class: 114
-      Script: {instanceID: 5058}
+      Script: {instanceID: 4950}
+    - Class: 114
+      Script: {instanceID: 5008}
     - Class: 114
       Script: {instanceID: 5130}
     - Class: 114
@@ -115,16 +180,28 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6184}
     - Class: 114
-      Script: {instanceID: 6198}
+      Script: {instanceID: 6194}
+    - Class: 114
+      Script: {instanceID: 7260}
+    - Class: 114
+      Script: {instanceID: 7946}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 215
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -1023,5 +1100,5 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 24
   scenePathNames:
-  - Assets/Scenes/ControlPanel.unity
-  playerPath: /home/sam/projects/brand-modules/arm-visualizer/nodes/ControlPanel/ControlPanel.bin
+  - Assets/Scenes/ArmVisualizer.unity
+  playerPath: /home/sam/projects/brand-modules/arm-visualizer/nodes/ArmVisualizer/ArmVisualizer.bin
