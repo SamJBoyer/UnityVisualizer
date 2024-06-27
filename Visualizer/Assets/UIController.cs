@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour
     public void ToggleMenu(){
         bool menuActive = !_menuObj.activeSelf;
         _menuObj.SetActive(menuActive);
-        _menuText.text = menuActive == true ? _menuText.text = "close menu" : _menuText.text = "open menu";
+        _menuText.text = menuActive == true ? "close menu" : "open menu";
     }
 
 
@@ -42,7 +42,7 @@ public class UIController : MonoBehaviour
 
         // List to hold the file names
         List<string> fileNames = new List<string>();
-        string folderPath = Path.Combine(Application.dataPath, FolderName);
+        string folderPath = Path.Combine(Application.streamingAssetsPath, FolderName);
         // Get all files in the specified folder
         string[] files = Directory.GetFiles(folderPath);
 

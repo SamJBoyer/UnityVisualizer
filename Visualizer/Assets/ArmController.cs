@@ -47,9 +47,9 @@ public class ArmController : MonoBehaviour
 
     #region  //transform fields
 
-    [SerializeField] private Transform _shoulderAbductor, _shoulderElevator, _shoulderRotator;
-    [SerializeField] private Transform _elbowFlexer;
-    [SerializeField] private Transform _wristUpdown, _wristSideside, _wristRotation;
+    [SerializeField] private Transform _shoulderAbductor, _shoulderFlexor, _shoulderRotator;
+    [SerializeField] private Transform _elbowFlexor;
+    [SerializeField] private Transform _wristRotation, _wristAbductor, _wristFlexor;
 
 
     [SerializeField] private Transform _indexFinger1, _indexFinger2, _indexFinger3;
@@ -67,19 +67,13 @@ public class ArmController : MonoBehaviour
     [SerializeField] private float _thumbFinger1Rot, _thumbFinger2Rot, _thumbFinger3Rot;
 
     [SerializeField] private float _shoulderAbductionAngle, _shoulderElevationAngle, _shoulderRotationAngle;
-    [SerializeField] private float _elbowFlexion;
-    [SerializeField] private float _wristUpdownAngle, _wristSideAngle, _wristRotationAngle;
+    [SerializeField] private float _elbowFlexionAngle;
+    [SerializeField] private float _wristRotationAngle, _wristAbductionAngle, _wristFlexionAngle;
 
     private Dictionary<DOF, float> masterAngleDict; //dictionary of DOFS and their angles. this dict stores the values of the armature, but the 
     //armature is controlled by the fields directly. 
 
     private Dictionary<Focus, GameObject> _focusObjectDict;
-
-
-    private void Start()
-    {
-        ResetRotation();
-    }
 
 
     //makes the green orbs visable for a task 
@@ -124,9 +118,9 @@ public class ArmController : MonoBehaviour
             { DOF.ShoulderAbduction, _shoulderAbductionAngle },
             { DOF.ShoulderFlexion, _shoulderElevationAngle },
             { DOF.ShoulderRotation, _shoulderRotationAngle },
-            { DOF.ElbowFlexion, _elbowFlexion },
-            { DOF.WristFlexion, _wristUpdownAngle },
-            { DOF.WristAbduction, _wristSideAngle },
+            { DOF.ElbowFlexion, _elbowFlexionAngle },
+            { DOF.WristFlexion, _wristFlexionAngle },
+            { DOF.WristAbduction, _wristAbductionAngle },
             { DOF.WristSupination, _wristRotationAngle }
         };
     }
@@ -158,9 +152,9 @@ public class ArmController : MonoBehaviour
         _shoulderElevationAngle = dict[DOF.ShoulderFlexion];
         _shoulderRotationAngle = dict[DOF.ShoulderRotation];
 
-        _elbowFlexion = dict[DOF.ElbowFlexion];
-        _wristUpdownAngle = dict[DOF.WristFlexion];
-        _wristSideAngle = dict[DOF.WristAbduction];
+        _elbowFlexionAngle = dict[DOF.ElbowFlexion];
+        _wristFlexionAngle = dict[DOF.WristFlexion];
+        _wristAbductionAngle = dict[DOF.WristAbduction];
         _wristRotationAngle = dict[DOF.WristSupination];
     }
 
@@ -170,7 +164,7 @@ public class ArmController : MonoBehaviour
         SetDictFromFields();
         try
         {
-            string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", $"{fileName}.json");
+            string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", $"{fileName}");
             print(filePath);
             // Serialize the dictionary to a JSON string
             string jsonString = JsonConvert.SerializeObject(masterAngleDict);
@@ -189,7 +183,7 @@ public class ArmController : MonoBehaviour
         print($"loading {fileName}");
         try
         {
-            string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", $"{fileName}.json");
+            string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", $"{fileName}");
             string jsonString = File.ReadAllText(filePath);
             masterAngleDict = JsonConvert.DeserializeObject<Dictionary<DOF, float>>(jsonString);
             SetFieldsFromDict(masterAngleDict);
@@ -204,14 +198,14 @@ public class ArmController : MonoBehaviour
     void Update()
     {
         _shoulderAbductor.localRotation = Quaternion.Euler(new Vector3(0, _shoulderAbductionAngle, 0));
-        _shoulderElevator.localRotation = Quaternion.Euler(new Vector3(0, 0, _shoulderElevationAngle));
-        _shoulderRotator.localRotation = Quaternion.Euler(new Vector3(_shoulderRotationAngle, 0, 0));
+        _shoulderFlexor.localRotation = Quaternion.Euler(new Vector3(_shoulderElevationAngle, 0, 0));
+        _shoulderRotator.localRotation = Quaternion.Euler(new Vector3(0, _shoulderRotationAngle, 0));
 
-        _elbowFlexer.localRotation = Quaternion.Euler(new Vector3(_elbowFlexion, 0, 0));
+        _elbowFlexor.localRotation = Quaternion.Euler(new Vector3(0, 0, _elbowFlexionAngle));
 
-        _wristUpdown.transform.localRotation = Quaternion.Euler(new Vector3(_wristUpdownAngle, 0, 0)); ;
-        _wristSideside.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, _wristSideAngle)); ;
-        _wristRotation.transform.localRotation = Quaternion.Euler(new Vector3(0, _wristRotationAngle, 0)); ;
+        _wristRotation.transform.localRotation = Quaternion.Euler(new Vector3(0, _wristRotationAngle, 0));
+        _wristAbductor.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, _wristAbductionAngle));
+        _wristFlexor.transform.localRotation = Quaternion.Euler(new Vector3(_wristFlexionAngle, 0, 0));
 
         _indexFinger1.transform.localRotation = Quaternion.Euler(new Vector3(_indexFinger1Rot, 0, 0));
         _indexFinger2.transform.localRotation = Quaternion.Euler(new Vector3(_indexFinger2Rot, 0, 0));
@@ -252,39 +246,6 @@ public class ArmController : MonoBehaviour
     }
 
 
-    public void SetJointRotations(float a, float b, float c, float d, float e, float f, float g, float h, float i,
-        float j, float k, float l, float m, float n, float o, float p, float q, float r, float s, float t, float u, float v)
-    {
-        _shoulderAbductor.localRotation = Quaternion.Euler(new Vector3(0, a, 0));
-        _shoulderElevator.localRotation = Quaternion.Euler(new Vector3(0, 0, b));
-        _shoulderRotator.localRotation = Quaternion.Euler(new Vector3(c, 0, 0));
-
-        _elbowFlexer.localRotation = Quaternion.Euler(new Vector3(d, 0, 0));
-
-        _wristUpdown.transform.localRotation = Quaternion.Euler(new Vector3(e, 0, 0)); ;
-        _wristSideside.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, f)); ;
-        _wristRotation.transform.localRotation = Quaternion.Euler(new Vector3(0, g, 0)); ;
-
-        _indexFinger1.transform.localRotation = Quaternion.Euler(new Vector3(h, 0, 0));
-        _indexFinger2.transform.localRotation = Quaternion.Euler(new Vector3(i, 0, 0));
-        _indexFinger3.transform.localRotation = Quaternion.Euler(new Vector3(j, 0, 0));
-
-        _middleFinger1.transform.localRotation = Quaternion.Euler(new Vector3(k, 0, 0));
-        _middleFinger2.transform.localRotation = Quaternion.Euler(new Vector3(l, 0, 0));
-        _middleFinger3.transform.localRotation = Quaternion.Euler(new Vector3(m, 0, 0));
-
-        _ringFinger1.transform.localRotation = Quaternion.Euler(new Vector3(n, 0, 0));
-        _ringFinger2.transform.localRotation = Quaternion.Euler(new Vector3(o, 0, 0));
-        _ringFinger3.transform.localRotation = Quaternion.Euler(new Vector3(p, 0, 0));
-
-        _pinkyFinger1.transform.localRotation = Quaternion.Euler(new Vector3(q, 0, 0));
-        _pinkyFinger2.transform.localRotation = Quaternion.Euler(new Vector3(r, 0, 0));
-        _pinkyFinger3.transform.localRotation = Quaternion.Euler(new Vector3(s, 0, 0));
-
-        _thumbFinger1.transform.localRotation = Quaternion.Euler(new Vector3(t, 0, 0));
-        _thumbFinger2.transform.localRotation = Quaternion.Euler(new Vector3(u, 0, 0));
-        _thumbFinger3.transform.localRotation = Quaternion.Euler(new Vector3(v, 0, 0));
-    }
 
 
     //makes the arm transparent. used by the TaskTray to indicate which arm is the Master arm and which one is the Target arm 
@@ -293,19 +254,6 @@ public class ArmController : MonoBehaviour
         _bodyTransform.GetComponent<SkinnedMeshRenderer>().material = _targetMaterial;
     }
 
-    //resets rotation of every transform. 
-    private void ResetRotation()
-    {
-        _shoulderAbductor.transform.rotation = Quaternion.identity;
-        _shoulderElevator.transform.rotation = Quaternion.identity;
-        _shoulderRotator.transform.rotation = Quaternion.identity;
-
-        _elbowFlexer.transform.rotation = Quaternion.identity;
-
-        _wristUpdown.transform.rotation = Quaternion.identity;
-        _wristSideside.transform.rotation = Quaternion.identity;
-        _wristRotation.transform.rotation = Quaternion.identity;
-    }
 
     public Dictionary<DOF, float> GetJointAngles(){
         SetDictFromFields();

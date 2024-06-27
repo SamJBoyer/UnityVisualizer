@@ -19,7 +19,7 @@ public class Hardpoint : CSNode
 {
 
     public static Dictionary<string, Dictionary<string, string>> InstChannelData;
-    private readonly List<Task> _readingTasks;
+    private List<Task> _readingTasks;
 
     public Hardpoint(string[] channels, string overrideString = null) : base(overrideString)
     {
@@ -38,37 +38,44 @@ public class Hardpoint : CSNode
     public Hardpoint(string overrideString = null) : base(overrideString)
     {
         InstChannelData = new Dictionary<string, Dictionary<string, string>>();
-        _readingTasks = StartListenersFromGraph();
+        StartListenersFromGraph();
         base.Run();
-        Debug.Log("running hardpoint");
+        //Debug.Log("running hardpoint");
     }
 
-    private List<Task> StartListenersFromGraph()
+    private void StartListenersFromGraph()
     {
         Debug.Log("starting automatic listeners");
         var tasks = new List<Task>();
+        foreach (KeyValuePair<string, object> kvp in _parameters)
+        {
+            Debug.Log($"param key: {kvp.Key} | param value: {kvp.Value}");
+        }
+
         if (_parameters.ContainsKey("input_streams"))
         {
-            var inputStreamString = _parameters["input_streams"];
-            Debug.Log(inputStreamString);
+            var inputStreamObj = _parameters["input_streams"];
             try
             {
-                var inputStreamArray = JsonConvert.DeserializeObject<string[]>(inputStreamString);
+                var inputStreamArray = JsonConvert.DeserializeObject<string[]>(inputStreamObj.ToString());
                 foreach (string inputStream in inputStreamArray)
                 {
+                    Debug.Log($"adding {inputStream} to task list");
                     tasks.Add(ReadStreamToValue(inputStream));
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                Debug.LogWarning("could not load streams from graph. please declare input streams manual");
+                //Debug.LogWarning("could not load streams from graph. please declare input streams manually");
+                Debug.LogWarning(ex);
             }
         }
         else
         {
             Debug.Log("no input streams declared in graph");
         }
-        return tasks;
+        //return tasks;
+        _readingTasks = tasks;
     }
 
     protected override async void Work()

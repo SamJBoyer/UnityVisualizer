@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Unity.VisualScripting;
 
 /// <summary>
 /// Author: Sam Boyer
@@ -38,14 +39,14 @@ public class CSNode
     protected Status _currentState;
     protected ConnectionMultiplexer _redis; //redis multiplexer. do not dispose, this object is expensive
     protected IDatabase _database; //data base for reading and writing to redis.
-    protected Dictionary<string, string> _parameters; //this nodes parameters, as read from the supergraph
+    protected Dictionary<string, object> _parameters; //this nodes parameters, as read from the supergraph
     protected string _stateKeyString; //string indicating this nodes key for itself in the graph_status. will soon have lowered access 
 
     //if run open, declare CSNode with an override string to manually connect the redis stream synchronously
     public CSNode(string overrideString = null)
     {
         _currentState = Status.NODE_READY;
-        _parameters = new Dictionary<string, string>();
+        _parameters = new Dictionary<string, object>();
         if (overrideString != null) //command string is inputed, and this node is being run from unity editor 
         {
             ConnectFromUnity(overrideString); //connect syncronously. this only works if run open
@@ -54,16 +55,21 @@ public class CSNode
         {
             string[] args = Environment.GetCommandLineArgs();
             HandleArgs(args); //parses the args into the flags 
-            Debug.Log($"socket {_serverSocket} ip {_serverIP} port {_serverPort}");
-            if (_serverSocket != null || (_serverIP != null && _serverPort != null)) {
-                ConnectFromBRAND(_serverIP, _serverPort).Wait(); //connect async. currently doesnt handle sockets 
+            //Debug.Log($"socket {_serverSocket} ip {_serverIP} port {_serverPort}");
+            if (_serverSocket != null || (_serverIP != null && _serverPort != null))
+            {
+                ConnectFromBRAND(_serverIP, _serverPort).Wait(); //connect async. currently doesnt handle sockets v
                 _stateKeyString = _nickname + "_state";
                 _database.StreamAdd(_stateKeyString, new NameValueEntry[] { new NameValueEntry("status", _currentState.ToString()) });
-            } else {
+            }
+            else
+            {
                 Debug.LogWarning("insufficient arguments have been passed. node must shut down");
             }
         }
     }
+
+
 
     //interprets the incoming command line arguments by their flags
     private void HandleArgs(string[] args)
@@ -89,42 +95,12 @@ public class CSNode
     }
 
     //gets a dictionary of paramters from the supergraph stream 
-    private async void ParseGraphParameters()
-    {
-        _database = _redis.GetDatabase();
-        var streamRangeTask = Task.Run(async () =>
-        {
-            var key = "supergraph_stream"; //at risk due to hardcode 
-            var result = await _database.StreamRangeAsync(key, "-", "+", 1,
-            Order.Descending);
-            if (result.Any())
-            {
-                //painful extraction of the parameters from the SUPER jagged json string 
-                string masterJsonString = result[0].Values[0].Value.ToString();
-                JObject jobject = JObject.Parse(masterJsonString);
-                Dictionary<string, object> dict = jobject.ToObject<Dictionary<string, object>>();
-                var nodesString = dict["nodes"].ToString();
-                var nodesDict = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, object>>>(nodesString);
-                if (nodesDict.ContainsKey(_nickname))
-                {
-                    var graphDict = nodesDict[_nickname];
-                    _parameters = JsonConvert.DeserializeObject<Dictionary<string, string>>(graphDict["parameters"].ToString());
-                }
-                else
-                {
-                    Debug.LogError("could not find this nodes parameters in the super graph");
-                }
-            }
-        });
-        await Task.WhenAll(streamRangeTask);
-    }
+
 
 
     private async Task ConnectFromBRAND(string serverIP, string serverPort, string serverSocket = null)
     {
         string connectionString = serverSocket != null ? serverSocket : $"{serverIP}:{serverPort}"; //prioritize server socket 
-        Debug.Log(connectionString);
-
         var options = new ConfigurationOptions //can add more custom options as the need arises 
         {
             EndPoints = { connectionString }
@@ -135,7 +111,7 @@ public class CSNode
             Debug.Log($"attempting connection from BRAND to {connectionString}");
             _redis = await ConnectionMultiplexer.ConnectAsync(options);
             _database = _redis.GetDatabase();
-            ParseGraphParameters();
+            _parameters = ParseGraphParameters();
             _currentState = Status.NODE_STARTED;
         }
         catch (Exception ex)
@@ -143,6 +119,36 @@ public class CSNode
             Debug.LogError($"A connection error occurred: {ex.Message}");
             _currentState = Status.NODE_FATAL_ERROR;
         }
+    }
+
+
+
+    private Dictionary<string, object> ParseGraphParameters()
+    {
+        _database = _redis.GetDatabase();
+        var values = new Dictionary<string, object>();
+        var key = "supergraph_stream"; //at risk due to hardcode 
+        var result =  _database.StreamRange(key, "-", "+", 1, Order.Descending);
+
+        if (result.Any())
+        {
+            //painful extraction of the parameters from the SUPER jagged json string 
+            string masterJsonString = result[0].Values[0].Value.ToString();
+            JObject jobject = JObject.Parse(masterJsonString);
+            Dictionary<string, object> dict = jobject.ToObject<Dictionary<string, object>>();
+            var nodesString = dict["nodes"].ToString();
+            var nodesDict = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, object>>>(nodesString);
+            if (nodesDict.ContainsKey(_nickname))
+            {
+                var graphDict = nodesDict[_nickname];
+                values = JsonConvert.DeserializeObject<Dictionary<string, object>>(graphDict["parameters"].ToString());
+            }
+            else
+            {
+                Debug.LogError("could not find this nodes parameters in the super graph");
+            }
+        }
+        return values;
     }
 
     //used to connect to redis synchronously. used when running the node from editor
