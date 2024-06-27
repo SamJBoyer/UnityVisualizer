@@ -24,7 +24,7 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-40977
+36259
 Successfully changed project path to: /home/sam/Desktop/Github/UnityVisualizer/Visualizer
 /home/sam/Desktop/Github/UnityVisualizer/Visualizer
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -58,12 +58,12 @@ Successfully changed project path to: /home/sam/Desktop/Github/UnityVisualizer/V
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [138290521117632] Host "[IP] 192.168.1.143 [Port] 0 [Flags] 2 [Guid] 3058689145 [EditorId] 3058689145 [Version] 1048832 [Id] LinuxEditor(16,192.168.1.143) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [133933457404864] Host "[IP] 172.20.115.63 [Port] 0 [Flags] 2 [Guid] 3694564058 [EditorId] 3694564058 [Version] 1048832 [Id] LinuxEditor(16,172.20.115.63) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [138290521117632] Host "[IP] 192.168.1.143 [Port] 0 [Flags] 2 [Guid] 3058689145 [EditorId] 3058689145 [Version] 1048832 [Id] LinuxEditor(16,192.168.1.143) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [133933457404864] Host "[IP] 172.20.115.63 [Port] 0 [Flags] 2 [Guid] 3694564058 [EditorId] 3694564058 [Version] 1048832 [Id] LinuxEditor(16,172.20.115.63) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
-Refreshing native plugins compatible for Editor in 4.84 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 7.03 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.32f1 (c8300dc0a3fa)
 [Subsystems] Discovering subsystems at path /home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/Resources/UnitySubsystems
@@ -79,51 +79,51 @@ int_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program
 L_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map_array GL_ARB_texture_filter_anisotropic GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewpor
 t_array GL_ATI_blend_equation_separate GL_ATI_texture_float GL_EXT_EGL_image_storage GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_debug_label GL_EXT_demote_to_helper_invocation GL_EXT_depth_bounds_test GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_integer_mix GL_EXT_shader_samples_identical GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow
 _lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_IBM_multimode_draw_arrays GL_INTEL_blackhole_render GL_INTEL_conservative_rasterization GL_INTEL_performance_query GL_INTEL_shader_atomic_float_minmax GL_INTEL_shader_integer_functions2 GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_NV_alpha_to_coverage_dither_control GL_NV_compute_shader_derivatives GL_NV_conditional_render GL_NV_copy_image GL_NV_depth_clamp GL_NV_fragment_shader_interlock GL_NV_packed_depth_stencil GL_NV_texture_barrier GL_OES_EGL_image GL_S3_s3tc
-OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle -1311051728
+OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle 611722800
 Initialize mono
 Mono path[0] = '/home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/Managed'
 Mono path[1] = '/home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-linux'
 Mono config path = '/home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56960
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56097
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.004944 seconds.
-- Loaded All Assemblies, in  0.368 seconds
+Registered in 0.004667 seconds.
+- Loaded All Assemblies, in  0.309 seconds
 Native extension for LinuxStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.258 seconds
-Domain Reload Profiling: 626ms
-	BeginReloadAssembly (97ms)
+- Finished resetting the current domain, in  0.272 seconds
+Domain Reload Profiling: 581ms
+	BeginReloadAssembly (77ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (48ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (86ms)
-	LoadAllAssembliesAndSetupDomain (122ms)
-		LoadAssemblies (97ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (57ms)
+	LoadAllAssembliesAndSetupDomain (138ms)
+		LoadAssemblies (77ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (120ms)
-			TypeCache.Refresh (118ms)
-				TypeCache.ScanAssembly (106ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
+		AnalyzeDomain (136ms)
+			TypeCache.Refresh (135ms)
+				TypeCache.ScanAssembly (123ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (258ms)
+	FinalizeReload (272ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (206ms)
+		SetupLoadedEditorAssemblies (213ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (8ms)
-			SetLoadedEditorAssemblies (5ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (148ms)
-			ProcessInitializeOnLoadMethodAttributes (43ms)
+			ProcessInitializeOnLoadAttributes (143ms)
+			ProcessInitializeOnLoadMethodAttributes (53ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -131,8 +131,8 @@ Domain Reload Profiling: 626ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.585 seconds
-Refreshing native plugins compatible for Editor in 5.99 ms, found 0 plugins.
+- Loaded All Assemblies, in  0.677 seconds
+Refreshing native plugins compatible for Editor in 2.09 ms, found 0 plugins.
 Native extension for LinuxStandalone target not found
 Native extension for WebGL target not found
 Package Manager log level set to [2]
@@ -140,47 +140,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.516 seconds
-Domain Reload Profiling: 1101ms
-	BeginReloadAssembly (104ms)
+- Finished resetting the current domain, in  0.590 seconds
+Domain Reload Profiling: 1266ms
+	BeginReloadAssembly (129ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
+		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (21ms)
-	RebuildCommonClasses (25ms)
+		CreateAndSetChildDomain (25ms)
+	RebuildCommonClasses (29ms)
 	RebuildNativeTypeToScriptingClass (5ms)
-	initialDomainReloadingComplete (45ms)
-	LoadAllAssembliesAndSetupDomain (406ms)
-		LoadAssemblies (288ms)
+	initialDomainReloadingComplete (46ms)
+	LoadAllAssembliesAndSetupDomain (467ms)
+		LoadAssemblies (340ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (171ms)
-			TypeCache.Refresh (148ms)
-				TypeCache.ScanAssembly (130ms)
-			ScanForSourceGeneratedMonoScriptInfo (16ms)
-			ResolveRequiredComponents (5ms)
-	FinalizeReload (516ms)
+		AnalyzeDomain (192ms)
+			TypeCache.Refresh (174ms)
+				TypeCache.ScanAssembly (147ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (590ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (351ms)
+		SetupLoadedEditorAssemblies (425ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (5ms)
-			SetLoadedEditorAssemblies (4ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (50ms)
-			ProcessInitializeOnLoadAttributes (271ms)
-			ProcessInitializeOnLoadMethodAttributes (18ms)
+			BeforeProcessingInitializeOnLoad (53ms)
+			ProcessInitializeOnLoadAttributes (339ms)
+			ProcessInitializeOnLoadMethodAttributes (20ms)
 			AfterProcessingInitializeOnLoad (3ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (4ms)
 Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
-Refreshing native plugins compatible for Editor in 1.88 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 2.46 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3225 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 74 unused Assets / (70.8 KB). Loaded Objects now: 3647.
-Memory consumption went from 122.3 MB to 122.2 MB.
-Total: 3.819903 ms (FindLiveObjects: 0.231860 ms CreateObjectMapping: 0.077109 ms MarkObjects: 3.058747 ms  DeleteObjects: 0.450506 ms)
+Unloading 74 unused Assets / (70.9 KB). Loaded Objects now: 3649.
+Memory consumption went from 122.5 MB to 122.5 MB.
+Total: 5.788897 ms (FindLiveObjects: 0.299460 ms CreateObjectMapping: 0.132458 ms MarkObjects: 4.867464 ms  DeleteObjects: 0.487595 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -195,56 +195,356 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  Time since last request: 10668.794280 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9163a22b1a49e60f0f39dc2a190ab991') in 0.109513 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 2.479751 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '76ea0069897f2a493f50e0a23b85b419') in 0.015540 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 4.612760 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'b9b3f315e4a9a128ddae4bdcb18fe8d9') in 0.012106 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 2.616740 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '8400c116040e73b578f584bb6757cfcf') in 0.012288 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 1.404059 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '5f2b37e8eb95ec9045e30844234a5bba') in 0.013705 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 3.057830 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'dbdbcdb04d3de246f7fdf1bf15da28dd') in 0.011176 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 4.460937 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '11d0c341d25e2534f00c31e9cc09a628') in 0.013718 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 1.195440 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9c5c8cbe7e668a32ae50832067b7ffeb') in 0.012524 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 2.429018 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'fb8035946c189e2057173c858994c69a') in 0.013543 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 2.222015 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '409eb4ce08fbff3524742fe80c089b2c') in 0.011972 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 2.221081 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '34e877b5d8b1e78a6ffbf2744101a149') in 0.013030 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 4.271522 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '48c9f95a4ea1cfc794d80689924bc163') in 0.010817 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 4.031467 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '9d5809f5bdb54c40bf1c6000a408fd35') in 0.012310 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 2.831045 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'e1c0e5680d2063d34048f57bf7af0954') in 0.014072 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 1.409753 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '13bcc994ce566fc631ab5015e3449d28') in 0.011135 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 3.643078 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'ce3df3a8580f990624f20b982e20bb31') in 0.012309 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 4.641491 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'c08e235c85caf32089651fcf87ba72e9') in 0.016433 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 2.813908 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '2447587a8c0f1d29cfe64ad97574552f') in 0.013838 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 2.422882 seconds.
+  path: Assets/Materials/Focus.mat
+  artifactKey: Guid(8334195ab20ee974f8cc2ef292d22b03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Focus.mat using Guid(8334195ab20ee974f8cc2ef292d22b03) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'db6faff92d6256cf611f202b4b777e19') in 0.039198 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 59.545876 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'ad625a1a8ae7d159bbb8761aac7d990b') in 0.017872 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 14.993096 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '50218e609a3cb5f253abe942a40a1447') in 0.017872 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 370
+========================================================================
+Received Import Request.
+  Time since last request: 2.385699 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd569e6b2228485c375965c8476e80d80') in 0.010446 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 370
+========================================================================
+Received Import Request.
+  Time since last request: 1.728896 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'b576477bf5dcb26cd5b48b521ea22b3b') in 0.013882 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 3.233328 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd646a80fa05dfac660f42f74518cfbb1') in 0.012294 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 4.882115 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '1b2419dd4663610d8aecbac7d272d7ff') in 0.013123 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 1.622976 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'ae74d2c3763e228f28f13f15ae16b476') in 0.012947 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 1.416823 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '469f88dbf7c7f4b4bc8cbb17f8e03f2b') in 0.019524 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 1.185079 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'e930c10b90324f8f44efeae885551279') in 0.010697 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 3.869022 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '060cbbbf7e23ce692592ee813d7ae95f') in 0.012980 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 6.094027 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '0e8a31c81b6866c605a8c70a07a94777') in 0.011461 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.593 seconds
-Refreshing native plugins compatible for Editor in 17.61 ms, found 0 plugins.
+- Loaded All Assemblies, in  0.343 seconds
+Refreshing native plugins compatible for Editor in 1.98 ms, found 0 plugins.
 Native extension for LinuxStandalone target not found
 Native extension for WebGL target not found
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.970 seconds
-Domain Reload Profiling: 1564ms
-	BeginReloadAssembly (147ms)
+- Finished resetting the current domain, in  0.521 seconds
+Domain Reload Profiling: 864ms
+	BeginReloadAssembly (107ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
+		DisableScriptedObjects (3ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (32ms)
-	RebuildCommonClasses (37ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (43ms)
-	LoadAllAssembliesAndSetupDomain (357ms)
-		LoadAssemblies (392ms)
+		CreateAndSetChildDomain (34ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (26ms)
+	LoadAllAssembliesAndSetupDomain (179ms)
+		LoadAssemblies (215ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (40ms)
-			TypeCache.Refresh (22ms)
-				TypeCache.ScanAssembly (5ms)
-			ScanForSourceGeneratedMonoScriptInfo (11ms)
-			ResolveRequiredComponents (6ms)
-	FinalizeReload (971ms)
+		AnalyzeDomain (11ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (521ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (355ms)
+		SetupLoadedEditorAssemblies (298ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (6ms)
+			InitializePlatformSupportModulesInManaged (10ms)
 			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (55ms)
-			ProcessInitializeOnLoadAttributes (271ms)
+			BeforeProcessingInitializeOnLoad (71ms)
+			ProcessInitializeOnLoadAttributes (194ms)
 			ProcessInitializeOnLoadMethodAttributes (16ms)
 			AfterProcessingInitializeOnLoad (3ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (3ms)
-Refreshing native plugins compatible for Editor in 16.67 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 2.61 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3215 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 70 unused Assets / (1.8 MB). Loaded Objects now: 3656.
-Memory consumption went from 121.4 MB to 119.6 MB.
-Total: 7.521444 ms (FindLiveObjects: 0.375635 ms CreateObjectMapping: 0.101930 ms MarkObjects: 6.319225 ms  DeleteObjects: 0.723147 ms)
+Unloading 3204 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (52.9 KB). Loaded Objects now: 3696.
+Memory consumption went from 120.7 MB to 120.6 MB.
+Total: 5.099734 ms (FindLiveObjects: 0.614103 ms CreateObjectMapping: 0.259027 ms MarkObjects: 4.092918 ms  DeleteObjects: 0.130137 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -259,3 +559,974 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 46.084722 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '1a5eeda5d454ad4c7d443c50733c3a65') in 0.095000 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 20.552170 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '881ae5854d0ba428ccb762fa83dcf41c') in 0.012007 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 360
+========================================================================
+Received Import Request.
+  Time since last request: 4.665389 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'a1988d4439c45556c6de54f7c34efb78') in 0.012508 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 360
+========================================================================
+Received Import Request.
+  Time since last request: 14.661315 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '07b1ac9ebc50c55b460e2bee389d7490') in 0.011893 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 360
+========================================================================
+Received Import Request.
+  Time since last request: 9.173531 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'f6899e4f0ccf4d1344a4874212de047e') in 0.012592 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 3.211785 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'fd321fadfb81991c522cfcac64bbd533') in 0.014772 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.393 seconds
+Refreshing native plugins compatible for Editor in 2.05 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.748 seconds
+Domain Reload Profiling: 1142ms
+	BeginReloadAssembly (103ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (31ms)
+	RebuildCommonClasses (27ms)
+	RebuildNativeTypeToScriptingClass (5ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (233ms)
+		LoadAssemblies (252ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (25ms)
+			TypeCache.Refresh (20ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (749ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (347ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (50ms)
+			ProcessInitializeOnLoadAttributes (265ms)
+			ProcessInitializeOnLoadMethodAttributes (20ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Refreshing native plugins compatible for Editor in 2.79 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3204 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (52.9 KB). Loaded Objects now: 3699.
+Memory consumption went from 120.7 MB to 120.6 MB.
+Total: 4.395705 ms (FindLiveObjects: 0.366485 ms CreateObjectMapping: 0.105600 ms MarkObjects: 3.836639 ms  DeleteObjects: 0.084397 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 232f87dd983dbecb2a4e21e08eb2cef8 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 2f0ff77a95e0ac474e3e8eeba4e2f7cb -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 114.845572 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.031692 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.003771 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000681 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016519 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000751 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.017158 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001889 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.026742 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000819 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.029743 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000743 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.020402 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000803 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.020339 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000758 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.018974 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000833 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015875 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001540 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015319 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000794 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.018054 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000727 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015735 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001245 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015620 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000699 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016081 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001119 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.017698 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000798 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016195 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000956 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.014791 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000780 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016132 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001396 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.014922 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000816 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016134 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000880 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016017 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000779 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016575 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001187 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.021439 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000808 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.017332 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001364 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.017365 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000953 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.019427 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000992 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015567 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000725 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016990 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001472 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.021244 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000713 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.020501 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000745 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016700 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000704 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016963 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001051 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016952 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000786 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015760 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001510 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016283 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000753 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.018853 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000794 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.017109 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000882 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015763 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001265 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016258 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000699 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.017247 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001404 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015721 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000778 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.018058 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000684 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016842 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000743 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015925 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000723 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016486 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001050 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015202 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000885 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016530 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000687 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015926 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000679 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.018197 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000866 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015428 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000865 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.016134 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001224 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015737 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001302 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015756 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001042 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015165 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001375 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.017006 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000665 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.030611 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001119 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.018826 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001000 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.018804 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001304 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.021075 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.000798 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.015675 seconds.
+  path: Assets/StreamingAssets/build_info
+  artifactKey: Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/build_info using Guid(ff47770189489d5bd8f4869bfb7ec8c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '00000000000000000000000000000000') in 0.001140 seconds
+Import Error Code:(4)
+Message: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+  ERROR: Build asset version error: assets/streamingassets/build_info in SourceAssetDB has modification time of '2024-06-27T20:00:17Z' while content on disk has modification time of '2024-06-27T20:01:52Z'
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.365175 seconds.
+  path: Assets/StreamingAssets/tasks.json
+  artifactKey: Guid(308eeb5d9d15c4df0a47fa0bf55e056c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/tasks.json using Guid(308eeb5d9d15c4df0a47fa0bf55e056c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '3df2c58415d75c85e2686aad9fc6d6ce') in 0.000955 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1.744047 seconds.
+  path: Assets/StreamingAssets/tasks 1.json
+  artifactKey: Guid(5289023fab140d55fa6f3e054e5e7c03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/tasks 1.json using Guid(5289023fab140d55fa6f3e054e5e7c03) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'b8c24d74c3f2e4f985c9466b557c0b6f') in 0.001199 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 7.256708 seconds.
+  path: Assets/StreamingAssets/jointlimits.json
+  artifactKey: Guid(5289023fab140d55fa6f3e054e5e7c03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/StreamingAssets/jointlimits.json using Guid(5289023fab140d55fa6f3e054e5e7c03) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '03f8513317b70dbbfd7fea25d4e4b7b8') in 0.001006 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.337 seconds
+Refreshing native plugins compatible for Editor in 2.13 ms, found 0 plugins.
+Native extension for LinuxStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.542 seconds
+Domain Reload Profiling: 879ms
+	BeginReloadAssembly (102ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (29ms)
+	RebuildCommonClasses (27ms)
+	RebuildNativeTypeToScriptingClass (6ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (177ms)
+		LoadAssemblies (209ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (13ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (543ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (283ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (50ms)
+			ProcessInitializeOnLoadAttributes (205ms)
+			ProcessInitializeOnLoadMethodAttributes (16ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
+Refreshing native plugins compatible for Editor in 3.62 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3204 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (52.9 KB). Loaded Objects now: 3702.
+Memory consumption went from 120.8 MB to 120.7 MB.
+Total: 4.356680 ms (FindLiveObjects: 0.302878 ms CreateObjectMapping: 0.129893 ms MarkObjects: 3.749733 ms  DeleteObjects: 0.170963 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 232f87dd983dbecb2a4e21e08eb2cef8 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 2f0ff77a95e0ac474e3e8eeba4e2f7cb -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 897.999704 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '0095167a0ad2c39afa1a41a836d74fdb') in 0.079047 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+========================================================================
+Received Import Request.
+  Time since last request: 3.966230 seconds.
+  path: Assets/Arm Controller.prefab
+  artifactKey: Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arm Controller.prefab using Guid(79e21a45277d414f08ef7855d8bbbabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'd732104c5869305ae59fa0b0e02ecd31') in 0.013108 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 365
+TcpMessagingSession - receive error
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

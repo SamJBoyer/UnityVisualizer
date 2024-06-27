@@ -27,7 +27,7 @@ public class VisualizerReader : MonoBehaviour
     {        
         float F(Dictionary<string, string> dict) => float.Parse(dict.Values.First());
         //get the dictionary of channel data
-        var data = Hardpoint.InstChannelData;  
+        var data = Hardpoint.ChannelDataDict;  
 
         var adjustments = new Dictionary<DOF, float>();
 

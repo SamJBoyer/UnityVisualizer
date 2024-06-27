@@ -13,39 +13,44 @@ using System.Threading.Channels;
 /// Author: Sam Boyer
 /// Email: Sam.James.Boyer@gmail.com
 /// 
+/// This script extends the CSNode with additional features to make reading and writing to redis streams easier
+/// 
 /// </summary>
 
 public class Hardpoint : CSNode
 {
 
-    public static Dictionary<string, Dictionary<string, string>> InstChannelData;
+    public static Dictionary<string, Dictionary<string, string>> ChannelDataDict; //dictionary of all the channel data 
     private List<Task> _readingTasks;
 
+    //adding an override string as an argument means the node will connect syncronously and should only be used when
+    //debugging from the unity editor 
     public Hardpoint(string[] channels, string overrideString = null) : base(overrideString)
     {
-        InstChannelData = new Dictionary<string, Dictionary<string, string>>();
+        ChannelDataDict = new Dictionary<string, Dictionary<string, string>>();
         _readingTasks = new List<Task>();
         foreach (string channel in channels)
         {
             var channelDict = new Dictionary<string, string>();
-            InstChannelData.Add(channel, channelDict);
-            _readingTasks.Add(ReadStreamToValue(channel));
+            ChannelDataDict.Add(channel, channelDict);
+            _readingTasks.Add(ReadFromStreamAsync(channel));
         }
-        Debug.Log("running hardpoint");
+        Debug.Log("starting hardpoint");
         base.Run();
     }
 
+    //if no channels are given as an argument, automatically read from input_streams 
     public Hardpoint(string overrideString = null) : base(overrideString)
     {
-        InstChannelData = new Dictionary<string, Dictionary<string, string>>();
+        ChannelDataDict = new Dictionary<string, Dictionary<string, string>>();
         StartListenersFromGraph();
+        Debug.Log("starting hardpoint");
         base.Run();
-        //Debug.Log("running hardpoint");
     }
 
+    //add values from input_stream property of the parameters to the list of tasks to listen to 
     private void StartListenersFromGraph()
     {
-        Debug.Log("starting automatic listeners");
         var tasks = new List<Task>();
         foreach (KeyValuePair<string, object> kvp in _parameters)
         {
@@ -60,8 +65,8 @@ public class Hardpoint : CSNode
                 var inputStreamArray = JsonConvert.DeserializeObject<string[]>(inputStreamObj.ToString());
                 foreach (string inputStream in inputStreamArray)
                 {
-                    Debug.Log($"adding {inputStream} to task list");
-                    tasks.Add(ReadStreamToValue(inputStream));
+                    Debug.Log($"adding {inputStream} to reading task list");
+                    tasks.Add(ReadFromStreamAsync(inputStream));
                 }
             }
             catch (Exception ex)
@@ -90,31 +95,33 @@ public class Hardpoint : CSNode
         }
     }
 
+    //returns a task of writing a string to a stream 
     public async Task WriteToStream(string key, string entryName, string entry)
     {
         NameValueEntry newEntry = new NameValueEntry(entryName, entry);
         await _database.StreamAddAsync(key, new NameValueEntry[] { newEntry });
     }
 
-
-    private async Task ReadStreamToValue(string key)
+    //returns the task of reading an entry from a channel in the database
+    private async Task ReadFromStreamAsync(string channelName)
     {
-        while (Application.isPlaying && _currentState.Equals(Status.NODE_STARTED))
+        while (Application.isPlaying && _currentState.Equals(Status.NODE_READY))
         { // Application is playing is basically a replacement for SIGINT
             await Task.Run(async () =>
             {
-                var result = await _database.StreamRangeAsync(key, "-", "+", 1,
+                var result = await _database.StreamRangeAsync(channelName, "-", "+", 1,
                 Order.Descending);
 
                 if (result.Any()) //this will always be 1, unless 
                 {
                     foreach (var entry in result)
                     {
-                        InstChannelData[key] = ParseResult(entry);
+                        ChannelDataDict[channelName] = ParseResult(entry);
                     }
                 }
             });
         }
+        Debug.LogWarning("hardpoint is stopping reading tasks");
     }
 
 

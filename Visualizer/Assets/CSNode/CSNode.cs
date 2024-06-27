@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -7,14 +6,18 @@ using System.Threading.Tasks;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 
 /// <summary>
 /// Author: Sam Boyer
 /// Sam.James.Boyer@gmail.com 
 /// 
+/// This code is a c# implementation of a BRAND node described in 
+/// https://github.com/brandbci/brand
+/// 
 /// Things to change:
 ///     - sdoes not catch SIGINT for a graceful shutdown. catching SIGINT seems very complicated and not worth
+///     - does not allow access through socket 
 /// </summary>
 
 public class CSNode
@@ -23,12 +26,12 @@ public class CSNode
     //to my knowledge, and is largely irrelevant 
     protected enum Status
     {
-        NODE_STARTED,
-        NODE_READY,
-        NODE_SHUTDOWN,
-        NODE_FATAL_ERROR,
-        NODE_WARNING,
-        NODE_INFO
+        NODE_STARTED, //state upon initialization
+        NODE_READY, //state after successful connection
+        NODE_SHUTDOWN, //never used due to no handling of sigint
+        NODE_FATAL_ERROR, //used when connection failure occurs 
+        NODE_WARNING, //unused and optional
+        NODE_INFO //unused and optional
     }
 
 
@@ -42,34 +45,32 @@ public class CSNode
     protected Dictionary<string, object> _parameters; //this nodes parameters, as read from the supergraph
     protected string _stateKeyString; //string indicating this nodes key for itself in the graph_status. will soon have lowered access 
 
-    //if run open, declare CSNode with an override string to manually connect the redis stream synchronously
     public CSNode(string overrideString = null)
     {
-        _currentState = Status.NODE_READY;
+        _currentState = Status.NODE_STARTED;
         _parameters = new Dictionary<string, object>();
         if (overrideString != null) //command string is inputed, and this node is being run from unity editor 
         {
             ConnectFromUnity(overrideString); //connect syncronously. this only works if run open
         }
-        else //if no override input, and this node is being run from BRAND and is concidered to be "running closed" 
+        else //if no override input, then this node is being run from BRAND
         {
             string[] args = Environment.GetCommandLineArgs();
             HandleArgs(args); //parses the args into the flags 
             //Debug.Log($"socket {_serverSocket} ip {_serverIP} port {_serverPort}");
             if (_serverSocket != null || (_serverIP != null && _serverPort != null))
             {
-                ConnectFromBRAND(_serverIP, _serverPort).Wait(); //connect async. currently doesnt handle sockets v
+                ConnectFromBRANDAsync(_serverIP, _serverPort).Wait(); //connect async. currently doesnt handle sockets v
                 _stateKeyString = _nickname + "_state";
                 _database.StreamAdd(_stateKeyString, new NameValueEntry[] { new NameValueEntry("status", _currentState.ToString()) });
             }
             else
             {
+                _currentState = Status.NODE_FATAL_ERROR;
                 Debug.LogWarning("insufficient arguments have been passed. node must shut down");
             }
         }
     }
-
-
 
     //interprets the incoming command line arguments by their flags
     private void HandleArgs(string[] args)
@@ -94,11 +95,8 @@ public class CSNode
         }
     }
 
-    //gets a dictionary of paramters from the supergraph stream 
-
-
-
-    private async Task ConnectFromBRAND(string serverIP, string serverPort, string serverSocket = null)
+    //connect using socket or IP address and call parse paramters 
+    private async Task ConnectFromBRANDAsync(string serverIP, string serverPort, string serverSocket = null)
     {
         string connectionString = serverSocket != null ? serverSocket : $"{serverIP}:{serverPort}"; //prioritize server socket 
         var options = new ConfigurationOptions //can add more custom options as the need arises 
@@ -112,7 +110,7 @@ public class CSNode
             _redis = await ConnectionMultiplexer.ConnectAsync(options);
             _database = _redis.GetDatabase();
             _parameters = ParseGraphParameters();
-            _currentState = Status.NODE_STARTED;
+            _currentState = Status.NODE_READY;
         }
         catch (Exception ex)
         {
@@ -121,8 +119,7 @@ public class CSNode
         }
     }
 
-
-
+    //gets a dictionary of paramters from the supergraph stream 
     private Dictionary<string, object> ParseGraphParameters()
     {
         _database = _redis.GetDatabase();
@@ -151,14 +148,15 @@ public class CSNode
         return values;
     }
 
-    //used to connect to redis synchronously. used when running the node from editor
-    private void ConnectFromUnity(string connectionString)
+    //used to connect to redis synchronously. used when running the node from editor and is called if node
+    //is instantiated with an override string as an argument 
+    private void ConnectFromUnity(string overrideString)
     {
         //connect using connection string 
         try
         {
-            Debug.Log($"attempting open connection from unity to {connectionString}");
-            ConnectionMultiplexer _redis = ConnectionMultiplexer.Connect(connectionString);
+            Debug.Log($"attempting open connection from unity to {overrideString}");
+            ConnectionMultiplexer _redis = ConnectionMultiplexer.Connect(overrideString);
             _database = _redis.GetDatabase();
             _currentState = Status.NODE_STARTED;
         }
@@ -175,17 +173,14 @@ public class CSNode
         UpdateParameters();
     }
 
-    protected virtual void UpdateParameters() { }
+    protected virtual void UpdateParameters(){}
+    protected virtual void Work(){}
 
-    protected virtual void Work() { }
-
-
-    public string State
+    public string GetState()
     {
-        get { return _currentState.ToString(); }
+        return _currentState.ToString();
     }
 
-    //return database. this will 
     public IDatabase GetDatabase()
     {
         return _database;

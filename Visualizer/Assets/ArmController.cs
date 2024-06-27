@@ -73,8 +73,39 @@ public class ArmController : MonoBehaviour
     private Dictionary<DOF, float> masterAngleDict; //dictionary of DOFS and their angles. this dict stores the values of the armature, but the 
     //armature is controlled by the fields directly. 
 
+    private Dictionary<DOF, float[]> jointLimitDict; 
+
     private Dictionary<Focus, GameObject> _focusObjectDict;
 
+    private void SetJointLimits()
+    {
+        string fileName = "jointlimits.json";
+        print($"loading {fileName}");
+        try
+        {
+            jointLimitDict = new Dictionary<DOF, float[]>();
+            string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", fileName);
+            string jsonString = File.ReadAllText(filePath);
+            var limitDict = JsonConvert.DeserializeObject<Dictionary<string, float[]>>(jsonString);
+            
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning(ex);
+        }
+    }
+
+    private void LimitJoints(){
+        foreach(var masterKVP in masterAngleDict){
+            if (jointLimitDict.ContainsKey(masterKVP.Key)){
+                var limitKVP = jointLimitDict[masterKVP.Key];
+                float lowerLimit = limitKVP[0];
+                float upperLimit = limitKVP[1];
+                masterAngleDict[masterKVP.Key] = Mathf.Clamp(masterAngleDict[masterKVP.Key], lowerLimit, upperLimit); //clamp between the two limits
+            }
+
+        }
+    }
 
     //makes the green orbs visable for a task 
     public void SetFocuses(List<Focus> focuses)
@@ -84,7 +115,8 @@ public class ArmController : MonoBehaviour
             {Focus.Elbow, _elbowFocus},
             {Focus.Wrist, _wristFocus}
         };
-        foreach (GameObject gm in _focusObjectDict.Values){
+        foreach (GameObject gm in _focusObjectDict.Values)
+        {
             gm.SetActive(false);
         }
 
@@ -164,7 +196,7 @@ public class ArmController : MonoBehaviour
         SetDictFromFields();
         try
         {
-            string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", $"{fileName}");
+            string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", $"{fileName}.json");
             print(filePath);
             // Serialize the dictionary to a JSON string
             string jsonString = JsonConvert.SerializeObject(masterAngleDict);
@@ -197,6 +229,8 @@ public class ArmController : MonoBehaviour
     //sets the joint angles to their nominal field position once a frame. 
     void Update()
     {
+        LimitJoints();
+
         _shoulderAbductor.localRotation = Quaternion.Euler(new Vector3(0, _shoulderAbductionAngle, 0));
         _shoulderFlexor.localRotation = Quaternion.Euler(new Vector3(_shoulderElevationAngle, 0, 0));
         _shoulderRotator.localRotation = Quaternion.Euler(new Vector3(0, _shoulderRotationAngle, 0));
@@ -226,7 +260,7 @@ public class ArmController : MonoBehaviour
         _thumbFinger1.transform.localRotation = Quaternion.Euler(new Vector3(_thumbFinger1Rot, 0, 0));
         _thumbFinger2.transform.localRotation = Quaternion.Euler(new Vector3(_thumbFinger2Rot, 0, 0));
         _thumbFinger3.transform.localRotation = Quaternion.Euler(new Vector3(_thumbFinger3Rot, 0, 0));
-        
+
     }
 
     //inputs a dictionary of DOFS with their new values. this method then sets the DOF dict to reflect these changes.
@@ -255,7 +289,8 @@ public class ArmController : MonoBehaviour
     }
 
 
-    public Dictionary<DOF, float> GetJointAngles(){
+    public Dictionary<DOF, float> GetJointAngles()
+    {
         SetDictFromFields();
         return masterAngleDict;
     }
