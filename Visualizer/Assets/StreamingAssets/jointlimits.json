@@ -1,12 +1,10 @@
-[
-    {"ShoulderFlexion":[0, 280]},
-    {"ShoulderElevation": [-40, 145]},
-    {"ShoulderRotation":[-80, 60]},
-    {"ElbowFlexion":[0, 135]},
-    {"WristRotation":[-90, 0]},
-    {"WristAbduction":[-35, 50]},
-    {"WristFlexion":[-75, 75]},
-    {"nonThumbFingers":[0, 90]}
-
-
-]
+{
+    "ShoulderFlexion":[0, 280],
+    "ShoulderAbduction": [-40, 145],
+    "ShoulderRotation":[-80, 60],
+    "ElbowFlexion":[0, 135],
+    "WristRotation":[-90, 0],
+    "WristAbduction":[-35, 50],
+    "WristFlexion":[-75, 75],
+    "nonThumbFingers":[0, 90]
+}

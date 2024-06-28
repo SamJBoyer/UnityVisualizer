@@ -32,6 +32,7 @@ public enum DOF
     Thumb1, Thumb2, Thumb3
 }
 
+
 public class ArmController : MonoBehaviour
 {
 
@@ -77,33 +78,82 @@ public class ArmController : MonoBehaviour
 
     private Dictionary<Focus, GameObject> _focusObjectDict;
 
-    private void SetJointLimits()
+    public bool ImposeJointLimits; 
+
+    private void Start(){
+        FindJointLimits();
+    }
+
+    private void FindJointLimits()
     {
         string fileName = "jointlimits.json";
         print($"loading {fileName}");
-        try
-        {
+        var limitInterpretDict = new Dictionary<string, float[]>();
+        try {
             jointLimitDict = new Dictionary<DOF, float[]>();
-            string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", fileName);
+            string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
             string jsonString = File.ReadAllText(filePath);
-            var limitDict = JsonConvert.DeserializeObject<Dictionary<string, float[]>>(jsonString);
-            
+            limitInterpretDict = JsonConvert.DeserializeObject<Dictionary<string, float[]>>(jsonString);
+        } catch (Exception ex){
+            Debug.LogWarning($"couldn't load joint limits {ex}");
         }
-        catch (Exception ex)
-        {
-            Debug.LogWarning(ex);
+        
+
+        if (limitInterpretDict.ContainsKey("ShoulderFlexion")){
+            jointLimitDict[DOF.ShoulderFlexion] = limitInterpretDict["ShoulderFlexion"];
+        }
+
+        if (limitInterpretDict.ContainsKey("ShoulderAbduction")){
+            jointLimitDict[DOF.ShoulderFlexion] = limitInterpretDict["ShoulderAbduction"];
+        }
+
+        if (limitInterpretDict.ContainsKey("ShoulderRotation")){
+            jointLimitDict[DOF.ShoulderRotation] = limitInterpretDict["ShoulderRotation"];
+        }
+
+        if (limitInterpretDict.ContainsKey("ElbowFlexion")){
+            jointLimitDict[DOF.ElbowFlexion] = limitInterpretDict["ElbowFlexion"];
+        }
+
+        if (limitInterpretDict.ContainsKey("WristRotation")){
+            jointLimitDict[DOF.WristSupination] = limitInterpretDict["WristRotation"];
+        }
+
+        if (limitInterpretDict.ContainsKey("WristAbduction")){
+            jointLimitDict[DOF.WristAbduction] = limitInterpretDict["WristAbduction"];
+        }
+
+        if (limitInterpretDict.ContainsKey("WristFlexion")){
+            jointLimitDict[DOF.WristFlexion] = limitInterpretDict["WristFlexion"];
+        }
+        
+        if (limitInterpretDict.ContainsKey("nonThumbFingers")){
+            float[] limit = limitInterpretDict["nonThumbFingers"];
+            jointLimitDict[DOF.Index1] = limit;
+            jointLimitDict[DOF.Index2] = limit;
+            jointLimitDict[DOF.Index3] = limit;
+            jointLimitDict[DOF.Middle1] = limit;
+            jointLimitDict[DOF.Middle2] = limit;
+            jointLimitDict[DOF.Middle3] = limit;
+            jointLimitDict[DOF.Ring1] = limit;
+            jointLimitDict[DOF.Ring2] = limit;
+            jointLimitDict[DOF.Ring3] = limit;
+            jointLimitDict[DOF.Pinky1] = limit;
+            jointLimitDict[DOF.Pinky2] = limit;
+            jointLimitDict[DOF.Pinky3] = limit;
         }
     }
 
+
     private void LimitJoints(){
-        foreach(var masterKVP in masterAngleDict){
+        var tempDict = new Dictionary<DOF, float>(masterAngleDict);
+        foreach(var masterKVP in tempDict){
             if (jointLimitDict.ContainsKey(masterKVP.Key)){
                 var limitKVP = jointLimitDict[masterKVP.Key];
                 float lowerLimit = limitKVP[0];
                 float upperLimit = limitKVP[1];
                 masterAngleDict[masterKVP.Key] = Mathf.Clamp(masterAngleDict[masterKVP.Key], lowerLimit, upperLimit); //clamp between the two limits
             }
-
         }
     }
 
@@ -229,7 +279,11 @@ public class ArmController : MonoBehaviour
     //sets the joint angles to their nominal field position once a frame. 
     void Update()
     {
-        LimitJoints();
+        SetDictFromFields();
+        if (ImposeJointLimits && jointLimitDict.Count > 0){
+            LimitJoints();
+        }
+        SetFieldsFromDict(masterAngleDict);
 
         _shoulderAbductor.localRotation = Quaternion.Euler(new Vector3(0, _shoulderAbductionAngle, 0));
         _shoulderFlexor.localRotation = Quaternion.Euler(new Vector3(_shoulderElevationAngle, 0, 0));
