@@ -121,13 +121,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -182,9 +176,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6184}
     - Class: 114
-      Script: {instanceID: 7252}
+      Script: {instanceID: 7250}
     - Class: 114
-      Script: {instanceID: 7938}
+      Script: {instanceID: 7936}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -200,8 +194,6 @@ ScriptsOnlyBuild:
     - Class: 196
       Script: {instanceID: 0}
     - Class: 213
-      Script: {instanceID: 0}
-    - Class: 215
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -614,7 +606,7 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreak2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: e7c5ac7860f1b9a5a6f3334e4686ea10
+      Hash: 4d3fb35f3b238f6223e7876efe48df69
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ArmController
@@ -1095,4 +1087,4 @@ ScriptsOnlyBuild:
   platform: 24
   scenePathNames:
   - Assets/Scenes/ArmVisualizer.unity
-  playerPath: /home/sam/projects/brand-modules/arm-visualizer/nodes/ArmVisualizer/ArmVisualizer.bin
+  playerPath: /home/sam/projects/brand-modules/brand_rehab_arm_game/nodes/ArmVisualizer/ArmVisualizer.bin
