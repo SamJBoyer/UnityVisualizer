@@ -35,10 +35,11 @@ public enum DOF
 
 public class ArmController : MonoBehaviour
 {
-
-
     public bool hideFields = true; //if the transform fields are hidden in the editor. the script that actually performs 
     //this feature has been removed and is being retooled because it was causing massive performance problems 
+
+    public bool Immobalize = true; //if the arm is immobalized. this is used by the task tray to prevent the arm from
+    //updating itself from this script 
 
     [SerializeField] private GameObject _shoulderFocus, _elbowFocus, _wristFocus;
     [SerializeField] private GameObject _armObj;
@@ -82,6 +83,8 @@ public class ArmController : MonoBehaviour
 
     private void Start(){
         FindJointLimits();
+        LoadPose("Default.json");
+        UpdateArm();
     }
 
     private void FindJointLimits()
@@ -277,7 +280,14 @@ public class ArmController : MonoBehaviour
     }
 
     //sets the joint angles to their nominal field position once a frame. 
-    void Update()
+
+    private void Update() {
+        if (!Immobalize) {
+            UpdateArm();
+        }
+    }
+
+    public void UpdateArm()
     {
         SetDictFromFields();
         if (ImposeJointLimits && jointLimitDict.Count > 0){
