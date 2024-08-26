@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using UnityEditor.Experimental.GraphView;
 
 /// <summary>
 /// Author: Sam Boyer
@@ -158,7 +157,7 @@ public class CSNode
             Debug.Log($"attempting open connection from unity to {overrideString}");
             ConnectionMultiplexer _redis = ConnectionMultiplexer.Connect(overrideString);
             _database = _redis.GetDatabase();
-            _currentState = Status.NODE_STARTED;
+            _currentState = Status.NODE_READY;
         }
         catch (Exception ex)
         {

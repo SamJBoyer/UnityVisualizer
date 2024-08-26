@@ -52,5 +52,8 @@
         "Temp/": true
     },
     "dotnet.defaultSolution": "Visualizer.sln",
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-dotnettools.csdevkit"
 }

@@ -5,45 +5,79 @@ using TMPro;
 using UnityEngine.UI;
 using System.IO;
 using System.Linq;
+using static DOFManager;
 
 public class PoseBuilderUI : MonoBehaviour
 {
     [SerializeField] private ArmController _armController;
-    [SerializeField] private GameObject _menuObj;
-    [SerializeField] private TextMeshProUGUI _menuButtonText;
     [SerializeField] private TextMeshProUGUI _DOFChooseButtonText;
-    [SerializeField] private TextMeshProUGUI _toggleCameraText;
+    [SerializeField] private TextMeshProUGUI _cameraStatusText;
+    [SerializeField] private TextMeshProUGUI _poseSaveNotification;
     [SerializeField] private TMP_Dropdown _poseDropdown;
     [SerializeField] private TMP_InputField _poseNameInput;
-    [SerializeField] private Transform _DOFContent;
     [SerializeField] private GameObject _DOFBoxPrefab;
-    //[SerializeField] private Scroll _scroll;
+    [SerializeField] private Transform _DOFContent;
+    [SerializeField] private Transform _optionsTransform;
+    [SerializeField] private Transform _menuTransform;
 
+
+    /// <summary>
+    /// create a little help button for camera controls 
+    /// create a menu for changing the sensitivity ~ maybe 
+    /// make the game view text dynamic 
+    /// enforce joint limits
+    /// add draggign increases on the text boxes 
+    /// fixing the stupid BEE issue s
+    /// make it so the poses are loaded everytime a new one is created, not just once at the start
+    /// </summary>
 
     public static bool InGameView;
     public string FolderName;
-    public static bool DOFChoosingMode; 
+    public static bool DOFChoosingMode;
     public static bool FocusElsewhere; //if a text box has been clicked on 
     private Dictionary<DOF, DOFUI> DOFBoxes;
+    private bool _menuOpen;
 
     // Start is called before the first frame update
     private void Start()
     {
-        ToggleMenu(); //set menu to open
-        PopulateDropdown();
+        PopulatePoseDropdown();
         DOFBoxes = new Dictionary<DOF, DOFUI>();
         DOFChoosingMode = false;
-        InGameView = false; 
+        InGameView = false;
         _DOFChooseButtonText.text = "enter DOF choose mode";
+        _menuOpen = false;
+        _menuTransform.gameObject.SetActive(false);
+        _optionsTransform.gameObject.SetActive(true);
+        ToggleDOFSelectionMode(); //set the dof selection mode as default 
     }
 
-    private void Update(){
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_menuOpen)
+            {
+                _menuTransform.gameObject.SetActive(false);
+                _optionsTransform.gameObject.SetActive(true);
+                _menuOpen = false;
+            }
+            else
+            {
+                _menuTransform.gameObject.SetActive(true);
+                _optionsTransform.gameObject.SetActive(false);
+                _menuOpen = true;
+            }
+        }
+
         FocusElsewhere = _poseNameInput.isFocused || UIHover.IsMouseHover;
         var adjustments = new Dictionary<DOF, float>();
-        foreach (var kvp in DOFBoxes) {
+        foreach (var kvp in DOFBoxes)
+        {
             DOFUI dofUI = kvp.Value;
             float? value = dofUI.GetValue();
-            if (value != null){
+            if (value != null)
+            {
                 adjustments.Add(kvp.Key, (float)value);
             }
         }
@@ -51,27 +85,42 @@ public class PoseBuilderUI : MonoBehaviour
         _armController.UpdateArm();
     }
 
-    public void ToggleDOFChooseMode(){
-        if (DOFChoosingMode){
+    //called from the toggle selection mode button
+    public void ToggleDOFSelectionMode()
+    {
+        if (DOFChoosingMode)
+        {
             PopulateDOFs();
-            _DOFChooseButtonText.text = "enter DOF selection mode";
-            DOFChoosingMode = false;
-            var unselectedDOFs = DOFManager.AllTargets.Except(DOFManager.SelectedTargets);
-            foreach (ReactiveTarget target in unselectedDOFs) {
+            _DOFChooseButtonText.text = "Select DOFs";
+            _cameraStatusText.text = "free camera mode";
+            var unselectedDOFs = AllTargets.Except(SelectedTargets);
+            foreach (ReactiveTarget target in unselectedDOFs)
+            {
                 target.gameObject.SetActive(false);
             }
-
-        } else {
+            DOFChoosingMode = false;
+        }
+        else
+        {
             ClearDOFs();
             _armController.LoadPose("Default.json");
             Camera.main.GetComponent<CameraController>().SetCameraToDOF();
-            _DOFChooseButtonText.text = "exit DOF selection mode";
+            foreach (ReactiveTarget target in AllTargets)
+            {
+                target.gameObject.SetActive(true);
+                target.Reset();
+                SelectedTargets.Clear();
+            }
+            _DOFChooseButtonText.text = "Build Pose";
+            _cameraStatusText.text = "fixed camera mode";
             DOFChoosingMode = true;
         }
     }
 
-    private void PopulateDOFs(){
-        foreach (ReactiveTarget target in DOFManager.SelectedTargets) {
+    private void PopulateDOFs()
+    {
+        foreach (ReactiveTarget target in DOFManager.SelectedTargets)
+        {
             GameObject newDofBox = Instantiate(_DOFBoxPrefab, _DOFContent);
             DOFUI dofUI = newDofBox.GetComponent<DOFUI>();
             Color randomColor = new Color(Random.value, Random.value, Random.value);
@@ -81,26 +130,38 @@ public class PoseBuilderUI : MonoBehaviour
         }
     }
 
-    private void ClearDOFs(){
-        foreach (var dofUI in DOFBoxes.Values) {
+    private void ClearDOFs()
+    {
+        foreach (var dofUI in DOFBoxes.Values)
+        {
             Destroy(dofUI.gameObject);
         }
         DOFBoxes.Clear();
     }
 
-    public void ToggleMenu(){
-        bool menuActive = !_menuObj.activeSelf;
-        _menuObj.SetActive(menuActive);
-        _menuButtonText.text = menuActive == true ? "close menu" : "open menu";
+
+    //exit pose builder and return to main menu 
+    public void ReturnToMenu()
+    {
+
     }
 
-
-    public void SavePose(){
+    //called from the save pose button UI object 
+    public void SavePose()
+    {
         string fileName = _poseNameInput.text;
         _armController.GetComponent<ArmController>().SavePose(fileName);
+        StartCoroutine(SaveNotification());
+
+        IEnumerator SaveNotification()
+        {
+            _poseSaveNotification.text = $"Pose Saved as {fileName}";
+            yield return new WaitForSeconds(2);
+            _poseSaveNotification.text = "";
+        }
     }
 
-    void PopulateDropdown()
+    void PopulatePoseDropdown()
     {
         // Ensure the dropdown options are clear
         _poseDropdown.ClearOptions();
@@ -116,7 +177,8 @@ public class PoseBuilderUI : MonoBehaviour
             // Get the file name without the path
             string fileName = Path.GetFileName(filePath);
             string fileExtension = Path.GetExtension(filePath);
-            if (fileExtension.Equals(".json")) {
+            if (fileExtension.Equals(".json"))
+            {
                 fileNames.Add(fileName);
             }
             // Add the file name to the list
@@ -126,19 +188,25 @@ public class PoseBuilderUI : MonoBehaviour
         _poseDropdown.AddOptions(fileNames);
     }
 
-    public void SelectPose(){
+    //called from the pose dropdown UI object 
+    public void SelectPose()
+    {
         string fileName = _poseDropdown.options[_poseDropdown.value].text;
         _armController.LoadPose(fileName);
     }
-    
-    public void ToggleGameView(){
-        if (InGameView){
+
+    public void ToggleGameView()
+    {
+        if (InGameView)
+        {
             Camera.main.GetComponent<CameraController>().ReturnCameraToPrevious();
-            InGameView = false; 
-            _toggleCameraText.text = "fixed camera mode";
-        } else {
+            InGameView = false;
+            _cameraStatusText.text = "free camera mode";
+        }
+        else
+        {
             Camera.main.GetComponent<CameraController>().SetCameraToGameView();
-            _toggleCameraText.text = "free camera mode";
+            _cameraStatusText.text = "fixed camera mode";
             InGameView = true;
         }
     }

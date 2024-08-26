@@ -83,7 +83,6 @@ public class ArmController : MonoBehaviour
 
     private void Start(){
         FindJointLimits();
-        LoadPose("Default.json");
         UpdateArm();
     }
 

@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ControlPanel.unity
     guid: ed43ee5ae34d3c46c864f238e1e7c071
+  - enabled: 1
+    path: Assets/Scenes/PoseBuilder.unity
+    guid: 8084d45a60ca59b04a77abc242c32923
   m_configObjects: {}

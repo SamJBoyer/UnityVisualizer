@@ -51,7 +51,7 @@ public class DOFManager : MonoBehaviour
         }
     }
 
-        void SelectObjects()
+    void SelectObjects()
     {
         Vector3 mousePosition2 = Input.mousePosition;
 
@@ -74,6 +74,7 @@ public class DOFManager : MonoBehaviour
         }
     }
 
+    //draw the selection box on the screen
     void OnGUI()
     {
         if (isDrawingBox)

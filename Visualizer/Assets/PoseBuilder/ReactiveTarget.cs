@@ -19,6 +19,11 @@ public class ReactiveTarget : MonoBehaviour
         DOFManager.AllTargets.Add(this);
     }
 
+    public void Reset(){
+        isSelected = false;
+        meshRenderer.material.color = Color.red;
+    }
+
     public void Select(){
         isSelected = true;
         meshRenderer.material.color = Color.green;

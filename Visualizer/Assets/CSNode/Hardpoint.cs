@@ -19,7 +19,6 @@ using System.Threading.Channels;
 
 public class Hardpoint : CSNode
 {
-
     public static Dictionary<string, Dictionary<string, string>> ChannelDataDict; //dictionary of all the channel data 
     private List<Task> _readingTasks;
 
@@ -29,11 +28,10 @@ public class Hardpoint : CSNode
     {
         ChannelDataDict = new Dictionary<string, Dictionary<string, string>>();
         _readingTasks = new List<Task>();
-        foreach (string channel in channels)
+        foreach (string channelName in channels)
         {
-            var channelDict = new Dictionary<string, string>();
-            ChannelDataDict.Add(channel, channelDict);
-            _readingTasks.Add(ReadFromStreamAsync(channel));
+            ChannelDataDict.Add(channelName, new Dictionary<string, string>());
+            _readingTasks.Add(ReadFromStreamAsync(channelName));
         }
         Debug.Log("starting hardpoint");
         base.Run();
