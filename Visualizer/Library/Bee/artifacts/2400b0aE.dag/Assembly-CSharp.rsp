@@ -383,6 +383,7 @@
 "Assets/PoseBuilder/ReactiveButton.cs"
 "Assets/PoseBuilder/ReactiveTarget.cs"
 "Assets/TaskTray.cs"
+"Assets/TrialController.cs"
 "Assets/UIController.cs"
 "Assets/UIHover.cs"
 "Assets/Unity-Logs-Viewer-master/Reporter/MultiKeyDictionary.cs"

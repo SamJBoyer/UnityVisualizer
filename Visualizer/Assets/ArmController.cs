@@ -35,6 +35,7 @@ public enum DOF
 
 public class ArmController : MonoBehaviour
 {
+    public string a = "abductions";
     public bool hideFields = true; //if the transform fields are hidden in the editor. the script that actually performs 
     //this feature has been removed and is being retooled because it was causing massive performance problems 
 
@@ -75,13 +76,14 @@ public class ArmController : MonoBehaviour
     private Dictionary<DOF, float> masterAngleDict; //dictionary of DOFS and their angles. this dict stores the values of the armature, but the 
     //armature is controlled by the fields directly. 
 
-    private Dictionary<DOF, float[]> jointLimitDict; 
+    private Dictionary<DOF, float[]> jointLimitDict;
 
     private Dictionary<Focus, GameObject> _focusObjectDict;
 
-    public bool ImposeJointLimits; 
+    public bool ImposeJointLimits;
 
-    private void Start(){
+    private void Start()
+    {
         FindJointLimits();
         UpdateArm();
     }
@@ -91,45 +93,56 @@ public class ArmController : MonoBehaviour
         string fileName = "jointlimits.json";
         print($"loading {fileName}");
         var limitInterpretDict = new Dictionary<string, float[]>();
-        try {
+        try
+        {
             jointLimitDict = new Dictionary<DOF, float[]>();
             string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
             string jsonString = File.ReadAllText(filePath);
             limitInterpretDict = JsonConvert.DeserializeObject<Dictionary<string, float[]>>(jsonString);
-        } catch (Exception ex){
+        }
+        catch (Exception ex)
+        {
             Debug.LogWarning($"couldn't load joint limits {ex}");
         }
-        
 
-        if (limitInterpretDict.ContainsKey("ShoulderFlexion")){
+
+        if (limitInterpretDict.ContainsKey("ShoulderFlexion"))
+        {
             jointLimitDict[DOF.ShoulderFlexion] = limitInterpretDict["ShoulderFlexion"];
         }
 
-        if (limitInterpretDict.ContainsKey("ShoulderAbduction")){
+        if (limitInterpretDict.ContainsKey("ShoulderAbduction"))
+        {
             jointLimitDict[DOF.ShoulderFlexion] = limitInterpretDict["ShoulderAbduction"];
         }
 
-        if (limitInterpretDict.ContainsKey("ShoulderRotation")){
+        if (limitInterpretDict.ContainsKey("ShoulderRotation"))
+        {
             jointLimitDict[DOF.ShoulderRotation] = limitInterpretDict["ShoulderRotation"];
         }
 
-        if (limitInterpretDict.ContainsKey("ElbowFlexion")){
+        if (limitInterpretDict.ContainsKey("ElbowFlexion"))
+        {
             jointLimitDict[DOF.ElbowFlexion] = limitInterpretDict["ElbowFlexion"];
         }
 
-        if (limitInterpretDict.ContainsKey("WristRotation")){
+        if (limitInterpretDict.ContainsKey("WristRotation"))
+        {
             jointLimitDict[DOF.WristSupination] = limitInterpretDict["WristRotation"];
         }
 
-        if (limitInterpretDict.ContainsKey("WristAbduction")){
+        if (limitInterpretDict.ContainsKey("WristAbduction"))
+        {
             jointLimitDict[DOF.WristAbduction] = limitInterpretDict["WristAbduction"];
         }
 
-        if (limitInterpretDict.ContainsKey("WristFlexion")){
+        if (limitInterpretDict.ContainsKey("WristFlexion"))
+        {
             jointLimitDict[DOF.WristFlexion] = limitInterpretDict["WristFlexion"];
         }
-        
-        if (limitInterpretDict.ContainsKey("nonThumbFingers")){
+
+        if (limitInterpretDict.ContainsKey("nonThumbFingers"))
+        {
             float[] limit = limitInterpretDict["nonThumbFingers"];
             jointLimitDict[DOF.Index1] = limit;
             jointLimitDict[DOF.Index2] = limit;
@@ -147,10 +160,13 @@ public class ArmController : MonoBehaviour
     }
 
 
-    private void LimitJoints(){
+    private void LimitJoints()
+    {
         var tempDict = new Dictionary<DOF, float>(masterAngleDict);
-        foreach(var masterKVP in tempDict){
-            if (jointLimitDict.ContainsKey(masterKVP.Key)){
+        foreach (var masterKVP in tempDict)
+        {
+            if (jointLimitDict.ContainsKey(masterKVP.Key))
+            {
                 var limitKVP = jointLimitDict[masterKVP.Key];
                 float lowerLimit = limitKVP[0];
                 float upperLimit = limitKVP[1];
@@ -280,8 +296,10 @@ public class ArmController : MonoBehaviour
 
     //sets the joint angles to their nominal field position once a frame. 
 
-    private void Update() {
-        if (!Immobalize) {
+    private void Update()
+    {
+        if (!Immobalize)
+        {
             UpdateArm();
         }
     }
@@ -289,7 +307,8 @@ public class ArmController : MonoBehaviour
     public void UpdateArm()
     {
         SetDictFromFields();
-        if (ImposeJointLimits && jointLimitDict.Count > 0){
+        if (ImposeJointLimits && jointLimitDict.Count > 0)
+        {
             LimitJoints();
         }
         SetFieldsFromDict(masterAngleDict);

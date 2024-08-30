@@ -40,9 +40,9 @@ public class Hardpoint : CSNode
     //if no channels are given as an argument, automatically read from input_streams 
     public Hardpoint(string overrideString = null) : base(overrideString)
     {
+        Debug.Log("starting hardpoint");
         ChannelDataDict = new Dictionary<string, Dictionary<string, string>>();
         StartListenersFromGraph();
-        Debug.Log("starting hardpoint");
         base.Run();
     }
 
@@ -122,9 +122,20 @@ public class Hardpoint : CSNode
         Debug.LogWarning("hardpoint is stopping reading tasks");
     }
 
-
     Dictionary<string, string> ParseResult(StreamEntry entry) =>
 entry.Values.ToDictionary(x => x.Name.ToString(), x =>
 x.Value.ToString());
 
 }
+
+/*
+
+make ghost support for the yaml interpereter 
+
+-ghosts
+    - name: 
+     - parameters:
+     - parameters: 
+    
+
+*/

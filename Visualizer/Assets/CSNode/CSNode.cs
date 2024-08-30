@@ -124,7 +124,7 @@ public class CSNode
         _database = _redis.GetDatabase();
         var values = new Dictionary<string, object>();
         var key = "supergraph_stream"; //at risk due to hardcode 
-        var result =  _database.StreamRange(key, "-", "+", 1, Order.Descending);
+        var result = _database.StreamRange(key, "-", "+", 1, Order.Descending);
 
         if (result.Any())
         {
@@ -145,6 +145,31 @@ public class CSNode
             }
         }
         return values;
+    }
+
+    public Dictionary<string, string> GetBuddyParameters(string buddyName)
+    {
+        var key = "supergraph_stream"; //at risk due to hardcode 
+        var result = _database.StreamRange(key, "-", "+", 1, Order.Descending);
+
+        if (result.Any())
+        {
+            //painful extraction of the parameters from the SUPER jagged json string 
+            string masterJsonString = result[0].Values[0].Value.ToString();
+            JObject jobject = JObject.Parse(masterJsonString);
+            Dictionary<string, object> dict = jobject.ToObject<Dictionary<string, object>>();
+            var buddyString = dict["buddies"].ToString();
+            var buddyDict = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(buddyString);
+            if (buddyDict.ContainsKey(buddyName))
+            {
+                return buddyDict[buddyName];
+            }
+            else
+            {
+                Debug.LogError("could not find this nodes parameters in the super graph");
+            }
+        }
+        return null;
     }
 
     //used to connect to redis synchronously. used when running the node from editor and is called if node
@@ -172,8 +197,8 @@ public class CSNode
         UpdateParameters();
     }
 
-    protected virtual void UpdateParameters(){}
-    protected virtual void Work(){}
+    protected virtual void UpdateParameters() { }
+    protected virtual void Work() { }
 
     public string GetState()
     {
