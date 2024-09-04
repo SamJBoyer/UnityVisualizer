@@ -6557,7 +6557,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 548655430}
   m_HandleRect: {fileID: 548655429}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8833,7 +8833,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce77cee051b857d41a309d63c3162c64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideFields: 1
   Immobalize: 1
   _shoulderFocus: {fileID: 0}
   _elbowFocus: {fileID: 303949963713737749}

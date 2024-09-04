@@ -4,8 +4,8 @@ using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
 using System;
-using Unity.VisualScripting;
 using System.Linq;
+using static ArmatureStructure;
 
 public class TaskTray : MonoBehaviour
 {
@@ -30,7 +30,8 @@ public class TaskTray : MonoBehaviour
         }
     }
 
-    private void Start(){
+    private void Start()
+    {
         LoadTasks();
         _taskArm = null;
     }
@@ -39,13 +40,16 @@ public class TaskTray : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && _taskQueue.Count > 0)
         {
-            if (_taskArm != null){
+            if (_taskArm != null)
+            {
                 Destroy(_taskArm);
             }
             Debug.Log("making new target");
             var taskVals = _taskQueue.Dequeue();
-            _taskArm = CreateTargetArm(taskVals, _armObj, _masterArm.GetJointAngles());
-        } else if (Input.GetKeyDown(KeyCode.J)){
+            //_taskArm = CreateTargetArm(taskVals, _armObj, _masterArm.GetCurrentArmature());
+        }
+        else if (Input.GetKeyDown(KeyCode.J))
+        {
             _taskQueue.Clear();
             LoadTasks();
         }
@@ -58,22 +62,22 @@ public class TaskTray : MonoBehaviour
         List<DOF> dofs = targetAngles.Keys.ToList();
         List<Focus> focuses = new List<Focus>();
 
-        if (dofs.Contains(DOF.ShoulderAbduction) || dofs.Contains(DOF.ShoulderFlexion) || dofs.Contains(DOF.ShoulderRotation))
+        if (dofs.Contains(DOF.SHOULDERABDUCTION) || dofs.Contains(DOF.SHOULDERFLEXION) || dofs.Contains(DOF.SHOULDERROTATION))
         {
             focuses.Add(Focus.Shoulder);
         }
-        if (dofs.Contains(DOF.ElbowFlexion))
+        if (dofs.Contains(DOF.ELBOWFLEXION))
         {
             focuses.Add(Focus.Elbow);
         }
-        if (dofs.Contains(DOF.WristAbduction) || dofs.Contains(DOF.WristFlexion) || dofs.Contains(DOF.WristSupination))
+        if (dofs.Contains(DOF.WRISTABDUCTION) || dofs.Contains(DOF.WRISTFLEXION) || dofs.Contains(DOF.WRISTSUPINATION))
         {
             focuses.Add(Focus.Wrist);
         }
 
         GameObject newArm = GameObject.Instantiate(armObj);
         ArmController armController = newArm.GetComponent<ArmController>();
-        armController.SetFieldsFromDict(poseDict);
+        //armController.SetFieldsFromDict(poseDict);
         armController.AdjustAngles(targetAngles);
         armController.SetFocuses(focuses);
         armController.MakeTransparent();

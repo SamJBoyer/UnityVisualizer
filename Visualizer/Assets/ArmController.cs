@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using Newtonsoft.Json;
 using System.IO;
+using static ArmatureStructure;
 
 /// <summary>
 /// Author: Sam Boyer
@@ -16,28 +17,9 @@ public enum Focus
     Wrist
 }
 
-public enum DOF
-{
-    ShoulderAbduction,
-    ShoulderFlexion,
-    ShoulderRotation,
-    ElbowFlexion,
-    WristAbduction,
-    WristFlexion,
-    WristSupination,
-    Index1, Index2, Index3,
-    Middle1, Middle2, Middle3,
-    Ring1, Ring2, Ring3,
-    Pinky1, Pinky2, Pinky3,
-    Thumb1, Thumb2, Thumb3
-}
-
 
 public class ArmController : MonoBehaviour
 {
-    public string a = "abductions";
-    public bool hideFields = true; //if the transform fields are hidden in the editor. the script that actually performs 
-    //this feature has been removed and is being retooled because it was causing massive performance problems 
 
     public bool Immobalize = true; //if the arm is immobalized. this is used by the task tray to prevent the arm from
     //updating itself from this script 
@@ -73,8 +55,8 @@ public class ArmController : MonoBehaviour
     [SerializeField] private float _elbowFlexionAngle;
     [SerializeField] private float _wristRotationAngle, _wristAbductionAngle, _wristFlexionAngle;
 
-    private Dictionary<DOF, float> masterAngleDict; //dictionary of DOFS and their angles. this dict stores the values of the armature, but the 
-    //armature is controlled by the fields directly. 
+    private ArmatureStructure _myArmature;
+    private ArmatureStructure _defaultArmature;
 
     private Dictionary<DOF, float[]> jointLimitDict;
 
@@ -84,6 +66,9 @@ public class ArmController : MonoBehaviour
 
     private void Start()
     {
+        string path = Path.Combine(Application.streamingAssetsPath, "Poses", "Default.json");
+        _defaultArmature = ArmatureStructure.LoadArmatureFromFile(path);
+        _myArmature = _defaultArmature;
         FindJointLimits();
         UpdateArm();
     }
@@ -91,7 +76,7 @@ public class ArmController : MonoBehaviour
     private void FindJointLimits()
     {
         string fileName = "jointlimits.json";
-        print($"loading {fileName}");
+        //print($"loading {fileName}");
         var limitInterpretDict = new Dictionary<string, float[]>();
         try
         {
@@ -108,71 +93,76 @@ public class ArmController : MonoBehaviour
 
         if (limitInterpretDict.ContainsKey("ShoulderFlexion"))
         {
-            jointLimitDict[DOF.ShoulderFlexion] = limitInterpretDict["ShoulderFlexion"];
+            jointLimitDict[DOF.SHOULDERFLEXION] = limitInterpretDict["ShoulderFlexion"];
         }
 
         if (limitInterpretDict.ContainsKey("ShoulderAbduction"))
         {
-            jointLimitDict[DOF.ShoulderFlexion] = limitInterpretDict["ShoulderAbduction"];
+            jointLimitDict[DOF.SHOULDERFLEXION] = limitInterpretDict["ShoulderAbduction"];
         }
 
         if (limitInterpretDict.ContainsKey("ShoulderRotation"))
         {
-            jointLimitDict[DOF.ShoulderRotation] = limitInterpretDict["ShoulderRotation"];
+            jointLimitDict[DOF.SHOULDERROTATION] = limitInterpretDict["ShoulderRotation"];
         }
 
         if (limitInterpretDict.ContainsKey("ElbowFlexion"))
         {
-            jointLimitDict[DOF.ElbowFlexion] = limitInterpretDict["ElbowFlexion"];
+            jointLimitDict[DOF.ELBOWFLEXION] = limitInterpretDict["ElbowFlexion"];
         }
 
         if (limitInterpretDict.ContainsKey("WristRotation"))
         {
-            jointLimitDict[DOF.WristSupination] = limitInterpretDict["WristRotation"];
+            jointLimitDict[DOF.WRISTSUPINATION] = limitInterpretDict["WristRotation"];
         }
 
         if (limitInterpretDict.ContainsKey("WristAbduction"))
         {
-            jointLimitDict[DOF.WristAbduction] = limitInterpretDict["WristAbduction"];
+            jointLimitDict[DOF.WRISTABDUCTION] = limitInterpretDict["WristAbduction"];
         }
 
         if (limitInterpretDict.ContainsKey("WristFlexion"))
         {
-            jointLimitDict[DOF.WristFlexion] = limitInterpretDict["WristFlexion"];
+            jointLimitDict[DOF.WRISTFLEXION] = limitInterpretDict["WristFlexion"];
         }
 
         if (limitInterpretDict.ContainsKey("nonThumbFingers"))
         {
             float[] limit = limitInterpretDict["nonThumbFingers"];
-            jointLimitDict[DOF.Index1] = limit;
-            jointLimitDict[DOF.Index2] = limit;
-            jointLimitDict[DOF.Index3] = limit;
-            jointLimitDict[DOF.Middle1] = limit;
-            jointLimitDict[DOF.Middle2] = limit;
-            jointLimitDict[DOF.Middle3] = limit;
-            jointLimitDict[DOF.Ring1] = limit;
-            jointLimitDict[DOF.Ring2] = limit;
-            jointLimitDict[DOF.Ring3] = limit;
-            jointLimitDict[DOF.Pinky1] = limit;
-            jointLimitDict[DOF.Pinky2] = limit;
-            jointLimitDict[DOF.Pinky3] = limit;
+            jointLimitDict[DOF.INDEX1] = limit;
+            jointLimitDict[DOF.INDEX2] = limit;
+            jointLimitDict[DOF.INDEX3] = limit;
+            jointLimitDict[DOF.MIDDLE1] = limit;
+            jointLimitDict[DOF.MIDDLE2] = limit;
+            jointLimitDict[DOF.MIDDLE3] = limit;
+            jointLimitDict[DOF.RING1] = limit;
+            jointLimitDict[DOF.RING2] = limit;
+            jointLimitDict[DOF.RING3] = limit;
+            jointLimitDict[DOF.PINKY1] = limit;
+            jointLimitDict[DOF.PINKY2] = limit;
+            jointLimitDict[DOF.PINKY3] = limit;
         }
     }
 
 
     private void LimitJoints()
     {
-        var tempDict = new Dictionary<DOF, float>(masterAngleDict);
-        foreach (var masterKVP in tempDict)
+        var currentValues = _myArmature.GetValues();
+        var tempDict = new Dictionary<DOF, float>();
+        foreach (var masterKVP in currentValues)
         {
             if (jointLimitDict.ContainsKey(masterKVP.Key))
             {
                 var limitKVP = jointLimitDict[masterKVP.Key];
                 float lowerLimit = limitKVP[0];
                 float upperLimit = limitKVP[1];
-                masterAngleDict[masterKVP.Key] = Mathf.Clamp(masterAngleDict[masterKVP.Key], lowerLimit, upperLimit); //clamp between the two limits
+                var value = currentValues[masterKVP.Key];
+                var clamped = Mathf.Clamp(value, lowerLimit, upperLimit);
+                tempDict[masterKVP.Key] = clamped;
             }
         }
+        _myArmature = new ArmatureStructure(tempDict);
+
     }
 
     //makes the green orbs visable for a task 
@@ -195,107 +185,74 @@ public class ArmController : MonoBehaviour
         }
     }
 
-    //update the master dictionary of DOFS to reflect the values from the serialized fields 
-    public void SetDictFromFields()
+    //update the armature from the public fields
+    public void SetArmatureFromFields()
     {
-        masterAngleDict = new Dictionary<DOF, float>
+        var dofAngleDict = new Dictionary<DOF, float>
         {
-            { DOF.Index1, _indexFinger1Rot },
-            { DOF.Index2, _indexFinger2Rot },
-            { DOF.Index3, _indexFinger3Rot },
-            { DOF.Middle1, _middleFinger1Rot },
-            { DOF.Middle2, _middleFinger2Rot },
-            { DOF.Middle3, _middleFinger3Rot },
-            { DOF.Ring1, _ringFinger1Rot },
-            { DOF.Ring2, _ringFinger2Rot },
-            { DOF.Ring3, _ringFinger3Rot },
-            { DOF.Pinky1, _pinkyFinger1Rot },
-            { DOF.Pinky2, _pinkyFinger2Rot },
-            { DOF.Pinky3, _pinkyFinger3Rot },
-            { DOF.Thumb1, _thumbFinger1Rot },
-            { DOF.Thumb2, _thumbFinger2Rot },
-            { DOF.Thumb3, _thumbFinger3Rot },
-            { DOF.ShoulderAbduction, _shoulderAbductionAngle },
-            { DOF.ShoulderFlexion, _shoulderElevationAngle },
-            { DOF.ShoulderRotation, _shoulderRotationAngle },
-            { DOF.ElbowFlexion, _elbowFlexionAngle },
-            { DOF.WristFlexion, _wristFlexionAngle },
-            { DOF.WristAbduction, _wristAbductionAngle },
-            { DOF.WristSupination, _wristRotationAngle }
+            { DOF.INDEX1, _indexFinger1Rot },
+            { DOF.INDEX2, _indexFinger2Rot },
+            { DOF.INDEX3, _indexFinger3Rot },
+            { DOF.MIDDLE1, _middleFinger1Rot },
+            { DOF.MIDDLE2, _middleFinger2Rot },
+            { DOF.MIDDLE3, _middleFinger3Rot },
+            { DOF.RING1, _ringFinger1Rot },
+            { DOF.RING2, _ringFinger2Rot },
+            { DOF.RING3, _ringFinger3Rot },
+            { DOF.PINKY1, _pinkyFinger1Rot },
+            { DOF.PINKY2, _pinkyFinger2Rot },
+            { DOF.PINKY3, _pinkyFinger3Rot },
+            { DOF.THUMB1, _thumbFinger1Rot },
+            { DOF.THUMB2, _thumbFinger2Rot },
+            { DOF.THUMB3, _thumbFinger3Rot },
+            { DOF.SHOULDERABDUCTION, _shoulderAbductionAngle },
+            { DOF.SHOULDERFLEXION, _shoulderElevationAngle },
+            { DOF.SHOULDERROTATION, _shoulderRotationAngle },
+            { DOF.ELBOWFLEXION, _elbowFlexionAngle },
+            { DOF.WRISTFLEXION, _wristFlexionAngle },
+            { DOF.WRISTABDUCTION, _wristAbductionAngle },
+            { DOF.WRISTSUPINATION, _wristRotationAngle }
         };
+        _myArmature = new ArmatureStructure(dofAngleDict);
     }
 
-    //sets the serialized fields from the DOF dict
-    public void SetFieldsFromDict(Dictionary<DOF, float> dict)
+    //sets the serialized fields from the armature
+    public void SetFieldsFromArmature()
     {
-        _indexFinger1Rot = dict[DOF.Index1];
-        _indexFinger2Rot = dict[DOF.Index2];
-        _indexFinger3Rot = dict[DOF.Index3];
+        var dofAngleDict = new Dictionary<DOF, float>(_myArmature.GetValues());
 
-        _middleFinger1Rot = dict[DOF.Middle1];
-        _middleFinger2Rot = dict[DOF.Middle2];
-        _middleFinger3Rot = dict[DOF.Middle3];
+        _indexFinger1Rot = dofAngleDict[DOF.INDEX1];
+        _indexFinger2Rot = dofAngleDict[DOF.INDEX2];
+        _indexFinger3Rot = dofAngleDict[DOF.INDEX3];
 
-        _ringFinger1Rot = dict[DOF.Ring1];
-        _ringFinger2Rot = dict[DOF.Ring2];
-        _ringFinger3Rot = dict[DOF.Ring3];
+        _middleFinger1Rot = dofAngleDict[DOF.MIDDLE1];
+        _middleFinger2Rot = dofAngleDict[DOF.MIDDLE2];
+        _middleFinger3Rot = dofAngleDict[DOF.MIDDLE3];
 
-        _pinkyFinger1Rot = dict[DOF.Pinky1];
-        _pinkyFinger2Rot = dict[DOF.Pinky2];
-        _pinkyFinger3Rot = dict[DOF.Pinky3];
+        _ringFinger1Rot = dofAngleDict[DOF.RING1];
+        _ringFinger2Rot = dofAngleDict[DOF.RING2];
+        _ringFinger3Rot = dofAngleDict[DOF.RING3];
 
-        _thumbFinger1Rot = dict[DOF.Thumb1];
-        _thumbFinger2Rot = dict[DOF.Thumb2];
-        _thumbFinger3Rot = dict[DOF.Thumb3];
+        _pinkyFinger1Rot = dofAngleDict[DOF.PINKY1];
+        _pinkyFinger2Rot = dofAngleDict[DOF.PINKY2];
+        _pinkyFinger3Rot = dofAngleDict[DOF.PINKY3];
 
-        _shoulderAbductionAngle = dict[DOF.ShoulderAbduction];
-        _shoulderElevationAngle = dict[DOF.ShoulderFlexion];
-        _shoulderRotationAngle = dict[DOF.ShoulderRotation];
+        _thumbFinger1Rot = dofAngleDict[DOF.THUMB1];
+        _thumbFinger2Rot = dofAngleDict[DOF.THUMB2];
+        _thumbFinger3Rot = dofAngleDict[DOF.THUMB3];
 
-        _elbowFlexionAngle = dict[DOF.ElbowFlexion];
-        _wristFlexionAngle = dict[DOF.WristFlexion];
-        _wristAbductionAngle = dict[DOF.WristAbduction];
-        _wristRotationAngle = dict[DOF.WristSupination];
+        _shoulderAbductionAngle = dofAngleDict[DOF.SHOULDERABDUCTION];
+        _shoulderElevationAngle = dofAngleDict[DOF.SHOULDERFLEXION];
+        _shoulderRotationAngle = dofAngleDict[DOF.SHOULDERROTATION];
+
+        _elbowFlexionAngle = dofAngleDict[DOF.ELBOWFLEXION];
+        _wristFlexionAngle = dofAngleDict[DOF.WRISTFLEXION];
+        _wristAbductionAngle = dofAngleDict[DOF.WRISTABDUCTION];
+        _wristRotationAngle = dofAngleDict[DOF.WRISTSUPINATION];
     }
 
-    //creates a new json file with the DOF dict saved 
-    public void SavePose(string fileName)
-    {
-        SetDictFromFields();
-        try
-        {
-            string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", $"{fileName}.json");
-            print(filePath);
-            // Serialize the dictionary to a JSON string
-            string jsonString = JsonConvert.SerializeObject(masterAngleDict);
-            // Write the JSON string to a file
-            File.WriteAllText(filePath, jsonString);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogWarning(ex);
-        }
-    }
-
-    //loads a pose from a JSON file of a DOF dict 
-    public void LoadPose(string fileName)
-    {
-        print($"loading {fileName}");
-        try
-        {
-            string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", $"{fileName}");
-            string jsonString = File.ReadAllText(filePath);
-            masterAngleDict = JsonConvert.DeserializeObject<Dictionary<DOF, float>>(jsonString);
-            SetFieldsFromDict(masterAngleDict);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogWarning(ex);
-        }
-    }
 
     //sets the joint angles to their nominal field position once a frame. 
-
     private void Update()
     {
         if (!Immobalize)
@@ -306,12 +263,12 @@ public class ArmController : MonoBehaviour
 
     public void UpdateArm()
     {
-        SetDictFromFields();
+        SetArmatureFromFields();
         if (ImposeJointLimits && jointLimitDict.Count > 0)
         {
-            LimitJoints();
+            //LimitJoints();
         }
-        SetFieldsFromDict(masterAngleDict);
+        SetFieldsFromArmature();
 
         _shoulderAbductor.localRotation = Quaternion.Euler(new Vector3(0, _shoulderAbductionAngle, 0));
         _shoulderFlexor.localRotation = Quaternion.Euler(new Vector3(_shoulderElevationAngle, 0, 0));
@@ -349,19 +306,16 @@ public class ArmController : MonoBehaviour
     //this is the easiest way to make controlled changes to the visualized arm 
     public void AdjustAngles(Dictionary<DOF, float> adjustments)
     {
-        SetDictFromFields();
-        foreach (KeyValuePair<DOF, float> kvp in adjustments)
-        {
-            DOF key = kvp.Key;
-            if (masterAngleDict.ContainsKey(key))
-            {
-                masterAngleDict[key] = kvp.Value;
-            }
-        }
-        SetFieldsFromDict(masterAngleDict);
+        ArmatureStructure adjustmentArmature = new ArmatureStructure(adjustments);
+        _myArmature = _defaultArmature + adjustmentArmature;
+        SetFieldsFromArmature();
     }
 
-
+    public void SetArmature(ArmatureStructure armature)
+    {
+        _myArmature = armature;
+        SetFieldsFromArmature();
+    }
 
 
     //makes the arm transparent. used by the TaskTray to indicate which arm is the Master arm and which one is the Target arm 
@@ -370,10 +324,10 @@ public class ArmController : MonoBehaviour
         _bodyTransform.GetComponent<SkinnedMeshRenderer>().material = _targetMaterial;
     }
 
-
-    public Dictionary<DOF, float> GetJointAngles()
+    //update the armature to reflect the public fields and then return the armature
+    public ArmatureStructure GetCurrentArmature()
     {
-        SetDictFromFields();
-        return masterAngleDict;
+        SetArmatureFromFields();
+        return _myArmature;
     }
 }

@@ -23,16 +23,18 @@ public class UIController : MonoBehaviour
         PopulateDropdown();
     }
 
-    public void ToggleMenu(){
+    public void ToggleMenu()
+    {
         bool menuActive = !_menuObj.activeSelf;
         _menuObj.SetActive(menuActive);
         _menuText.text = menuActive == true ? "close menu" : "open menu";
     }
 
 
-    public void SavePose(){
+    public void SavePose()
+    {
         string fileName = _poseNameInput.text;
-        _armController.GetComponent<ArmController>().SavePose(fileName);
+        _armController.SetArmature(ArmatureStructure.LoadArmatureFromFile(fileName));
     }
 
     void PopulateDropdown()
@@ -51,7 +53,8 @@ public class UIController : MonoBehaviour
             // Get the file name without the path
             string fileName = Path.GetFileName(filePath);
             string fileExtension = Path.GetExtension(filePath);
-            if (fileExtension.Equals(".json")) {
+            if (fileExtension.Equals(".json"))
+            {
                 fileNames.Add(fileName);
             }
             // Add the file name to the list
@@ -61,11 +64,14 @@ public class UIController : MonoBehaviour
         _poseDropdown.AddOptions(fileNames);
     }
 
-    public void SelectPose(){
+    //where should
+    public void SelectPose()
+    {
         string fileName = _poseDropdown.options[_poseDropdown.value].text;
-        _armController.LoadPose(fileName);
+        string path = Path.Combine(Application.streamingAssetsPath, "Poses", fileName);
+        _armController.SetArmature(ArmatureStructure.LoadArmatureFromFile(path));
     }
-    
+
 }
 
 

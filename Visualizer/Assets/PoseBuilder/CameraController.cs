@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using static PoseBuilderUI;
 
@@ -9,8 +8,8 @@ public class CameraController : MonoBehaviour
     public float movementSpeed = 5.0f;
     public float zoomSpeed = 5.0f;
 
-    private (Vector3, Quaternion)? savedPerspective; 
-    private (Vector3, Quaternion) defaultPerspective; 
+    private (Vector3, Quaternion)? savedPerspective;
+    private (Vector3, Quaternion) defaultPerspective;
     private Vector3 lastMousePosition;
 
     void Start()
@@ -20,7 +19,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (DOFChoosingMode || FocusElsewhere || InGameView) return;
+        if (DOFChoosingMode || FocusedOnUI || InGameView) return;
 
         // Camera rotation
         if (Input.GetMouseButton(1)) // Right mouse button
@@ -67,15 +66,18 @@ public class CameraController : MonoBehaviour
         transform.eulerAngles = new Vector3(38.09f, 180, 0);
     }
 
-    public void SetCameraToGameView() {
+    public void SetCameraToGameView()
+    {
         savedPerspective = (transform.position, transform.rotation);
         (Vector3 position, Quaternion rotation) = defaultPerspective;
         transform.position = position;
         transform.rotation = rotation;
     }
 
-    public void ReturnCameraToPrevious(){
-        if (savedPerspective != null){
+    public void ReturnCameraToPrevious()
+    {
+        if (savedPerspective != null)
+        {
             (Vector3 position, Quaternion rotation) = savedPerspective ?? defaultPerspective;
             transform.position = position;
             transform.rotation = rotation;

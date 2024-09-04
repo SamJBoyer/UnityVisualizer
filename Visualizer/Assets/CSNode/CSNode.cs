@@ -48,9 +48,9 @@ public class CSNode
     {
         _currentState = Status.NODE_STARTED;
         _parameters = new Dictionary<string, object>();
-        if (overrideString != null) //command string is inputed, and this node is being run from unity editor 
+        if (overrideString != null) //command string is inputted, and this node is being run from unity editor 
         {
-            ConnectFromUnity(overrideString); //connect syncronously. this only works if run open
+            ConnectFromUnity(overrideString); //connect synchronously. this only works if run open
         }
         else //if no override input, then this node is being run from BRAND
         {
@@ -94,7 +94,7 @@ public class CSNode
         }
     }
 
-    //connect using socket or IP address and call parse paramters 
+    //connect using socket or IP address and call parse parameters 
     private async Task ConnectFromBRANDAsync(string serverIP, string serverPort, string serverSocket = null)
     {
         string connectionString = serverSocket != null ? serverSocket : $"{serverIP}:{serverPort}"; //prioritize server socket 
@@ -118,7 +118,7 @@ public class CSNode
         }
     }
 
-    //gets a dictionary of paramters from the supergraph stream 
+    //gets a dictionary of parameters from the supergraph stream 
     private Dictionary<string, object> ParseGraphParameters()
     {
         _database = _redis.GetDatabase();
@@ -156,8 +156,8 @@ public class CSNode
         {
             //painful extraction of the parameters from the SUPER jagged json string 
             string masterJsonString = result[0].Values[0].Value.ToString();
-            JObject jobject = JObject.Parse(masterJsonString);
-            Dictionary<string, object> dict = jobject.ToObject<Dictionary<string, object>>();
+            JObject jObject = JObject.Parse(masterJsonString);
+            Dictionary<string, object> dict = jObject.ToObject<Dictionary<string, object>>();
             var buddyString = dict["buddies"].ToString();
             var buddyDict = JsonConvert.DeserializeObject<Dictionary<string, Dictionary<string, string>>>(buddyString);
             if (buddyDict.ContainsKey(buddyName))
@@ -186,7 +186,7 @@ public class CSNode
         }
         catch (Exception ex)
         {
-            Debug.LogError($"A connection error occured: {ex}");
+            Debug.LogError($"A connection error occurred: {ex}");
             _currentState = Status.NODE_FATAL_ERROR;
         }
     }

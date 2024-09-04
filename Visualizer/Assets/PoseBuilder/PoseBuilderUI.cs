@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.IO;
 using System.Linq;
 using static DOFManager;
+using static ArmatureStructure;
 
 public class PoseBuilderUI : MonoBehaviour
 {
@@ -20,21 +21,24 @@ public class PoseBuilderUI : MonoBehaviour
     [SerializeField] private Transform _optionsTransform;
     [SerializeField] private Transform _menuTransform;
 
-
+    //THINGS TO ADD
     /// <summary>
     /// create a little help button for camera controls 
     /// create a menu for changing the sensitivity ~ maybe 
     /// make the game view text dynamic 
     /// enforce joint limits
-    /// add draggign increases on the text boxes 
     /// fixing the stupid BEE issue s
     /// make it so the poses are loaded everytime a new one is created, not just once at the start
     /// </summary>
 
-    public static bool InGameView;
     public string FolderName;
-    public static bool DOFChoosingMode;
-    public static bool FocusElsewhere; //if a text box has been clicked on 
+
+    //these variables are used to determine if the user is in a mode where the camera is locked 
+    public static bool InGameView; //if in game view
+    public static bool DOFChoosingMode; //if in DOF selection mode
+    public static bool FocusedOnUI; //if any of the UI are being interacted with in a control-blocking way
+
+
     private Dictionary<DOF, DOFUI> DOFBoxes;
     private bool _menuOpen;
 
@@ -70,7 +74,8 @@ public class PoseBuilderUI : MonoBehaviour
             }
         }
 
-        FocusElsewhere = _poseNameInput.isFocused || UIHover.IsMouseHover;
+        FocusedOnUI = DOFUI.DOFBeingDragged || UIHover.WithinDOFZone || _poseNameInput.isFocused;
+
         var adjustments = new Dictionary<DOF, float>();
         foreach (var kvp in DOFBoxes)
         {
@@ -103,7 +108,8 @@ public class PoseBuilderUI : MonoBehaviour
         else
         {
             ClearDOFs();
-            _armController.LoadPose("Default.json");
+            string path = Path.Combine(Application.streamingAssetsPath, "Poses", "Default.json");
+            _armController.SetArmature(ArmatureStructure.LoadArmatureFromFile(path));
             Camera.main.GetComponent<CameraController>().SetCameraToDOF();
             foreach (ReactiveTarget target in AllTargets)
             {
@@ -150,7 +156,7 @@ public class PoseBuilderUI : MonoBehaviour
     public void SavePose()
     {
         string fileName = _poseNameInput.text;
-        _armController.GetComponent<ArmController>().SavePose(fileName);
+        _armController.GetComponent<ArmController>().GetCurrentArmature().SavePose(fileName);
         StartCoroutine(SaveNotification());
 
         IEnumerator SaveNotification()
@@ -192,7 +198,7 @@ public class PoseBuilderUI : MonoBehaviour
     public void SelectPose()
     {
         string fileName = _poseDropdown.options[_poseDropdown.value].text;
-        _armController.LoadPose(fileName);
+        _armController.SetArmature(ArmatureStructure.LoadArmatureFromFile(fileName));
     }
 
     public void ToggleGameView()

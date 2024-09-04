@@ -22,14 +22,14 @@ public class TrialController : MonoBehaviour
 
         print("starting trial");
         // Load the initial armature position
-        _armController.LoadPose("InitialPose.json");
+        //_armController.LoadPose("InitialPose.json");
         string basePath = Path.Combine(Application.streamingAssetsPath, "Track1");
         string pose1Path = Path.Combine(basePath, pose1);
         string pose2Path = Path.Combine(basePath, pose2);
         string pose3Path = Path.Combine(basePath, pose3);
-        var armature1 = new ArmaturePosition(pose1Path);
-        var armature2 = new ArmaturePosition(pose2Path);
-        var armature3 = new ArmaturePosition(pose3Path);
+        var armature1 = new ArmatureStructure(pose1Path);
+        var armature2 = new ArmatureStructure(pose2Path);
+        var armature3 = new ArmatureStructure(pose3Path);
 
         // Add the trial routines to the queue
         _routineQueue.Enqueue(Wait(wait_time));
@@ -63,14 +63,14 @@ public class TrialController : MonoBehaviour
         yield return new WaitForSeconds(delay);
     }
 
-    private IEnumerator LoadAndWait(float delay, ArmaturePosition armature)
+    private IEnumerator LoadAndWait(float delay, ArmatureStructure armature)
     {
         print("loading and waiting");
-        _armController.AdjustAngles(armature.GetPositions());
+        _armController.AdjustAngles(armature.GetValues());
         yield return new WaitForSeconds(delay);
     }
 
-    private IEnumerator TraverseToTarget(ArmaturePosition start, ArmaturePosition target, float duration)
+    private IEnumerator TraverseToTarget(ArmatureStructure start, ArmatureStructure target, float duration)
     {
         float startTime = Time.time;
         float elapsedTime = 0f;
@@ -78,118 +78,12 @@ public class TrialController : MonoBehaviour
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
-            ArmaturePosition currentPosition = ArmaturePosition.Lerp(start, target, t);
-            _armController.AdjustAngles(currentPosition.GetPositions());
+            ArmatureStructure currentPosition = ArmatureStructure.Lerp(start, target, t);
+            _armController.AdjustAngles(currentPosition.GetValues());
             elapsedTime = Time.time - startTime;
             yield return null;
         }
-        _armController.AdjustAngles(target.GetPositions());
+        _armController.AdjustAngles(target.GetValues());
     }
 }
 
-public class ArmaturePosition
-{
-    private Dictionary<DOF, float> _dofPositions;
-
-    public ArmaturePosition(Dictionary<DOF, float> dofPositions)
-    {
-        _dofPositions = dofPositions;
-    }
-
-    public ArmaturePosition(string fileName)
-    {
-        LoadArmatureFromFile(fileName);
-    }
-
-    //loads a pose from a JSON file of a DOF dict 
-    public void LoadArmatureFromFile(string fileName)
-    {
-        Debug.Log($"loading {fileName}");
-        try
-        {
-            string jsonString = File.ReadAllText(fileName);
-            _dofPositions = JsonConvert.DeserializeObject<Dictionary<DOF, float>>(jsonString);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"Error loading pose: {ex.Message}");
-        }
-    }
-
-    public static ArmaturePosition Lerp(ArmaturePosition a, ArmaturePosition b, float t)
-    {
-        return a + (b - a) * t;
-    }
-
-    public Dictionary<DOF, float> GetPositions()
-    {
-        return _dofPositions;
-    }
-
-    // Overload the + operator
-    public static ArmaturePosition operator +(ArmaturePosition a, ArmaturePosition b)
-    {
-        // Create a new dictionary to store the result of the addition
-        var combinedPositions = new Dictionary<DOF, float>(a._dofPositions);
-
-        // Iterate through each key-value pair in the second ArmaturePosition
-        foreach (var kvp in b._dofPositions)
-        {
-            // If the key is already present, add the values together
-            if (combinedPositions.ContainsKey(kvp.Key))
-            {
-                combinedPositions[kvp.Key] += kvp.Value;
-            }
-            else
-            {
-                // If the key is not present in the first ArmaturePosition, add it to the result
-                combinedPositions.Add(kvp.Key, kvp.Value);
-            }
-        }
-
-        // Return a new ArmaturePosition instance with the combined positions
-        return new ArmaturePosition(combinedPositions);
-    }
-
-    // Override the - operator
-    public static ArmaturePosition operator -(ArmaturePosition a, ArmaturePosition b)
-    {
-        // Create a new dictionary to store the result of the subtraction
-        var resultPositions = new Dictionary<DOF, float>(a._dofPositions);
-
-        // Iterate through each key-value pair in the second ArmaturePosition
-        foreach (var kvp in b._dofPositions)
-        {
-            // If the key is already present, subtract the value from the first ArmaturePosition
-            if (resultPositions.ContainsKey(kvp.Key))
-            {
-                resultPositions[kvp.Key] -= kvp.Value;
-            }
-            else
-            {
-                // If the key is not present in the first ArmaturePosition, add it with a negative value
-                resultPositions.Add(kvp.Key, -kvp.Value);
-            }
-        }
-
-        // Return a new ArmaturePosition instance with the result positions
-        return new ArmaturePosition(resultPositions);
-    }
-
-    // Override the * operator to scale the positions by a multiplier
-    public static ArmaturePosition operator *(ArmaturePosition a, float multiplier)
-    {
-        // Create a new dictionary to store the scaled positions
-        var scaledPositions = new Dictionary<DOF, float>();
-
-        // Iterate through each key-value pair in the ArmaturePosition
-        foreach (var kvp in a._dofPositions)
-        {
-            // Scale the value by the multiplier
-            scaledPositions[kvp.Key] = kvp.Value * multiplier;
-        }
-
-        // Return a new ArmaturePosition instance with the scaled positions
-        return new ArmaturePosition(scaledPositions);
-    }
-}
