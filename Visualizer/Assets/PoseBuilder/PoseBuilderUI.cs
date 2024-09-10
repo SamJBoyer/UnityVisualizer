@@ -87,7 +87,7 @@ public class PoseBuilderUI : MonoBehaviour
             }
         }
         _armController.AdjustAngles(adjustments);
-        _armController.UpdateArm();
+        //_armController.UpdateArm();
     }
 
     //called from the toggle selection mode button
@@ -198,7 +198,8 @@ public class PoseBuilderUI : MonoBehaviour
     public void SelectPose()
     {
         string fileName = _poseDropdown.options[_poseDropdown.value].text;
-        _armController.SetArmature(ArmatureStructure.LoadArmatureFromFile(fileName));
+        string filePath = Path.Combine(Application.streamingAssetsPath, "Poses", fileName);
+        _armController.SetArmature(ArmatureStructure.LoadArmatureFromFile(filePath));
     }
 
     public void ToggleGameView()

@@ -113,7 +113,7 @@ public class Hardpoint : CSNode
             await Task.Run(async () =>
             {
                 var dataQueueCollection = _channelDataQueue[channelName];
-                var result = await _database.StreamRangeAsync(channelName, "+", "-", 1, Order.Descending);
+                var result = await _database.StreamRangeAsync(channelName, "-", "+", 1, Order.Descending);
                 if (result.Any())
                 {
                     var entry = result.First();
@@ -124,10 +124,6 @@ public class Hardpoint : CSNode
                         var dataBuffer = dataQueueCollection.Item2;
                         dataBuffer.Enqueue(dataDict); // add data to the buffer
                         _channelDataQueue[channelName] = (entry.Id, dataBuffer);
-                    }
-                    else
-                    {
-                        Debug.Log("entry id is the same");
                     }
                 }
             });
@@ -151,7 +147,7 @@ x.Value.ToString());
 
     public Dictionary<string, string> DequeueData(string channelName)
     {
-        Debug.Log($"data: {_channelDataQueue[channelName].Item2.Count}");
+        //Debug.Log($"data: {_channelDataQueue[channelName].Item2.Count}");
         try
         {
             var data = _channelDataQueue[channelName].Item2.Dequeue();

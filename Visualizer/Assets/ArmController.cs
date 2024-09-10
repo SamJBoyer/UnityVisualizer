@@ -306,8 +306,9 @@ public class ArmController : MonoBehaviour
     //this is the easiest way to make controlled changes to the visualized arm 
     public void AdjustAngles(Dictionary<DOF, float> adjustments)
     {
+        SetArmatureFromFields();
         ArmatureStructure adjustmentArmature = new ArmatureStructure(adjustments);
-        _myArmature = _defaultArmature + adjustmentArmature;
+        _myArmature = adjustmentArmature.Union(_myArmature);
         SetFieldsFromArmature();
     }
 

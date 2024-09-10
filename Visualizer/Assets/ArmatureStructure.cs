@@ -32,6 +32,15 @@ public class ArmatureStructure
         _dofPositions = dofPositions;
     }
 
+    public ArmatureStructure(float value)
+    {
+        _dofPositions = new Dictionary<DOF, float>();
+        foreach (DOF dof in Enum.GetValues(typeof(DOF)))
+        {
+            _dofPositions.Add(dof, value);
+        }
+    }
+
     public ArmatureStructure(string fileName)
     {
         LoadArmatureFromFile(fileName);
@@ -148,7 +157,7 @@ public class ArmatureStructure
         return new ArmatureStructure(result);
     }
 
-    // Override the * operator to scale the positions by a sclar multiplier
+    // Override the * operator to scale the positions by a scalar multiplier
     public static ArmatureStructure operator *(ArmatureStructure a, float multiplier)
     {
         // Create a new dictionary to store the result of the multiplication
@@ -226,5 +235,18 @@ public class ArmatureStructure
         }
         // Return a new ArmaturePosition instance with the combined positions
         return new ArmatureStructure(result);
+    }
+
+    public ArmatureStructure Union(ArmatureStructure other)
+    {
+        ArmatureStructure result = new ArmatureStructure(_dofPositions);
+        foreach (var kvp in other._dofPositions)
+        {
+            if (!_dofPositions.ContainsKey(kvp.Key))
+            {
+                result._dofPositions.Add(kvp.Key, kvp.Value);
+            }
+        }
+        return result;
     }
 }

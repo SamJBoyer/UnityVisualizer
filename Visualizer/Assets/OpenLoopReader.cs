@@ -23,20 +23,26 @@ public class OpenLoopReader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var currentData = _hardpoint.GetInstantData("current_armature");
+        var currentData = _hardpoint.DequeueData("current_armature");
         var targetData = _hardpoint.DequeueData("target_armature");
 
 
 
         if (targetData != null)
         {
-            print("new data");
-            var targetDict = currentData.ToDictionary(x => (DOF)Enum.Parse(typeof(DOF), x.Key), x => float.Parse(x.Value));
+            var targetDict = targetData.ToDictionary(x => (DOF)Enum.Parse(typeof(DOF), x.Key), x => float.Parse(x.Value));
+            foreach (var item in targetDict)
+            {
+                Debug.Log(item.Key + " " + item.Value);
+            }
             _targetArm.AdjustAngles(targetDict);
         }
 
+        if (currentData != null)
+        {
+            var adjustmentDict = currentData.ToDictionary(x => (DOF)Enum.Parse(typeof(DOF), x.Key), x => float.Parse(x.Value));
+            _currentArm.AdjustAngles(adjustmentDict);
+        }
 
-        var adjustmentDict = currentData.ToDictionary(x => (DOF)Enum.Parse(typeof(DOF), x.Key), x => float.Parse(x.Value));
-        _currentArm.AdjustAngles(adjustmentDict);
     }
 }
