@@ -1517,7 +1517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1055621619
 Transform:
   m_ObjectHideFlags: 0
@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055621617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f844796ba82b6b5069704b4bb7657040, type: 3}
   m_Name: 
@@ -1935,6 +1935,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &1247511898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1247511900}
+  - component: {fileID: 1247511899}
+  m_Layer: 0
+  m_Name: Cyberglove Visualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1247511899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247511898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85ac6255420aa7a198d0246914aa4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armController: {fileID: 1641624795}
+--- !u!4 &1247511900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247511898}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1272559055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1947,9 +1992,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target Arm
       objectReference: {fileID: 0}
+    - target: {fileID: 80948491042616033, guid: 79e21a45277d414f08ef7855d8bbbabe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4156175112295685340, guid: 79e21a45277d414f08ef7855d8bbbabe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4156175112295685340, guid: 79e21a45277d414f08ef7855d8bbbabe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1994,6 +2043,10 @@ PrefabInstance:
     - target: {fileID: 8496038144331754506, guid: 79e21a45277d414f08ef7855d8bbbabe, type: 3}
       propertyPath: Immobalize
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496038144331754506, guid: 79e21a45277d414f08ef7855d8bbbabe, type: 3}
+      propertyPath: MakeTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8496038144331754506, guid: 79e21a45277d414f08ef7855d8bbbabe, type: 3}
       propertyPath: ImposeJointLimits
@@ -3910,3 +3963,4 @@ SceneRoots:
   - {fileID: 1272559055}
   - {fileID: 1673125190}
   - {fileID: 1074048520}
+  - {fileID: 1247511900}

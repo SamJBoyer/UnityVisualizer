@@ -31,10 +31,6 @@ public class OpenLoopReader : MonoBehaviour
         if (targetData != null)
         {
             var targetDict = targetData.ToDictionary(x => (DOF)Enum.Parse(typeof(DOF), x.Key), x => float.Parse(x.Value));
-            foreach (var item in targetDict)
-            {
-                Debug.Log(item.Key + " " + item.Value);
-            }
             _targetArm.AdjustAngles(targetDict);
         }
 

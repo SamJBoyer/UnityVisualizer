@@ -22,6 +22,7 @@ public class ArmController : MonoBehaviour
 {
 
     public bool Immobalize = true; //if the arm is immobalized. this is used by the task tray to prevent the arm from
+    public bool MakeTarget;
     //updating itself from this script 
 
     [SerializeField] private GameObject _shoulderFocus, _elbowFocus, _wristFocus;
@@ -71,6 +72,10 @@ public class ArmController : MonoBehaviour
         _myArmature = _defaultArmature;
         FindJointLimits();
         UpdateArm();
+        if (MakeTarget)
+        {
+            MakeTransparent();
+        }
     }
 
     private void FindJointLimits()

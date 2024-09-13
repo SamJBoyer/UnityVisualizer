@@ -332,6 +332,7 @@
 -r:"Assets/CSNode/Packages/System.Runtime.CompilerServices.Unsafe.6.0.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll"
 -r:"Assets/CSNode/Packages/System.Threading.Channels.5.0.0/lib/netstandard2.1/System.Threading.Channels.dll"
 -r:"Assets/Packages/Newtonsoft.Json.13.0.3/lib/netstandard2.0/Newtonsoft.Json.dll"
+-r:"Assets/Packages/Python.Runtime.Windows.3.7.2/lib/netstandard2.0/Python.Runtime.dll"
 -r:"Library/PackageCache/com.unity.collab-proxy@2.3.1/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll"
 -r:"Library/PackageCache/com.unity.collab-proxy@2.3.1/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll"
 -r:"Library/PackageCache/com.unity.collab-proxy@2.3.1/Lib/Editor/PlasticSCM/log4netPlastic.dll"

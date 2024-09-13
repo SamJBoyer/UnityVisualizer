@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Python.Runtime</id>
+        <version>2.7.9</version>
+        <authors>David William Manthey</authors>
+        <owners>petrik</owners>
+        <projectUrl>http://www.orbitals.com/programs/pyexe.html</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Python 2.7.9 as a single, stand-alone executable with virtually all the standard libraries, plus pywin32-219 and psutil 2.1.3. Compiled with py2exe (see source below) on Windows XP. This should work on Windows XP and later. This works just like a full install of python, except you only need the one file.</description>
+    </metadata>
+</package>
