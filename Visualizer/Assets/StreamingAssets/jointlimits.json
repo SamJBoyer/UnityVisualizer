@@ -1,10 +1,10 @@
 {
-    "ShoulderFlexion":[0, 280],
-    "ShoulderAbduction": [-40, 145],
-    "ShoulderRotation":[-80, 60],
-    "ElbowFlexion":[0, 135],
-    "WristRotation":[-90, 0],
-    "WristAbduction":[-35, 50],
-    "WristFlexion":[-75, 75],
-    "nonThumbFingers":[0, 90]
+    "ShoulderFlexion": {"min": 0, "max":280},
+    "ShoulderAbduction": {"min": -40, "max": 145},
+    "ShoulderRotation": {"min":-80, "max": 60},
+    "ElbowFlexion":{"min":0,"max": 135},
+    "WristSupination": {"min":-90,"max":0},
+    "WristAbduction":{"min":35,"max":50},
+    "WristFlexion": {"min":-75, "max": 75},
+    "nonThumbFingers": {"min":0, "max":90}
 }

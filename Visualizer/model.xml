@@ -1,0 +1,11 @@
+<mujoco>
+  <worldbody />
+  <contact />
+  <tendon />
+  <equality />
+  <actuator />
+  <sensor />
+  <compiler coordinate="local" />
+  <option gravity="0 0 -9.81" timestep="0.02" />
+  <asset />
+</mujoco>

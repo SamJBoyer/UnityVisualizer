@@ -343,6 +343,8 @@
 -r:"Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 -r:"Library/PackageCache/com.unity.testtools.codecoverage@1.2.5/lib/ReportGenerator/ReportGeneratorMerged.dll"
 -r:"Library/Bee/artifacts/2400b0aE.dag/Assembly-CSharp.ref.dll"
+-r:"Library/Bee/artifacts/2400b0aE.dag/Mujoco.Editor.ref.dll"
+-r:"Library/Bee/artifacts/2400b0aE.dag/Mujoco.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/2400b0aE.dag/NuGetForUnity.ref.dll"
 -r:"Library/Bee/artifacts/2400b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2400b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"

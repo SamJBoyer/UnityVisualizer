@@ -44,31 +44,56 @@ public class CSNode
     protected Dictionary<string, object> _parameters; //this nodes parameters, as read from the supergraph
     protected string _stateKeyString; //string indicating this nodes key for itself in the graph_status. will soon have lowered access 
 
-    public CSNode(string overrideString = null)
+    public CSNode()
     {
         _currentState = Status.NODE_STARTED;
         _parameters = new Dictionary<string, object>();
-        if (overrideString != null) //command string is inputted, and this node is being run from unity editor 
+        ConnectToRedis();
+    }
+
+    //overridden in the unity node. Syncronously connects to redis by calling async ConnectToBRANDAsync
+    protected virtual void ConnectToRedis()
+    {
+        string[] args = Environment.GetCommandLineArgs();
+        HandleArgs(args); //parses the args into the flags 
+        //Debug.Log($"socket {_serverSocket} ip {_serverIP} port {_serverPort}");
+        if (_serverSocket != null || (_serverIP != null && _serverPort != null))
         {
-            ConnectFromUnity(overrideString); //connect synchronously. this only works if run open
+            ConnectToBRANDAsync(_serverIP, _serverPort).Wait(); //connect async. currently doesnt handle sockets v
+            _stateKeyString = _nickname + "_state";
+            _database.StreamAdd(_stateKeyString, new NameValueEntry[] { new NameValueEntry("status", _currentState.ToString()) });
         }
-        else //if no override input, then this node is being run from BRAND
+        else
         {
-            string[] args = Environment.GetCommandLineArgs();
-            HandleArgs(args); //parses the args into the flags 
-            //Debug.Log($"socket {_serverSocket} ip {_serverIP} port {_serverPort}");
-            if (_serverSocket != null || (_serverIP != null && _serverPort != null))
+            _currentState = Status.NODE_FATAL_ERROR;
+            Debug.LogWarning("insufficient arguments have been passed. node must shut down");
+        }
+
+        //async method is called by synchronous method using .Wait()
+        async Task ConnectToBRANDAsync(string serverIP, string serverPort, string serverSocket = null)
+        {
+            string connectionString = serverSocket != null ? serverSocket : $"{serverIP}:{serverPort}"; //prioritize server socket 
+            var options = new ConfigurationOptions //can add more custom options as the need arises 
             {
-                ConnectFromBRANDAsync(_serverIP, _serverPort).Wait(); //connect async. currently doesnt handle sockets v
-                _stateKeyString = _nickname + "_state";
-                _database.StreamAdd(_stateKeyString, new NameValueEntry[] { new NameValueEntry("status", _currentState.ToString()) });
+                EndPoints = { connectionString }
+            };
+
+            try
+            {
+                _redis = await ConnectionMultiplexer.ConnectAsync(options);
+                _database = _redis.GetDatabase();
+                _parameters = ParseGraphParameters();
+                _currentState = Status.NODE_READY;
+                Debug.Log($"successfully connected from BRAND to {connectionString}");
+
             }
-            else
+            catch (Exception ex)
             {
+                Debug.LogError($"A connection error occurred: {ex.Message}");
                 _currentState = Status.NODE_FATAL_ERROR;
-                Debug.LogWarning("insufficient arguments have been passed. node must shut down");
             }
         }
+
     }
 
     //interprets the incoming command line arguments by their flags
@@ -91,30 +116,6 @@ public class CSNode
                     _serverPort = args[i + 1];
                     break;
             }
-        }
-    }
-
-    //connect using socket or IP address and call parse parameters 
-    private async Task ConnectFromBRANDAsync(string serverIP, string serverPort, string serverSocket = null)
-    {
-        string connectionString = serverSocket != null ? serverSocket : $"{serverIP}:{serverPort}"; //prioritize server socket 
-        var options = new ConfigurationOptions //can add more custom options as the need arises 
-        {
-            EndPoints = { connectionString }
-        };
-
-        try
-        {
-            Debug.Log($"attempting connection from BRAND to {connectionString}");
-            _redis = await ConnectionMultiplexer.ConnectAsync(options);
-            _database = _redis.GetDatabase();
-            _parameters = ParseGraphParameters();
-            _currentState = Status.NODE_READY;
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"A connection error occurred: {ex.Message}");
-            _currentState = Status.NODE_FATAL_ERROR;
         }
     }
 
@@ -147,6 +148,7 @@ public class CSNode
         return values;
     }
 
+    //experimental method to grab some parameters from the supergraph stream
     public Dictionary<string, string> GetBuddyParameters(string buddyName)
     {
         var key = "supergraph_stream"; //at risk due to hardcode 
@@ -172,41 +174,22 @@ public class CSNode
         return null;
     }
 
-    //used to connect to redis synchronously. used when running the node from editor and is called if node
-    //is instantiated with an override string as an argument 
-    private void ConnectFromUnity(string overrideString)
-    {
-        //connect using connection string 
-        try
-        {
-            Debug.Log($"attempting open connection from unity to {overrideString}");
-            ConnectionMultiplexer _redis = ConnectionMultiplexer.Connect(overrideString);
-            _database = _redis.GetDatabase();
-            _currentState = Status.NODE_READY;
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"A connection error occurred: {ex}");
-            _currentState = Status.NODE_FATAL_ERROR;
-        }
-    }
 
+    //what happend to while true? maybe this is blocked so it can't be in the generic class 
     protected void Run()
     {
         Work();
         UpdateParameters();
     }
 
+    //empty method to be overridden by subclasses as needed
     protected virtual void UpdateParameters() { }
+    //empty method to be overridden by subclasses as needed
     protected virtual void Work() { }
 
-    public string GetState()
-    {
-        return _currentState.ToString();
-    }
-
-    public IDatabase GetDatabase()
-    {
-        return _database;
-    }
+    public string GetState() => _currentState.ToString();
+    public IDatabase GetDatabase() => _database;
 }
+
+
+

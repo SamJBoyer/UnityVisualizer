@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638610546400000000
-    m_Hash: 760689868
+      ticks: 638632334290000000
+    m_Hash: 1549138850
   m_LockFileStatus:
     m_FilePath: /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638610546400000000
-    m_Hash: 1949471227
+      ticks: 638632334290000000
+    m_Hash: 998404320
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -27,6 +27,20 @@ m_LocalPackages:
       ticks: 638533686220000000
     m_Hash: 2928500219
   - m_FilePath: /home/sam/NuGetForUnity-master/src/NuGetForUnity
+    m_PathExists: 1
+    m_ContentTrackingEnabled: 1
+    m_ModificationDate:
+      serializedVersion: 2
+      ticks: 0
+    m_Hash: 0
+  - m_FilePath: /home/sam/mujoco/unity/package.json
+    m_PathExists: 1
+    m_ContentTrackingEnabled: 1
+    m_ModificationDate:
+      serializedVersion: 2
+      ticks: 638632301870000000
+    m_Hash: 1367414679
+  - m_FilePath: /home/sam/mujoco/unity
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
@@ -186,10 +200,14 @@ m_ResolvedPackages:
     - 2.3.1
     - 2.4.3
     - 2.4.4
+    - 2.5.1
+    - 2.5.2
     compatible:
     - 2.3.1
     - 2.4.3
     - 2.4.4
+    - 2.5.1
+    - 2.5.2
     recommended: 2.3.1
     deprecated: []
   dependencies: []
@@ -841,6 +859,59 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.0
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  fingerprint: 
+- packageId: org.mujoco@file:/home/sam/mujoco/unity
+  testable: 0
+  isDirectDependency: 1
+  version: 3.2.3
+  source: 4
+  resolvedPath: /home/sam/mujoco/unity
+  assetPath: Packages/org.mujoco
+  name: org.mujoco
+  displayName: MuJoCo
+  author:
+    name: Google DeepMind
+    email: mujoco@deepmind.com
+    url: https://mujoco.org/
+  category: 
+  type: 
+  description: MuJoCo importer and runtime plug-in
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    recommended: 
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: https://mujoco.readthedocs.io/en/latest/unity.html
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0

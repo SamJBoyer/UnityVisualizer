@@ -25,7 +25,7 @@ public class Hardpoint : CSNode
 
     //adding an override string as an argument means the node will connect synchronously and should only be used when
     //debugging from the unity editor 
-    public Hardpoint(string[] channels, string overrideString = null) : base(overrideString)
+    public Hardpoint(string[] channels, string overrideString = null) : base()
     {
         _instantDataDict = new Dictionary<string, Dictionary<string, string>>();
         _channelDataQueue = new Dictionary<string, (string, Queue<Dictionary<string, string>>)>();
@@ -41,7 +41,7 @@ public class Hardpoint : CSNode
     }
 
     //if no channels are given as an argument, automatically read from input_streams 
-    public Hardpoint(string overrideString = null) : base(overrideString)
+    public Hardpoint(string overrideString = null) : base()
     {
         Debug.Log("starting hardpoint");
         _instantDataDict = new Dictionary<string, Dictionary<string, string>>();
