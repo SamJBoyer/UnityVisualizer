@@ -1,0 +1,23 @@
+{
+    "SHOULDERABDUCTION": [0, 1, 0],
+    "SHOULDERFLEXION": [1, 0, 0],
+    "SHOULDERROTATION": [0, 1, 0],
+    "ELBOWFLEXION": [0, 0, 1],
+    "WRISTABDUCTION": [0, 0, 1],
+    "WRISTFLEXION": [1, 0, 0],
+    "WRISTSUPINATION": [0, 1, 0],
+    "INDEX1": [1, 0, 0],
+    "INDEX2": [1, 0, 0],
+    "INDEX3": [1, 0, 0],
+    "MIDDLE1": [1, 0, 0],
+    "MIDDLE2": [1, 0, 0],
+    "MIDDLE3": [1, 0, 0],
+    "RING1": [1, 0, 0],
+    "RING2": [1, 0, 0],
+    "RING3": [1, 0, 0],
+    "PINKY1": [1, 0, 0],
+    "PINKY2": [1, 0, 0],
+    "PINKY3": [1, 0, 0],
+    "THUMB1": [1, 0, 0],
+    "THUMB2": [1, 0, 0]
+}

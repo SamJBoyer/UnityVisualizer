@@ -18,11 +18,18 @@ public class ArmatureStructure
         WRISTABDUCTION,
         WRISTFLEXION,
         WRISTSUPINATION,
+        INDEXABDUCTION,
         INDEX1, INDEX2, INDEX3,
+        MIDDLEABDUCTION,
         MIDDLE1, MIDDLE2, MIDDLE3,
+        RINGABDUCTION,
         RING1, RING2, RING3,
+        PINKYABDUCTION,
         PINKY1, PINKY2, PINKY3,
-        THUMB1, THUMB2, THUMB3
+        THUMB1, THUMB2,
+        THUMBROLL,
+        THUMBABDUCTION,
+        PALMROLL
     }
 
     private Dictionary<DOF, float> _dofPositions;

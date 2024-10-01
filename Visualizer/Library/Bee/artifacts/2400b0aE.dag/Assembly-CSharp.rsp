@@ -371,6 +371,8 @@
 "Assets/CSNode/UnityNode.cs"
 "Assets/ControlPanel.cs"
 "Assets/CybergloveReader.cs"
+"Assets/MBind.cs"
+"Assets/MJStrip.cs"
 "Assets/OpenLoopReader.cs"
 "Assets/PoseBuilder/CameraController.cs"
 "Assets/PoseBuilder/DOFManager.cs"
@@ -388,6 +390,7 @@
 "Assets/Unity-Logs-Viewer-master/Reporter/ReporterMessageReceiver.cs"
 "Assets/Unity-Logs-Viewer-master/Reporter/Test/Rotate.cs"
 "Assets/Unity-Logs-Viewer-master/Reporter/Test/TestReporter.cs"
+"Assets/thingthing.cs"
 -langversion:9.0
 /deterministic
 /optimize+

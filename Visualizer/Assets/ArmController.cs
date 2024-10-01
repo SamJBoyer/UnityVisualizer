@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using Newtonsoft.Json;
 using System.IO;
+using System.Linq;
 using static ArmatureStructure;
 
 /// <summary>
@@ -32,30 +33,28 @@ public class ArmController : MonoBehaviour
 
 
     #region  //transform fields
-
     [SerializeField] private Transform _shoulderAbductor, _shoulderFlexor, _shoulderRotator;
     [SerializeField] private Transform _elbowFlexor;
-    [SerializeField] private Transform _wristRotation, _wristAbductor, _wristFlexor;
-
-
-    [SerializeField] private Transform _indexFinger1, _indexFinger2, _indexFinger3;
-    [SerializeField] private Transform _middleFinger1, _middleFinger2, _middleFinger3;
-    [SerializeField] private Transform _ringFinger1, _ringFinger2, _ringFinger3;
-    [SerializeField] private Transform _pinkyFinger1, _pinkyFinger2, _pinkyFinger3;
-    [SerializeField] private Transform _thumbFinger1, _thumbFinger2, _thumbFinger3;
-
+    [SerializeField] private Transform _wristSupinator, _wristAbductor, _wristFlexor;
+    [SerializeField] private Transform _indexFingerAbductor, _indexFinger1, _indexFinger2, _indexFinger3;
+    [SerializeField] private Transform _middleFingerAbductor, _middleFinger1, _middleFinger2, _middleFinger3;
+    [SerializeField] private Transform _ringFingerAbductor, _ringFinger1, _ringFinger2, _ringFinger3;
+    [SerializeField] private Transform _palmRoller, _pinkyFingerAbductor, _pinkyFinger1, _pinkyFinger2, _pinkyFinger3;
+    [SerializeField] private Transform _thumbRoller, _thumbAbductor, _thumbFinger1, _thumbFinger2;
     #endregion
 
-    [SerializeField] private float _indexFinger1Rot, _indexFinger2Rot, _indexFinger3Rot;
-    [SerializeField] private float _middleFinger1Rot, _middleFinger2Rot, _middleFinger3Rot;
-    [SerializeField] private float _ringFinger1Rot, _ringFinger2Rot, _ringFinger3Rot;
-    [SerializeField] private float _pinkyFinger1Rot, _pinkyFinger2Rot, _pinkyFinger3Rot;
-    [SerializeField] private float _thumbFinger1Rot, _thumbFinger2Rot, _thumbFinger3Rot;
-
-    [SerializeField] private float _shoulderAbductionAngle, _shoulderElevationAngle, _shoulderRotationAngle;
+    #region //angle fields
+    [SerializeField] private float _shoulderAbductionAngle, _shoulderFlexionAngle, _shoulderRotationAngle;
     [SerializeField] private float _elbowFlexionAngle;
-    [SerializeField] private float _wristRotationAngle, _wristAbductionAngle, _wristFlexionAngle;
+    [SerializeField] private float _wristSupinationAngle, _wristAbductionAngle, _wristFlexionAngle;
+    [SerializeField] private float _indexAbductionAngle, _index1Angle, _index2Angle, _index3Angle;
+    [SerializeField] private float _middleAbductionAngle, _middle1Angle, _middle2Angle, _middle3Angle;
+    [SerializeField] private float _ringAbductionAngle, _ring1Angle, _ring2Angle, _ring3Angle;
+    [SerializeField] private float _palmRollAngle, _pinkyAbductionAngle, _pinky1Angle, _pinky2Angle, _pinky3Angle;
+    [SerializeField] private float _thumbRollAngle, _thumbAbductionAngle, _thumb1Angle, _thumb2Angle;
+    #endregion
 
+    //the armature that this arm controller will visually reflect 
     private ArmatureStructure _myArmature;
     private ArmatureStructure _defaultArmature;
 
@@ -65,17 +64,77 @@ public class ArmController : MonoBehaviour
 
     public bool ImposeJointLimits;
 
+    //dictionary relating the object transforms to the DOF they represent
+    private Dictionary<DOF, Transform> _transformsByDOF;
+
+    //dictionary relating the DOF to the axis of rotation
+    private Dictionary<DOF, Vector3> _jointAxisByDOFs;
+
     private void Start()
     {
-        string path = Path.Combine(Application.streamingAssetsPath, "Poses", "Default.json");
-        _defaultArmature = ArmatureStructure.LoadArmatureFromFile(path);
-        _myArmature = _defaultArmature;
-        FindJointLimits();
-        UpdateArm();
+        //string path = Path.Combine(Application.streamingAssetsPath, "Poses", "Default.json");
+        //_defaultArmature = ArmatureStructure.LoadArmatureFromFile(path);
+        //_myArmature = _defaultArmature;
+        //FindJointLimits();
+        //UpdateArm();
         if (MakeTarget)
         {
             MakeTransparent();
         }
+
+        //load the armature axis
+        string axisPath = Path.Combine(Application.streamingAssetsPath, "axis.json");
+        if (File.Exists(axisPath))
+        {
+            string json = File.ReadAllText(axisPath);
+            var jointAxisDict = JsonConvert.DeserializeObject<Dictionary<DOF, float[]>>(json);
+            _jointAxisByDOFs = new Dictionary<DOF, Vector3>();
+            foreach (var kvp in jointAxisDict)
+            {
+                DOF dof = kvp.Key;
+                float[] values = kvp.Value;
+                Vector3 axisVec = new Vector3(values[0], values[1], values[2]);
+                _jointAxisByDOFs[dof] = axisVec;
+            }
+        }
+        else
+        {
+            Debug.LogError("couldn't find axis file");
+        }
+
+        _transformsByDOF = new Dictionary<DOF, Transform>()
+        {
+            {DOF.INDEXABDUCTION, _indexFingerAbductor},
+            { DOF.INDEX1, _indexFinger1 },
+            { DOF.INDEX2, _indexFinger2 },
+            { DOF.INDEX3, _indexFinger3 },
+            { DOF.MIDDLEABDUCTION, _middleFingerAbductor },
+            { DOF.MIDDLE1, _middleFinger1 },
+            { DOF.MIDDLE2, _middleFinger2 },
+            { DOF.MIDDLE3, _middleFinger3 },
+            { DOF.RINGABDUCTION, _ringFingerAbductor },
+            { DOF.RING1, _ringFinger1 },
+            { DOF.RING2, _ringFinger2 },
+            { DOF.RING3, _ringFinger3 },
+            { DOF.PINKYABDUCTION, _pinkyFingerAbductor },
+            {DOF.PALMROLL, _palmRoller},
+            { DOF.PINKY1, _pinkyFinger1 },
+            { DOF.PINKY2, _pinkyFinger2 },
+            { DOF.PINKY3, _pinkyFinger3 },
+            { DOF.THUMBABDUCTION, _thumbAbductor },
+            {DOF.THUMBROLL, _thumbRoller},
+            { DOF.THUMB1, _thumbFinger1 },
+            { DOF.THUMB2, _thumbFinger2 },
+            { DOF.SHOULDERABDUCTION, _shoulderAbductor },
+            { DOF.SHOULDERFLEXION, _shoulderFlexor },
+            { DOF.SHOULDERROTATION, _shoulderRotator },
+            { DOF.ELBOWFLEXION, _elbowFlexor },
+            { DOF.WRISTFLEXION, _wristFlexor },
+            { DOF.WRISTABDUCTION, _wristAbductor },
+            { DOF.WRISTSUPINATION, _wristSupinator }
+        };
+
+
     }
 
     private void FindJointLimits()
@@ -149,7 +208,6 @@ public class ArmController : MonoBehaviour
         }
     }
 
-
     private void LimitJoints()
     {
         var currentValues = _myArmature.GetValues();
@@ -193,32 +251,38 @@ public class ArmController : MonoBehaviour
     //update the armature from the public fields
     public void SetArmatureFromFields()
     {
-        var dofAngleDict = new Dictionary<DOF, float>
+        var angles = new Dictionary<DOF, float>
         {
-            { DOF.INDEX1, _indexFinger1Rot },
-            { DOF.INDEX2, _indexFinger2Rot },
-            { DOF.INDEX3, _indexFinger3Rot },
-            { DOF.MIDDLE1, _middleFinger1Rot },
-            { DOF.MIDDLE2, _middleFinger2Rot },
-            { DOF.MIDDLE3, _middleFinger3Rot },
-            { DOF.RING1, _ringFinger1Rot },
-            { DOF.RING2, _ringFinger2Rot },
-            { DOF.RING3, _ringFinger3Rot },
-            { DOF.PINKY1, _pinkyFinger1Rot },
-            { DOF.PINKY2, _pinkyFinger2Rot },
-            { DOF.PINKY3, _pinkyFinger3Rot },
-            { DOF.THUMB1, _thumbFinger1Rot },
-            { DOF.THUMB2, _thumbFinger2Rot },
-            { DOF.THUMB3, _thumbFinger3Rot },
+            { DOF.INDEXABDUCTION, _indexAbductionAngle },
+            { DOF.INDEX1, _index1Angle },
+            { DOF.INDEX2, _index2Angle },
+            { DOF.INDEX3, _index3Angle },
+            { DOF.MIDDLEABDUCTION, _middleAbductionAngle },
+            { DOF.MIDDLE1, _middle1Angle },
+            { DOF.MIDDLE2, _middle2Angle },
+            { DOF.MIDDLE3, _middle3Angle },
+            { DOF.RINGABDUCTION, _ringAbductionAngle },
+            { DOF.RING1, _ring1Angle },
+            { DOF.RING2, _ring2Angle },
+            { DOF.RING3, _ring3Angle },
+            { DOF.PINKYABDUCTION, _pinkyAbductionAngle },
+            { DOF.PALMROLL, _palmRollAngle },
+            { DOF.PINKY1, _pinky1Angle },
+            { DOF.PINKY2, _pinky2Angle },
+            { DOF.PINKY3, _pinky3Angle },
+            { DOF.THUMBABDUCTION, _thumbAbductionAngle },
+            { DOF.THUMBROLL, _thumbRollAngle },
+            { DOF.THUMB1, _thumb1Angle },
+            { DOF.THUMB2, _thumb2Angle },
             { DOF.SHOULDERABDUCTION, _shoulderAbductionAngle },
-            { DOF.SHOULDERFLEXION, _shoulderElevationAngle },
+            { DOF.SHOULDERFLEXION, _shoulderFlexionAngle },
             { DOF.SHOULDERROTATION, _shoulderRotationAngle },
             { DOF.ELBOWFLEXION, _elbowFlexionAngle },
             { DOF.WRISTFLEXION, _wristFlexionAngle },
             { DOF.WRISTABDUCTION, _wristAbductionAngle },
-            { DOF.WRISTSUPINATION, _wristRotationAngle }
+            { DOF.WRISTSUPINATION, _wristSupinationAngle }
         };
-        _myArmature = new ArmatureStructure(dofAngleDict);
+        _myArmature = new ArmatureStructure(angles);
     }
 
     //sets the serialized fields from the armature
@@ -226,34 +290,33 @@ public class ArmController : MonoBehaviour
     {
         var dofAngleDict = new Dictionary<DOF, float>(_myArmature.GetValues());
 
-        _indexFinger1Rot = dofAngleDict[DOF.INDEX1];
-        _indexFinger2Rot = dofAngleDict[DOF.INDEX2];
-        _indexFinger3Rot = dofAngleDict[DOF.INDEX3];
+        _index1Angle = dofAngleDict[DOF.INDEX1];
+        _index2Angle = dofAngleDict[DOF.INDEX2];
+        _index3Angle = dofAngleDict[DOF.INDEX3];
 
-        _middleFinger1Rot = dofAngleDict[DOF.MIDDLE1];
-        _middleFinger2Rot = dofAngleDict[DOF.MIDDLE2];
-        _middleFinger3Rot = dofAngleDict[DOF.MIDDLE3];
+        _middle1Angle = dofAngleDict[DOF.MIDDLE1];
+        _middle2Angle = dofAngleDict[DOF.MIDDLE2];
+        _middle3Angle = dofAngleDict[DOF.MIDDLE3];
 
-        _ringFinger1Rot = dofAngleDict[DOF.RING1];
-        _ringFinger2Rot = dofAngleDict[DOF.RING2];
-        _ringFinger3Rot = dofAngleDict[DOF.RING3];
+        _ring1Angle = dofAngleDict[DOF.RING1];
+        _ring2Angle = dofAngleDict[DOF.RING2];
+        _ring3Angle = dofAngleDict[DOF.RING3];
 
-        _pinkyFinger1Rot = dofAngleDict[DOF.PINKY1];
-        _pinkyFinger2Rot = dofAngleDict[DOF.PINKY2];
-        _pinkyFinger3Rot = dofAngleDict[DOF.PINKY3];
+        _pinky1Angle = dofAngleDict[DOF.PINKY1];
+        _pinky2Angle = dofAngleDict[DOF.PINKY2];
+        _pinky3Angle = dofAngleDict[DOF.PINKY3];
 
-        _thumbFinger1Rot = dofAngleDict[DOF.THUMB1];
-        _thumbFinger2Rot = dofAngleDict[DOF.THUMB2];
-        _thumbFinger3Rot = dofAngleDict[DOF.THUMB3];
+        _thumb1Angle = dofAngleDict[DOF.THUMB1];
+        _thumb2Angle = dofAngleDict[DOF.THUMB2];
 
         _shoulderAbductionAngle = dofAngleDict[DOF.SHOULDERABDUCTION];
-        _shoulderElevationAngle = dofAngleDict[DOF.SHOULDERFLEXION];
+        _shoulderFlexionAngle = dofAngleDict[DOF.SHOULDERFLEXION];
         _shoulderRotationAngle = dofAngleDict[DOF.SHOULDERROTATION];
 
         _elbowFlexionAngle = dofAngleDict[DOF.ELBOWFLEXION];
         _wristFlexionAngle = dofAngleDict[DOF.WRISTFLEXION];
         _wristAbductionAngle = dofAngleDict[DOF.WRISTABDUCTION];
-        _wristRotationAngle = dofAngleDict[DOF.WRISTSUPINATION];
+        _wristSupinationAngle = dofAngleDict[DOF.WRISTSUPINATION];
     }
 
 
@@ -269,42 +332,22 @@ public class ArmController : MonoBehaviour
     public void UpdateArm()
     {
         SetArmatureFromFields();
-        if (ImposeJointLimits && jointLimitDict.Count > 0)
+        //SetFieldsFromArmature();
+
+        var currentValues = _myArmature.GetValues();
+        foreach (var kvp in currentValues)
         {
-            //LimitJoints();
+            DOF dof = kvp.Key;
+            float angle = kvp.Value;
+            if (_transformsByDOF.ContainsKey(dof) && _jointAxisByDOFs.ContainsKey(dof) && _transformsByDOF[dof] != null)
+            {
+                Transform jointTransform = _transformsByDOF[dof];
+                Vector3 axis = _jointAxisByDOFs[dof];
+                jointTransform.localRotation = Quaternion.AngleAxis(angle, axis);
+                print($"setting {dof} to {angle}");
+
+            }
         }
-        SetFieldsFromArmature();
-
-        _shoulderAbductor.localRotation = Quaternion.Euler(new Vector3(0, _shoulderAbductionAngle, 0));
-        _shoulderFlexor.localRotation = Quaternion.Euler(new Vector3(_shoulderElevationAngle, 0, 0));
-        _shoulderRotator.localRotation = Quaternion.Euler(new Vector3(0, _shoulderRotationAngle, 0));
-
-        _elbowFlexor.localRotation = Quaternion.Euler(new Vector3(0, 0, _elbowFlexionAngle));
-
-        _wristRotation.transform.localRotation = Quaternion.Euler(new Vector3(0, _wristRotationAngle, 0));
-        _wristAbductor.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, _wristAbductionAngle));
-        _wristFlexor.transform.localRotation = Quaternion.Euler(new Vector3(_wristFlexionAngle, 0, 0));
-
-        _indexFinger1.transform.localRotation = Quaternion.Euler(new Vector3(_indexFinger1Rot, 0, 0));
-        _indexFinger2.transform.localRotation = Quaternion.Euler(new Vector3(_indexFinger2Rot, 0, 0));
-        _indexFinger3.transform.localRotation = Quaternion.Euler(new Vector3(_indexFinger3Rot, 0, 0));
-
-        _middleFinger1.transform.localRotation = Quaternion.Euler(new Vector3(_middleFinger1Rot, 0, 0));
-        _middleFinger2.transform.localRotation = Quaternion.Euler(new Vector3(_middleFinger2Rot, 0, 0));
-        _middleFinger3.transform.localRotation = Quaternion.Euler(new Vector3(_middleFinger3Rot, 0, 0));
-
-        _ringFinger1.transform.localRotation = Quaternion.Euler(new Vector3(_ringFinger1Rot, 0, 0));
-        _ringFinger2.transform.localRotation = Quaternion.Euler(new Vector3(_ringFinger2Rot, 0, 0));
-        _ringFinger3.transform.localRotation = Quaternion.Euler(new Vector3(_ringFinger3Rot, 0, 0));
-
-        _pinkyFinger1.transform.localRotation = Quaternion.Euler(new Vector3(_pinkyFinger1Rot, 0, 0));
-        _pinkyFinger2.transform.localRotation = Quaternion.Euler(new Vector3(_pinkyFinger2Rot, 0, 0));
-        _pinkyFinger3.transform.localRotation = Quaternion.Euler(new Vector3(_pinkyFinger3Rot, 0, 0));
-
-        _thumbFinger1.transform.localRotation = Quaternion.Euler(new Vector3(_thumbFinger1Rot, 0, 0));
-        _thumbFinger2.transform.localRotation = Quaternion.Euler(new Vector3(_thumbFinger2Rot, 0, 0));
-        _thumbFinger3.transform.localRotation = Quaternion.Euler(new Vector3(_thumbFinger3Rot, 0, 0));
-
     }
 
     //inputs a dictionary of DOFS with their new values. this method then sets the DOF dict to reflect these changes.
@@ -337,3 +380,4 @@ public class ArmController : MonoBehaviour
         return _myArmature;
     }
 }
+
