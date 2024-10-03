@@ -12,7 +12,7 @@ public class TrialController : MonoBehaviour
 
     private void Start()
     {
-        Hardpoint hardPoint = new Hardpoint("localhost:6379");
+        Hardpoint hardPoint = new Hardpoint();
         var buddyParams = hardPoint.GetBuddyParameters("trial_controller");
         string pose1 = buddyParams["pose_name1"];
         string pose2 = buddyParams["pose_name2"];

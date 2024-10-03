@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = NugetForUnity
+build_property.ProjectDir = /home/sam/Desktop/Github/UnityVisualizer/Visualizer/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

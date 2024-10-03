@@ -366,12 +366,14 @@
 -analyzer:"Assets/CSNode/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll"
 "Assets/ArmController.cs"
 "Assets/ArmatureStructure.cs"
+"Assets/CSNode/BRANDAccessor.cs"
 "Assets/CSNode/CSNode.cs"
 "Assets/CSNode/Hardpoint.cs"
 "Assets/CSNode/UnityNode.cs"
 "Assets/ControlPanel.cs"
 "Assets/CybergloveReader.cs"
 "Assets/MBind.cs"
+"Assets/MJConnector.cs"
 "Assets/MJStrip.cs"
 "Assets/OpenLoopReader.cs"
 "Assets/PoseBuilder/CameraController.cs"
@@ -390,6 +392,7 @@
 "Assets/Unity-Logs-Viewer-master/Reporter/ReporterMessageReceiver.cs"
 "Assets/Unity-Logs-Viewer-master/Reporter/Test/Rotate.cs"
 "Assets/Unity-Logs-Viewer-master/Reporter/Test/TestReporter.cs"
+"Assets/XmlLoad.cs"
 "Assets/thingthing.cs"
 -langversion:9.0
 /deterministic

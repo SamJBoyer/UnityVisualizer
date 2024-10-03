@@ -7,9 +7,6 @@ using UnityEngine;
 public class MJStrip : MonoBehaviour
 {
 
-
-
-
     public void RemoveMJComponents()
     {
         Transform targetTransform = this.transform;

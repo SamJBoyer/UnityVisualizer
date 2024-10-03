@@ -16,7 +16,7 @@ public class OpenLoopReader : MonoBehaviour
 
     void Start()
     {
-        _hardpoint = new Hardpoint(new string[] { "current_armature", "target_armature" }, "localhost:6379");
+        _hardpoint = new Hardpoint(new string[] { "current_armature", "target_armature" });
     }
 
 

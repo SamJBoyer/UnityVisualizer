@@ -381,6 +381,7 @@
 -analyzer:"Assets/CSNode/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll"
 "Assets/Editor/BuildScript.cs"
 "Assets/Editor/MJStrip_editor.cs"
+"Assets/Editor/XmlLoad_editor.cs"
 "Assets/Unity-Logs-Viewer-master/Reporter/Editor/ReporterEditor.cs"
 -langversion:9.0
 /deterministic
