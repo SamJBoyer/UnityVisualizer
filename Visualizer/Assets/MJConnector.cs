@@ -13,7 +13,7 @@ public class MJConnector : MonoBehaviour
 
     void Start()
     {
-        _mjAccessor = new BRANDAccessor(); //get a connection to the unity node
+        //_mjAccessor = new BRANDAccessor(); //get a connection to the unity node
 
     }
 

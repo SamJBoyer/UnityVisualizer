@@ -295,6 +295,7 @@ public class CSNode
     //what happend to while true? maybe this is blocked so it can't be in the generic class 
     protected virtual void Run()
     {
+        //CHANGE TO ASYNC!!
         while (true)
         {
             Work();
