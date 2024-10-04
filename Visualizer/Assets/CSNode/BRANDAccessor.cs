@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System;
 using StackExchange.Redis;
 using System.Linq;
+using System.Collections.Concurrent;
+using System.Runtime.InteropServices;
 
 /// <summary>
 /// author: Samuel James Boyer
@@ -31,23 +33,29 @@ public class BRANDAccessor
         //get an reference to the unity node component
         if (UnityNodeManager == null)
         {
-            UnityNodeManager = new GameObject("UnityNodeManager").AddComponent<UnityNodeManager>();
+            UnityNodeManager = GameObject.Find("Unity Node").GetComponent<UnityNodeManager>();
         }
         _bufferSize = bufferSize;
         _streamName = streamName;
         _redisData = new Queue<StreamEntry>(_bufferSize);
         //by default the accessor will read the latest data from the stream and add it to the buffer unless custom lambda is given
-        UnityNodeManager.AddReadTask(customLambda == null ? (x) => AddLatestToBuffer(x) : (x) => customLambda(x));
+        //UnityNodeManager.AddReadTask(customLambda == null ? async (x) => await AddLatestToBuffer(x) : (x) => customLambda(x));
+        //UnityNodeManager.AddReadTask(async (x) => await AddLatestToBuffer(x));
+        //UnityNodeManager.AddReadTask((x) => TestTask(x));
+        //UnityNodeManager.AddReadTask((x) => TestTask2(x));
+        //UnityNodeManager.AddReadTask((x) => TestTask3(x));
+        UnityNodeManager.AddReadTask((x) => AddLatestToBuffer(x));
     }
 
     //gets the latest data and adds it to data buffer. Does not read duplicates 
-    private async void AddLatestToBuffer(UnityNode unityNode)
+    private async Task AddLatestToBuffer(UnityNode unityNode)
     {
-        //StreamEntry? latestData = await unityNode.ReadLatestAsync(_streamName);
-
-        StreamEntry[] result = await unityNode.GetDatabase().StreamRangeAsync(_streamName, "-", "+", 1, Order.Descending);
+        //Debug.Log($"reading from stream from {this} looking for {_streamName} at {_streamIDHead} with {unityNode}");
+        IDatabase database = unityNode.GetDatabase();
+        StreamEntry[] result = await database.StreamRangeAsync(_streamName, "-", "+", 1, Order.Descending);
         if (result.Any())
         {
+            //Debug.Log("adding to buffer");
             StreamEntry entry = result.First();
             if (entry.Id != _streamIDHead)
             {
@@ -55,6 +63,31 @@ public class BRANDAccessor
                 this.EnqueueData(entry);
             }
         }
+        else
+        {
+            Debug.Log("no data found");
+        }
+    }
+
+
+
+    private async Task TestTask(UnityNode unityNode)
+    {
+        int n = 5;
+        Debug.Log($"rand {n}");
+        await Task.Delay(1000);
+    }
+
+    private async Task TestTask3(UnityNode unityNode)
+    {
+        await Task.Delay(10);
+        Debug.Log("test task completed 3");
+    }
+
+    private async Task TestTask2(UnityNode unityNode)
+    {
+        await Task.Delay(7000);
+        Debug.Log("test task completed 2");
     }
 
     public void EnqueueData(StreamEntry newData)
@@ -71,7 +104,6 @@ public class BRANDAccessor
         _redisData.TryDequeue(out StreamEntry data);
         return data;
     }
-
 
     //wrapper for write to redis that passes this message request as a task
     public static void WriteToRedis<T>(string streamName, Dictionary<string, T> data)

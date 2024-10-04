@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 /// 
 /// </summary>
 
-public class Hardpoint : UnityNode
+public class Hardpoint : CSNode
 {
     private Dictionary<string, Dictionary<string, string>> _instantDataDict; //dictionary of the most recent entry in the channel
 
@@ -25,7 +25,7 @@ public class Hardpoint : UnityNode
 
     //adding an override string as an argument means the node will connect synchronously and should only be used when
     //debugging from the unity editor 
-    public Hardpoint(string[] channels, bool runOpen = true) : base(runOpen)
+    public Hardpoint(string[] channels, bool runOpen = true) : base()
     {
         _instantDataDict = new Dictionary<string, Dictionary<string, string>>();
         _channelDataQueue = new Dictionary<string, (string, Queue<Dictionary<string, string>>)>();
@@ -41,7 +41,7 @@ public class Hardpoint : UnityNode
     }
 
     //if no channels are given as an argument, automatically read from input_streams 
-    public Hardpoint(bool runOpen = true) : base(runOpen)
+    public Hardpoint(bool runOpen = true) : base()
     {
         Debug.Log("starting hardpoint");
         _instantDataDict = new Dictionary<string, Dictionary<string, string>>();

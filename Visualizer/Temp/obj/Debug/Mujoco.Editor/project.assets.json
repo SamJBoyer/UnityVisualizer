@@ -1,0 +1,84 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETStandard,Version=v2.1": {
+      "Mujoco.Runtime/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Mujoco.Runtime.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Mujoco.Runtime.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Mujoco.Runtime/1.0.0": {
+      "type": "project",
+      "path": "Mujoco.Runtime.csproj",
+      "msbuildProject": "Mujoco.Runtime.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETStandard,Version=v2.1": [
+      "Mujoco.Runtime >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/sam/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Mujoco.Editor.csproj",
+      "projectName": "Mujoco.Editor",
+      "projectPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Mujoco.Editor.csproj",
+      "packagesPath": "/home/sam/.nuget/packages/",
+      "outputPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Temp/obj/Debug/Mujoco.Editor/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/sam/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netstandard2.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "projectReferences": {
+            "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Mujoco.Runtime.csproj": {
+              "projectPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Mujoco.Runtime.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

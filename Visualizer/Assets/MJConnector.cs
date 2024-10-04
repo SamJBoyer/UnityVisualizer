@@ -13,14 +13,11 @@ public class MJConnector : MonoBehaviour
 
     void Start()
     {
-        //_mjAccessor = new BRANDAccessor(); //get a connection to the unity node
+        _mjAccessor = new BRANDAccessor("test", 1);
+        var adata = _mjAccessor.DequeueData();
+        print(adata);
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        _writeTasks.Add(_hardpoint.WriteToStream("mocap", "value", "hello"));
 
-    }
 }

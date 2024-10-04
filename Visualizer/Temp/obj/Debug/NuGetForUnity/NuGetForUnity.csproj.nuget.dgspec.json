@@ -1,0 +1,56 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/NuGetForUnity.csproj": {}
+  },
+  "projects": {
+    "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/NuGetForUnity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/NuGetForUnity.csproj",
+        "projectName": "NuGetForUnity",
+        "projectPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/NuGetForUnity.csproj",
+        "packagesPath": "/home/sam/.nuget/packages/",
+        "outputPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Temp/obj/Debug/NuGetForUnity/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/sam/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using StackExchange.Redis;
 using System;
 using System.Linq;
-
+using System.Collections.Concurrent;
 
 /// <summary>
 /// author: Samuel James Boyer
@@ -23,6 +23,9 @@ public class UnityNodeManager : MonoBehaviour
     public static readonly List<BRANDAccessor> BRANDAccessors = new List<BRANDAccessor>();
     //read tasks are run on seperate threads because they need to run constantly
     private readonly List<Task> _readTasks = new List<Task>();
+    private readonly List<Func<UnityNode, Task>> _readTaskFactories = new List<Func<UnityNode, Task>>();
+    private volatile bool _isRunning = false;
+    List<IEnumerator> ex = new List<IEnumerator>();
 
     private void Start()
     {
@@ -31,7 +34,10 @@ public class UnityNodeManager : MonoBehaviour
             Debug.LogError("Unity Node Manager must be named 'Unity Node.' Accessors will not be able to find this resource");
         }
         _node = new UnityNode(RunNodeOpen, BRANDAccessors);
-        StartCoroutine(_node.StartReaders(_readTasks));
+        //StartCoroutine(_node.StartReaders(_readTaskFactories));
+        Task.WhenAll(_readTasks);
+        _isRunning = true;
+
     }
 
     //method to call write class from the main thread which is then offloaded as an non-blocking enumerator
@@ -51,16 +57,34 @@ public class UnityNodeManager : MonoBehaviour
                 Debug.LogError(task.Exception);
             }
         }
-
     }
 
-    public void AddReadTask(Action<UnityNode> task)
+
+
+    public void AddReadTask(Func<UnityNode, Task> task)
     {
-        _readTasks.Add(Task.Run(() => task(_node)));
-    }
+        _readTasks.Add(MakeRepeatingTask(task));
+        async Task MakeRepeatingTask(Func<UnityNode, Task> task)
+        {
+            while (Application.isPlaying)
+            {
+                try
+                {
+                    await Task.Run(async () =>
+                        await task(_node)
+                    );
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError(ex);
+                }
 
-    //override the read top method because we are going to want multiple instances of the top key for each accessor
+            }
+        }
+    }
 }
+//override the read top method because we are going to want multiple instances of the top key for each accessor
+
 
 /// <summary>
 /// author: Samuel James Boyer
@@ -103,14 +127,18 @@ public class UnityNode : CSNode
     //run all the read tasks in parallel
     private async Task RunReadTasksAsync(List<Task> cyclicalTasks)
     {
+        Debug.Log($"running read tasks with {cyclicalTasks.Count} tasks");
         await Task.WhenAll(cyclicalTasks);
+        Debug.Log("all read tasks completed");
     }
 
     //run read tasks in a loop as an IEnumerator for unity asyc abilities
-    public IEnumerator StartReaders(List<Task> cyclicalTasks)
+    public IEnumerator StartReaders(List<Func<UnityNode, Task>> taskFactories)
     {
-        while (Application.isPlaying && _currentState.Equals(Status.NODE_READY))
+        //Debug.Log($"starting read tasks with {cyclicalTasks.Count} tasks");
+        while (Application.isPlaying)
         {
+            List<Task> cyclicalTasks = taskFactories.Select(x => Task.Run(() => x(this))).ToList();
             yield return RunReadTasksAsync(cyclicalTasks);
         }
     }

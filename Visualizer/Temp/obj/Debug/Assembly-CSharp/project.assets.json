@@ -1,0 +1,125 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETStandard,Version=v2.1": {
+      "Mujoco.Editor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Mujoco.Runtime": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Mujoco.Editor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Mujoco.Editor.dll": {}
+        }
+      },
+      "Mujoco.Runtime/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Mujoco.Runtime.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Mujoco.Runtime.dll": {}
+        }
+      },
+      "NuGetForUnity/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/NuGetForUnity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NuGetForUnity.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Mujoco.Editor/1.0.0": {
+      "type": "project",
+      "path": "Mujoco.Editor.csproj",
+      "msbuildProject": "Mujoco.Editor.csproj"
+    },
+    "Mujoco.Runtime/1.0.0": {
+      "type": "project",
+      "path": "Mujoco.Runtime.csproj",
+      "msbuildProject": "Mujoco.Runtime.csproj"
+    },
+    "NuGetForUnity/1.0.0": {
+      "type": "project",
+      "path": "NuGetForUnity.csproj",
+      "msbuildProject": "NuGetForUnity.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETStandard,Version=v2.1": [
+      "Mujoco.Editor >= 1.0.0",
+      "Mujoco.Runtime >= 1.0.0",
+      "NuGetForUnity >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/sam/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Assembly-CSharp.csproj",
+      "projectName": "Assembly-CSharp",
+      "projectPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Assembly-CSharp.csproj",
+      "packagesPath": "/home/sam/.nuget/packages/",
+      "outputPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Temp/obj/Debug/Assembly-CSharp/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/sam/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netstandard2.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "projectReferences": {
+            "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Mujoco.Editor.csproj": {
+              "projectPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Mujoco.Editor.csproj"
+            },
+            "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Mujoco.Runtime.csproj": {
+              "projectPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/Mujoco.Runtime.csproj"
+            },
+            "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/NuGetForUnity.csproj": {
+              "projectPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/NuGetForUnity.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

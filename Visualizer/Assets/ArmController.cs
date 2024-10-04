@@ -344,7 +344,7 @@ public class ArmController : MonoBehaviour
                 Transform jointTransform = _transformsByDOF[dof];
                 Vector3 axis = _jointAxisByDOFs[dof];
                 jointTransform.localRotation = Quaternion.AngleAxis(angle, axis);
-                print($"setting {dof} to {angle}");
+                //print($"setting {dof} to {angle}");
 
             }
         }
