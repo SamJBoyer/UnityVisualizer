@@ -1,0 +1,6 @@
+nodes:
+  - name: text
+    nickname: text
+    module: text
+    parameters:
+      log: dropdown-[A,B,C]

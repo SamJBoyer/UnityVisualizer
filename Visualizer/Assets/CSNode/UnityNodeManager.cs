@@ -24,8 +24,6 @@ public class UnityNodeManager : MonoBehaviour
     //read tasks are run on seperate threads because they need to run constantly
     private readonly List<Task> _readTasks = new List<Task>();
     private readonly List<Func<UnityNode, Task>> _readTaskFactories = new List<Func<UnityNode, Task>>();
-    private volatile bool _isRunning = false;
-    List<IEnumerator> ex = new List<IEnumerator>();
 
     private void Start()
     {
@@ -33,10 +31,9 @@ public class UnityNodeManager : MonoBehaviour
         {
             Debug.LogError("Unity Node Manager must be named 'Unity Node.' Accessors will not be able to find this resource");
         }
-        _node = new UnityNode(RunNodeOpen, BRANDAccessors);
         //StartCoroutine(_node.StartReaders(_readTaskFactories));
+        _node = new UnityNode(RunNodeOpen, BRANDAccessors);
         Task.WhenAll(_readTasks);
-        _isRunning = true;
 
     }
 
@@ -97,8 +94,7 @@ public class UnityNodeManager : MonoBehaviour
 /// </summary>
 public class UnityNode : CSNode
 {
-    //unique accessors to the redis-database 
-    private List<BRANDAccessor> _accessors;
+
     //if false is passed the node will connect to redis as if it was launched as a standalone app by the BRAND supervisor
     public UnityNode(bool runOpen, List<BRANDAccessor> accessors) : base()
     {

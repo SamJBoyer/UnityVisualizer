@@ -19,5 +19,11 @@ public class MJConnector : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        Dictionary<string, int> data = new Dictionary<string, int>() { { "data", 7 } };
+        BRANDAccessor.WriteToRedis("mocap", data);
+    }
+
 
 }

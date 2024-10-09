@@ -363,6 +363,7 @@
 -r:"Library/Bee/artifacts/2400b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/2400b0aE.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/2400b0aE.dag/UnityEngine.UI.ref.dll"
+-r:"Library/Bee/artifacts/2400b0aE.dag/YamlDotNet.ref.dll"
 -analyzer:"/home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"Assets/CSNode/Packages/Microsoft.Extensions.Logging.Abstractions.6.0.0/analyzers/dotnet/roslyn4.0/cs/Microsoft.Extensions.Logging.Generators.dll"
@@ -382,6 +383,7 @@
 "Assets/Editor/BuildScript.cs"
 "Assets/Editor/MJStrip_editor.cs"
 "Assets/Editor/XmlLoad_editor.cs"
+"Assets/Editor/YamlParser_editor.cs"
 "Assets/Unity-Logs-Viewer-master/Reporter/Editor/ReporterEditor.cs"
 -langversion:9.0
 /deterministic

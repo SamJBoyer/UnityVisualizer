@@ -34,6 +34,16 @@
         "runtime": {
           "bin/placeholder/NuGetForUnity.dll": {}
         }
+      },
+      "YamlDotNet/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/YamlDotNet.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/YamlDotNet.dll": {}
+        }
       }
     }
   },
@@ -52,13 +62,19 @@
       "type": "project",
       "path": "NuGetForUnity.csproj",
       "msbuildProject": "NuGetForUnity.csproj"
+    },
+    "YamlDotNet/1.0.0": {
+      "type": "project",
+      "path": "YamlDotNet.csproj",
+      "msbuildProject": "YamlDotNet.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
       "Mujoco.Editor >= 1.0.0",
       "Mujoco.Runtime >= 1.0.0",
-      "NuGetForUnity >= 1.0.0"
+      "NuGetForUnity >= 1.0.0",
+      "YamlDotNet >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -94,6 +110,9 @@
             },
             "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/NuGetForUnity.csproj": {
               "projectPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/NuGetForUnity.csproj"
+            },
+            "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/YamlDotNet.csproj": {
+              "projectPath": "/home/sam/Desktop/Github/UnityVisualizer/Visualizer/YamlDotNet.csproj"
             }
           }
         }

@@ -225,6 +225,10 @@ public class CSNode
                 NameValueEntry newEntry = new NameValueEntry(name, entry);
                 packedDataList.Add(newEntry);
             }
+            else if (typeof(T) == typeof(string))
+            {
+
+            }
             else
             {
                 Debug.LogError("The type T is not a primitive type, string, or array of primitives.");
