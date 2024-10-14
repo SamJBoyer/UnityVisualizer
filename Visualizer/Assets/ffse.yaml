@@ -1,7 +1,6 @@
 nodes:
-- name: &74312839 default
-  nickname: default
-  module: default
-  parameters:
-    log: a
-...
+  - name: &1280767994 default
+    nickname: default
+    module: default
+    parameters:
+      log: a

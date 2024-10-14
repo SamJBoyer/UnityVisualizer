@@ -24,7 +24,7 @@ AssetImportWorker1
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-44363
+43177
 Successfully changed project path to: /home/sam/Desktop/Github/UnityVisualizer/Visualizer
 /home/sam/Desktop/Github/UnityVisualizer/Visualizer
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -58,13 +58,13 @@ Successfully changed project path to: /home/sam/Desktop/Github/UnityVisualizer/V
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [125769619907520] Host "[IP] 192.168.1.143 [Port] 0 [Flags] 2 [Guid] 3331980558 [EditorId] 3331980558 [Version] 1048832 [Id] LinuxEditor(16,192.168.1.143) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [134037797458880] Host "[IP] 172.20.112.111 [Port] 0 [Flags] 2 [Guid] 656954576 [EditorId] 656954576 [Version] 1048832 [Id] LinuxEditor(16,172.20.112.111) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [125769619907520] Host "[IP] 192.168.1.143 [Port] 0 [Flags] 2 [Guid] 3331980558 [EditorId] 3331980558 [Version] 1048832 [Id] LinuxEditor(16,192.168.1.143) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [134037797458880] Host "[IP] 172.20.112.111 [Port] 0 [Flags] 2 [Guid] 656954576 [EditorId] 656954576 [Version] 1048832 [Id] LinuxEditor(16,172.20.112.111) [Debug] 1 [PackageName] LinuxEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
-Refreshing native plugins compatible for Editor in 3.96 ms, found 1 plugins.
-Preloading 1 native plugins for Editor in 0.62 ms.
+Refreshing native plugins compatible for Editor in 8.80 ms, found 1 plugins.
+Preloading 1 native plugins for Editor in 2.46 ms.
 Initialize engine version: 2022.3.32f1 (c8300dc0a3fa)
 [Subsystems] Discovering subsystems at path /home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Assets
@@ -79,51 +79,51 @@ int_sprite GL_ARB_polygon_offset_clamp GL_ARB_post_depth_coverage GL_ARB_program
 L_ARB_texture_buffer_object GL_ARB_texture_buffer_object_rgb32 GL_ARB_texture_buffer_range GL_ARB_texture_compression_bptc GL_ARB_texture_compression_rgtc GL_ARB_texture_cube_map_array GL_ARB_texture_filter_anisotropic GL_ARB_texture_float GL_ARB_texture_gather GL_ARB_texture_mirror_clamp_to_edge GL_ARB_texture_multisample GL_ARB_texture_non_power_of_two GL_ARB_texture_query_levels GL_ARB_texture_query_lod GL_ARB_texture_rectangle GL_ARB_texture_rg GL_ARB_texture_rgb10_a2ui GL_ARB_texture_stencil8 GL_ARB_texture_storage GL_ARB_texture_storage_multisample GL_ARB_texture_swizzle GL_ARB_texture_view GL_ARB_timer_query GL_ARB_transform_feedback2 GL_ARB_transform_feedback3 GL_ARB_transform_feedback_instanced GL_ARB_transform_feedback_overflow_query GL_ARB_uniform_buffer_object GL_ARB_vertex_array_bgra GL_ARB_vertex_array_object GL_ARB_vertex_attrib_64bit GL_ARB_vertex_attrib_binding GL_ARB_vertex_buffer_object GL_ARB_vertex_shader GL_ARB_vertex_type_10f_11f_11f_rev GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_viewpor
 t_array GL_ATI_blend_equation_separate GL_ATI_texture_float GL_EXT_EGL_image_storage GL_EXT_EGL_sync GL_EXT_abgr GL_EXT_blend_equation_separate GL_EXT_debug_label GL_EXT_demote_to_helper_invocation GL_EXT_depth_bounds_test GL_EXT_draw_buffers2 GL_EXT_draw_instanced GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_EXT_framebuffer_multisample_blit_scaled GL_EXT_framebuffer_object GL_EXT_framebuffer_sRGB GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_packed_depth_stencil GL_EXT_packed_float GL_EXT_pixel_buffer_object GL_EXT_polygon_offset_clamp GL_EXT_provoking_vertex GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_shader_framebuffer_fetch GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_shader_integer_mix GL_EXT_shader_samples_identical GL_EXT_texture_array GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_compression_s3tc GL_EXT_texture_filter_anisotropic GL_EXT_texture_integer GL_EXT_texture_sRGB GL_EXT_texture_sRGB_R8 GL_EXT_texture_sRGB_decode GL_EXT_texture_shadow
 _lod GL_EXT_texture_shared_exponent GL_EXT_texture_snorm GL_EXT_texture_swizzle GL_EXT_timer_query GL_EXT_transform_feedback GL_EXT_vertex_array_bgra GL_EXT_vertex_attrib_64bit GL_IBM_multimode_draw_arrays GL_INTEL_blackhole_render GL_INTEL_conservative_rasterization GL_INTEL_performance_query GL_INTEL_shader_atomic_float_minmax GL_INTEL_shader_integer_functions2 GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_debug GL_KHR_no_error GL_KHR_parallel_shader_compile GL_KHR_robust_buffer_access_behavior GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_KHR_texture_compression_astc_sliced_3d GL_MESA_framebuffer_flip_y GL_MESA_pack_invert GL_MESA_shader_integer_functions GL_MESA_texture_signed_rgba GL_NV_alpha_to_coverage_dither_control GL_NV_compute_shader_derivatives GL_NV_conditional_render GL_NV_copy_image GL_NV_depth_clamp GL_NV_fragment_shader_interlock GL_NV_packed_depth_stencil GL_NV_texture_barrier GL_OES_EGL_image GL_S3_s3tc
-OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle -252982272
+OPENGL LOG: Creating OpenGL 4.6 graphics device ; Context level  <OpenGL 4.5> ; Context handle -1150772816
 Initialize mono
 Mono path[0] = '/home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/Managed'
 Mono path[1] = '/home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-linux'
 Mono config path = '/home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56188
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56863
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /home/sam/Unity/Hub/Editor/2022.3.32f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.004121 seconds.
-- Loaded All Assemblies, in  0.289 seconds
+Registered in 0.007855 seconds.
+- Loaded All Assemblies, in  0.577 seconds
 Native extension for LinuxStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.281 seconds
-Domain Reload Profiling: 571ms
-	BeginReloadAssembly (76ms)
+- Finished resetting the current domain, in  0.501 seconds
+Domain Reload Profiling: 1079ms
+	BeginReloadAssembly (190ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (30ms)
-	RebuildNativeTypeToScriptingClass (5ms)
-	initialDomainReloadingComplete (52ms)
-	LoadAllAssembliesAndSetupDomain (125ms)
-		LoadAssemblies (75ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (58ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (104ms)
+	LoadAllAssembliesAndSetupDomain (211ms)
+		LoadAssemblies (189ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (124ms)
-			TypeCache.Refresh (123ms)
-				TypeCache.ScanAssembly (109ms)
+		AnalyzeDomain (208ms)
+			TypeCache.Refresh (206ms)
+				TypeCache.ScanAssembly (185ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (282ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (501ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (225ms)
+		SetupLoadedEditorAssemblies (396ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (8ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (23ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (160ms)
-			ProcessInitializeOnLoadMethodAttributes (49ms)
+			BeforeProcessingInitializeOnLoad (5ms)
+			ProcessInitializeOnLoadAttributes (240ms)
+			ProcessInitializeOnLoadMethodAttributes (107ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -131,36 +131,36 @@ Domain Reload Profiling: 571ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-Symbol file data-0x6212f37d2190 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file data-0x5b96bca61180 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.Timeline.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f3b16a30 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
+Symbol file data-0x5b96be4ad600 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f3b18c40 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll
+Symbol file data-0x5b96be4aff30 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f25d4eb0 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file data-0x5b96bd3c6370 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f3971fd0 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
+Symbol file data-0x5b96be67af90 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f2882c30 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Mujoco.Editor.dll
+Symbol file data-0x5b96bbf75ac0 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Mujoco.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f1a3c330 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file data-0x5b96bdfdd200 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f2882c30 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.Settings.Editor.dll
+Symbol file data-0x5b96bd2a7590 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.Settings.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f3b18c40 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file data-0x5b96bd35ec30 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f37845b0 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file data-0x5b96bc072d30 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.TextMeshPro.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f2618b00 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file data-0x5b96bd3ed0b0 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/UnityEditor.UI.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f29fe230 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file data-0x5b96bc9c58a0 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f2851e40 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file data-0x5b96be823030 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/UnityEngine.UI.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-0x6212f2882c30 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file data-0x5b96bd2a7590 doesn't match image /home/sam/Desktop/Github/UnityVisualizer/Visualizer/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  0.711 seconds
-Refreshing native plugins compatible for Editor in 2.12 ms, found 1 plugins.
+- Loaded All Assemblies, in  1.022 seconds
+Refreshing native plugins compatible for Editor in 2.22 ms, found 1 plugins.
 Native extension for LinuxStandalone target not found
 Native extension for WebGL target not found
 Package Manager log level set to [2]
@@ -168,47 +168,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.854 seconds
-Domain Reload Profiling: 1564ms
-	BeginReloadAssembly (124ms)
+- Finished resetting the current domain, in  0.788 seconds
+Domain Reload Profiling: 1810ms
+	BeginReloadAssembly (225ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
+		DisableScriptedObjects (9ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (25ms)
-	RebuildCommonClasses (35ms)
-	RebuildNativeTypeToScriptingClass (6ms)
-	initialDomainReloadingComplete (82ms)
-	LoadAllAssembliesAndSetupDomain (462ms)
-		LoadAssemblies (338ms)
+		CreateAndSetChildDomain (62ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (58ms)
+	LoadAllAssembliesAndSetupDomain (696ms)
+		LoadAssemblies (590ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (185ms)
-			TypeCache.Refresh (168ms)
-				TypeCache.ScanAssembly (146ms)
-			ScanForSourceGeneratedMonoScriptInfo (14ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (855ms)
+		AnalyzeDomain (205ms)
+			TypeCache.Refresh (183ms)
+				TypeCache.ScanAssembly (156ms)
+			ScanForSourceGeneratedMonoScriptInfo (18ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (789ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (656ms)
+		SetupLoadedEditorAssemblies (485ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (11ms)
-			SetLoadedEditorAssemblies (7ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (73ms)
-			ProcessInitializeOnLoadAttributes (530ms)
-			ProcessInitializeOnLoadMethodAttributes (32ms)
+			ProcessInitializeOnLoadAttributes (370ms)
+			ProcessInitializeOnLoadMethodAttributes (25ms)
 			AfterProcessingInitializeOnLoad (3ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (7ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
 Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
-Refreshing native plugins compatible for Editor in 2.22 ms, found 1 plugins.
-Preloading 1 native plugins for Editor in 0.28 ms.
+Refreshing native plugins compatible for Editor in 3.33 ms, found 1 plugins.
+Preloading 1 native plugins for Editor in 0.34 ms.
 Unloading 2021 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 67 unused Assets / (69.3 KB). Loaded Objects now: 2445.
+Unloading 67 unused Assets / (69.2 KB). Loaded Objects now: 2445.
 Memory consumption went from 96.8 MB to 96.7 MB.
-Total: 5.136283 ms (FindLiveObjects: 0.650646 ms CreateObjectMapping: 0.158926 ms MarkObjects: 3.987507 ms  DeleteObjects: 0.336580 ms)
+Total: 17.552453 ms (FindLiveObjects: 0.484869 ms CreateObjectMapping: 0.311560 ms MarkObjects: 15.693455 ms  DeleteObjects: 1.058090 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
@@ -224,19 +224,10 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 6816.593164 seconds.
-  path: Assets/ArmController.cs
-  artifactKey: Guid(ce77cee051b857d41a309d63c3162c64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArmController.cs using Guid(ce77cee051b857d41a309d63c3162c64) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
- -> (artifact id: 'aaadfa57fbff22528cb1ec1ad7623338') in 0.006495 seconds
+  Time since last request: 9362.846412 seconds.
+  path: Assets/ffse.yaml
+  artifactKey: Guid(8bd01d746ea02cf6896d3d0bc9577b69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ffse.yaml using Guid(8bd01d746ea02cf6896d3d0bc9577b69) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '21bc400f3fafc5b53a4ec8384091e725') in 0.012861 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.000083 seconds.
-  path: Assets/ArmatureStructure.cs
-  artifactKey: Guid(203dedc19fff699d4b1e5a4380378570) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ArmatureStructure.cs using Guid(203dedc19fff699d4b1e5a4380378570) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
- -> (artifact id: '8525efebc07cd15cdde8b4409c7652ac') in 0.000550 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 1

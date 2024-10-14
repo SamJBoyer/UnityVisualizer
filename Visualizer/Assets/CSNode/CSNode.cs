@@ -218,21 +218,25 @@ public class CSNode
         {
             string name = kvp.Key;
             T element = kvp.Value;
-            if (typeof(T).IsPrimitive || typeof(T) == typeof(string) || (typeof(T).IsArray && typeof(T).GetElementType().IsPrimitive))
+            byte[] byteArray;
+
+            if (typeof(T).IsPrimitive)
             {
-                byte[] byteArray = PrimitiveConverter.ToByteArray(element);
-                string entry = Convert.ToBase64String(byteArray); // Convert byte array to a base64 string
-                NameValueEntry newEntry = new NameValueEntry(name, entry);
-                packedDataList.Add(newEntry);
+                byteArray = PrimitiveConverter.ToBytes(element);
+            } else if (typeof(T).IsArray && typeof(T).GetElementType().IsPrimitive){
+                byteArray = PrimitiveConverter.ToByteArray((Array)(object)element);
             }
             else if (typeof(T) == typeof(string))
             {
-
+                byteArray = Encoding.UTF8.GetBytes((string)(object)element);
             }
             else
             {
                 Debug.LogError("The type T is not a primitive type, string, or array of primitives.");
+                return;
             }
+            NameValueEntry newEntry = new NameValueEntry(name, byteArray);
+            packedDataList.Add(newEntry);
         }
         await _database.StreamAddAsync(streamName, packedDataList.ToArray());
     }
@@ -318,9 +322,32 @@ public class CSNode
 
 public static class PrimitiveConverter
 {
-    public static byte[] ToByteArray<T>(T value)
+    /*public static byte[] ToByteArray<T>(T[] value) where  T : struct
     {
-        if (typeof(T).IsPrimitive || typeof(T) == typeof(string))
+        if (typeof(T).IsPrimitive)
+        {
+            int totalLength = value.Length * System.Runtime.InteropServices.Marshal.SizeOf(typeof(T));
+            byte[] result = new byte[totalLength];
+            Buffer.BlockCopy(value, 0, result, 0, totalLength);
+            return result;
+        }
+        else
+        {
+            throw new ArgumentException($"Unsupported type in array encoding for {typeof(T)}");
+        }
+    }*/
+
+    public static byte[] ToByteArray(Array array)
+    {
+        int byteCount = Buffer.ByteLength(array);
+        byte[] byteArray = new byte[byteCount];
+        Buffer.BlockCopy(array, 0, byteArray, 0, byteCount);
+        return byteArray;
+    }
+
+    public static byte[] ToBytes<T>(T value)
+    {
+        if (typeof(T).IsPrimitive)
         {
             if (typeof(T) == typeof(int))
             {
@@ -370,37 +397,14 @@ public static class PrimitiveConverter
             {
                 return new byte[] { (byte)(sbyte)(object)value };
             }
-            else if (typeof(T) == typeof(string))
-            {
-                return Encoding.UTF8.GetBytes((string)(object)value);
-            }
             else
             {
-                throw new ArgumentException("Unsupported type");
+                throw new ArgumentException("Unsupported type in single encoding");
             }
-        }
-        else if (typeof(T).IsArray && typeof(T).GetElementType().IsPrimitive)
-        {
-            Array array = (Array)(object)value;
-            int totalLength = 0;
-            foreach (var item in array)
-            {
-                totalLength += ToByteArray(item).Length;
-            }
-
-            byte[] result = new byte[totalLength];
-            int offset = 0;
-            foreach (var item in array)
-            {
-                byte[] bytes = ToByteArray(item);
-                Buffer.BlockCopy(bytes, 0, result, offset, bytes.Length);
-                offset += bytes.Length;
-            }
-            return result;
         }
         else
         {
-            throw new ArgumentException("Unsupported type");
+            throw new ArgumentException($"Unsupported type in array encoding for {typeof(T)}");
         }
     }
 }

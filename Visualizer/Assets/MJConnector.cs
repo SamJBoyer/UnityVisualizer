@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 public class MJConnector : MonoBehaviour
 {
@@ -21,8 +22,17 @@ public class MJConnector : MonoBehaviour
 
     void Update()
     {
-        Dictionary<string, int> data = new Dictionary<string, int>() { { "data", 7 } };
+        Vector3 position = _mocapStub.position;
+        Quaternion rotation = _mocapStub.rotation;
+        float[] positionArray = new float[] { position.x, position.y, position.z };
+        float[] rotationArray = new float[] { rotation.x, rotation.y, rotation.z, rotation.w };
+        Dictionary<string, string> data = new Dictionary<string, string>() { 
+            { "pos", JsonConvert.SerializeObject(positionArray) }, 
+            { "rot", JsonConvert.SerializeObject(rotationArray) }
+        };
+        //print(posAsString);
         BRANDAccessor.WriteToRedis("mocap", data);
+
     }
 
 

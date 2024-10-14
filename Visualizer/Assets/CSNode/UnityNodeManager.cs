@@ -71,6 +71,9 @@ public class UnityNodeManager : MonoBehaviour
                         await task(_node)
                     );
                 }
+                catch (NullReferenceException)
+                {
+                }
                 catch (Exception ex)
                 {
                     Debug.LogError(ex);

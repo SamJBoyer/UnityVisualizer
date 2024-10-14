@@ -63,10 +63,6 @@ public class BRANDAccessor
                 this.EnqueueData(entry);
             }
         }
-        else
-        {
-            Debug.Log("no data found");
-        }
     }
 
 
