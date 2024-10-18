@@ -1,0 +1,11 @@
+Config:
+ name: OOGOOG
+ nickname: Demo Node A
+ color: DC24C1
+ module: ../brand-modules/CalibrateCyberglove
+
+parameters:
+ field1: text
+ think: text
+ module: text
+ drop: dropdown-[A,B,C]

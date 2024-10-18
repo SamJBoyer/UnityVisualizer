@@ -1,42 +1,52 @@
 using System.Diagnostics;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 public class LaunchApps : MonoBehaviour
 {
-    // Path to the Python executable
-    public string pythonPath = "/home/sam/anaconda3/envs/rt/bin/python3.8"; // Adjust this path as necessary
+    public string scriptPath = "/home/sam/projects/brand/setup.sh"; // Update with your script path
 
-    // Path to the Python script
-    public string scriptPath = "/home/sam/Desktop/runtest.py"; // Adjust this path as necessary
-
-    private void Start()
-    {
-        LaunchScript();
-    }
-
-    // Method to launch the Python script
     public void LaunchScript()
     {
-        ProcessStartInfo startInfo = new ProcessStartInfo();
-        startInfo.FileName = pythonPath;
-        startInfo.Arguments = scriptPath;
-        startInfo.UseShellExecute = false;
-        startInfo.RedirectStandardOutput = true;
-        startInfo.RedirectStandardError = true;
+        ProcessStartInfo startInfo = new ProcessStartInfo
+        {
+            FileName = "/bin/bash", // or "/bin/sh"
+            Arguments = $"-c \"{scriptPath}\"",
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true // Set to false if you want to see the window
+        };
 
-        Process process = new Process();
-        process.StartInfo = startInfo;
-        process.Start();
+        using (Process process = new Process())
+        {
+            process.StartInfo = startInfo;
 
-        // Read the output (optional)
-        string output = process.StandardOutput.ReadToEnd();
-        string error = process.StandardError.ReadToEnd();
+            try
+            {
+                process.Start();
 
-        process.WaitForExit();
+                // Optionally read the output and error streams
+                string output = process.StandardOutput.ReadToEnd();
+                string error = process.StandardError.ReadToEnd();
 
-        // Log the output and error (optional)
-        Debug.Log("Output: " + output);
-        Debug.Log("Error: " + error);
+                process.WaitForExit();
+
+                UnityEngine.Debug.Log("Output: " + output);
+                UnityEngine.Debug.Log("Errors: " + error);
+            }
+            catch (System.Exception ex)
+            {
+                UnityEngine.Debug.LogError("An error occurred: " + ex.Message);
+            }
+        }
+    }
+
+    // Example usage: Call this method on a button press
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) // Change to your preferred input method
+        {
+            LaunchScript();
+        }
     }
 }

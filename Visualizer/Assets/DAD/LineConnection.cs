@@ -10,9 +10,7 @@ public class LineConnection : MonoBehaviour
     public void StartLine(RectTransform originTransform)
     {
         _lineOrigin = originTransform;
-        GameObject lineObject = new GameObject("Line");
-        lineObject.transform.SetParent(this.transform);
-        lineImage = lineObject.AddComponent<Image>();
+        lineImage = this.gameObject.AddComponent<Image>();
         lineRectTransform = lineImage.rectTransform;
         // Set the line color and sprite
         lineImage.color = Color.black;

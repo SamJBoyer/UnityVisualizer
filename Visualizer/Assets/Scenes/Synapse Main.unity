@@ -337,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148fe45a295c7191191d87a9db03248c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptPath: /home/sam/projects/brand/setup.sh
 --- !u!4 &2114794454
 Transform:
   m_ObjectHideFlags: 0

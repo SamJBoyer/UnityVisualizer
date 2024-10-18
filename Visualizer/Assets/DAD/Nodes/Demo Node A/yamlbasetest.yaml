@@ -1,9 +1,0 @@
-GUI:
-  color: DC24C1
-
-parameters:
-  - name: text
-    nickname: text
-    module: text
-    parameters:
-      log: dropdown-[A,B,C]

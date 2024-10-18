@@ -1,0 +1,11 @@
+global:
+  k: v...
+
+nodes:
+  - name: text
+    nickname: text
+    module: text
+    input1: v
+    output2: 
+    parameters:
+      log: dropdown-[A,B,C]

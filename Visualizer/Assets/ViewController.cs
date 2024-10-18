@@ -1,41 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ViewController : MonoBehaviour
 {
-    public float panSpeed = 20f;
-    public float scrollSpeed = 20f;
-    private Vector3 lastMousePosition;
+    public ScrollRect scrollRect;
+    public RectTransform content;
+    public float zoomSpeed = 0.1f;
+    public float minZoom = 0.5f;
+    public float maxZoom = 2.0f;
 
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        HandleMousePanning();
-        HandleMouseScrolling();
-    }
-
-    void HandleMousePanning()
-    {
-        if (Input.GetMouseButtonDown(0))
+        // Zooming with mouse scroll wheel
+        float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
+        if (scrollDelta != 0)
         {
-            lastMousePosition = Input.mousePosition;
+            Vector3 scale = content.localScale;
+            scale += Vector3.one * scrollDelta * zoomSpeed;
+            scale = new Vector3(
+                Mathf.Clamp(scale.x, minZoom, maxZoom),
+                Mathf.Clamp(scale.y, minZoom, maxZoom),
+                1f
+            );
+            content.localScale = scale;
         }
 
-        if (Input.GetMouseButton(0))
+        // Panning (dragging) the map
+        if (Input.GetMouseButton(0)) // Left mouse button
         {
-            Vector3 delta = Input.mousePosition - lastMousePosition;
-            Vector3 move = new Vector3(-delta.x, -delta.y, 0) * panSpeed * Time.deltaTime;
-            Camera.main.transform.Translate(move, Space.World);
-            lastMousePosition = Input.mousePosition;
+            if (Input.GetMouseButtonDown(0))
+            {
+                // Start dragging
+                Vector3 lastMousePosition = Input.mousePosition;
+                content.anchoredPosition += (Vector2)(lastMousePosition - Input.mousePosition) * scrollRect.viewport.rect.width / 100;
+            }
         }
-    }
-
-    void HandleMouseScrolling()
-    {
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        Vector3 move = scroll * scrollSpeed * Camera.main.transform.forward;
-        Camera.main.transform.Translate(move, Space.World);
     }
 }

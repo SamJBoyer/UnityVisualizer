@@ -374,11 +374,11 @@
 "Assets/CSNode/UnityNodeManager.cs"
 "Assets/ControlPanel.cs"
 "Assets/CybergloveReader.cs"
-"Assets/DAD/DADBase.cs"
+"Assets/DAD/GraphBuilder.cs"
 "Assets/DAD/LineConnection.cs"
 "Assets/DAD/NodeConnection.cs"
+"Assets/DAD/NodeInstance.cs"
 "Assets/DAD/NodeResource.cs"
-"Assets/DAD/NodeTrayManager.cs"
 "Assets/DAD/YamlParsing/GraphUIDropdown.cs"
 "Assets/DAD/YamlParsing/GraphUIText.cs"
 "Assets/DAD/YamlParsing/YamlParser.cs"
@@ -407,7 +407,6 @@
 "Assets/UnityNodeTest.cs"
 "Assets/ViewController.cs"
 "Assets/XmlLoad.cs"
-"Assets/thingthing.cs"
 -langversion:9.0
 /deterministic
 /optimize-
